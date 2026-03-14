@@ -1,40 +1,27 @@
 /* =============================================
-   FUTURE VIBRANT SELF — Stylesheet v3
-   Futuristic. Sunny. Bold. Clean.
-   Gold:    #F5B800
-   Cream:   #FFF8E1  (beam)
-   White:   #FFFFFF  (title text)
-   Charcoal:#1A1A1A
+   FUTURE VIBRANT SELF
+   Clean. Warm. Clear. Professional.
    ============================================= */
 
-/* --- RESET --- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 
-/* --- TOKENS --- */
 :root {
-  --gold:          #F5B800;
-  --gold-dark:     #E0A800;
-  --cream:         #FFF8E1;
-  --cream-deep:    #FFF0C0;
-  --charcoal:      #1A1A1A;
-  --charcoal-soft: #2C2C2C;
-  --white:         #FFFFFF;
-  --max-width:     1000px;
+  --gold:     #F5B800;
+  --cream:    #FFF8E1;
+  --charcoal: #1A1A1A;
+  --white:    #FFFFFF;
 }
 
-/* --- BASE --- */
 body {
   font-family: 'DM Sans', sans-serif;
   background: var(--gold);
   color: var(--charcoal);
-  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
-/* --- CONTAINER --- */
 .container {
-  max-width: var(--max-width);
+  max-width: 900px;
   margin: 0 auto;
   padding: 0 40px;
 }
@@ -43,169 +30,103 @@ body {
    HERO
    ============================================= */
 #hero {
-  position: relative;
-  min-height: 100vh;
   background: var(--gold);
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
-  overflow: hidden;
-  padding-bottom: 48px;
-}
-
-/* Continuous cream beam — runs full height, no interruption */
-.hero-beam {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: clamp(200px, 28vw, 380px);
-  background: linear-gradient(
-    to bottom,
-    var(--cream) 0%,
-    var(--cream) 55%,
-    var(--cream-deep) 75%,
-    var(--gold) 100%
-  );
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* Title + Mudra stacked inside the beam */
-.hero-inner {
+  justify-content: center;
+  text-align: center;
+  padding: 60px 24px 40px;
   position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
+  overflow: hidden;
 }
 
-/* Title block sits at top, overlapping beam */
 .hero-title {
   display: flex;
   flex-direction: column;
   align-items: center;
-  line-height: 0.92;
-  margin-bottom: -12px; /* pull mudra up tight under title */
-  padding-top: 80px;
+  line-height: 0.9;
+  position: relative;
+  z-index: 2;
 }
 
-.title-line {
+.hero-title span {
   font-family: 'League Spartan', sans-serif;
   font-weight: 900;
-  font-size: clamp(4rem, 13vw, 10rem);
+  font-size: clamp(5rem, 16vw, 13rem);
   letter-spacing: -0.03em;
   color: var(--white);
   display: block;
-  text-align: center;
-  /* Subtle text shadow so white reads on cream beam */
-  text-shadow:
-    0 2px 0px rgba(0,0,0,0.08),
-    0 0 60px rgba(255,255,255,0.3);
+  text-shadow: 0 3px 12px rgba(0,0,0,0.12);
 }
 
-/* VIBRANT — sits directly on the brightest part of the beam */
-.title-vibrant {
-  color: var(--white);
-  /* Slightly larger to own the beam */
-  position: relative;
-}
-
-/* Mudra image — rises up from bottom, beam continues behind it */
 .hero-mudra {
-  display: block;
-  width: clamp(260px, 42vw, 520px);
+  width: clamp(280px, 50vw, 560px);
   height: auto;
-  margin: 0 auto;
-  position: relative;
-  z-index: 3;
-  /* No filter — image colors blend naturally with beam */
-}
-
-/* Tagline sits below mudra, centered */
-.hero-tagline {
+  display: block;
+  margin: -20px auto 0;
   position: relative;
   z-index: 2;
+}
+
+.hero-tagline {
   font-family: 'DM Sans', sans-serif;
-  font-size: clamp(0.85rem, 1.8vw, 1.1rem);
+  font-size: clamp(0.9rem, 1.8vw, 1.1rem);
   font-weight: 300;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--charcoal);
-  opacity: 0.7;
-  text-align: center;
-  margin-top: 24px;
+  opacity: 0.65;
+  margin-top: 28px;
+  position: relative;
+  z-index: 2;
 }
 
 /* =============================================
-   WHAT WE DO — Full Picture style
-   Left-aligned, raw, big caps text only
+   WHAT WE DO
+   Full Picture style — big, left-aligned, powerful
+   NO opacity tricks. Always visible.
    ============================================= */
 #what-we-do {
   background: var(--cream);
-  padding: 140px 40px 120px;
+  padding: 120px 40px 100px;
 }
 
 #what-we-do .container {
-  max-width: 920px;
-  padding: 0;
+  max-width: 860px;
+  padding: 0 40px;
 }
 
-.what-line {
+.what-open {
   font-family: 'League Spartan', sans-serif;
   font-weight: 900;
-  font-size: clamp(2.2rem, 5.5vw, 4.5rem);
+  font-size: clamp(2.4rem, 5.5vw, 5rem);
   letter-spacing: -0.02em;
   line-height: 1.05;
   color: var(--charcoal);
-  display: block;
-  margin-bottom: 0;
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
+  margin-bottom: 40px;
 }
-.what-line.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-.what-line + .what-line { transition-delay: 0.12s; }
 
 .what-body {
-  font-family: 'League Spartan', sans-serif;
-  font-weight: 300;
-  font-size: clamp(1rem, 2vw, 1.4rem);
-  letter-spacing: 0.04em;
-  line-height: 1.75;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  line-height: 1.8;
   color: var(--charcoal);
-  margin-top: 40px;
+  opacity: 0.8;
+  max-width: 720px;
   margin-bottom: 56px;
-  max-width: 820px;
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.65s ease 0.25s, transform 0.65s ease 0.25s;
-}
-.what-body.visible {
-  opacity: 0.78;
-  transform: translateY(0);
 }
 
 .what-anchor {
   font-family: 'League Spartan', sans-serif;
   font-weight: 900;
-  font-size: clamp(2.4rem, 6vw, 5.5rem);
-  letter-spacing: -0.03em;
+  font-size: clamp(2.4rem, 5.5vw, 5rem);
+  letter-spacing: -0.02em;
   line-height: 1;
-  color: var(--gold-dark);
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.65s ease 0.45s, transform 0.65s ease 0.45s;
-}
-.what-anchor.visible {
-  opacity: 1;
-  transform: translateY(0);
+  color: var(--gold);
+  -webkit-text-stroke: 2px #E0A800;
 }
 
 /* =============================================
@@ -216,22 +137,25 @@ body {
   padding: 120px 40px;
   text-align: center;
 }
+
 #join h2 {
   font-family: 'League Spartan', sans-serif;
   font-weight: 900;
   font-size: clamp(2rem, 4.5vw, 3.5rem);
   letter-spacing: -0.02em;
   color: var(--white);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
+
 .join-sub {
   font-size: 1rem;
   font-weight: 300;
-  letter-spacing: 0.06em;
   color: var(--charcoal);
   opacity: 0.7;
   margin-bottom: 48px;
+  letter-spacing: 0.03em;
 }
+
 .email-form {
   display: flex;
   max-width: 500px;
@@ -239,9 +163,10 @@ body {
   background: var(--cream);
   border-radius: 999px;
   padding: 8px 8px 8px 28px;
-  box-shadow: 0 6px 40px rgba(0,0,0,0.14);
+  box-shadow: 0 6px 40px rgba(0,0,0,0.15);
   gap: 8px;
 }
+
 .email-form input {
   flex: 1;
   border: none;
@@ -252,31 +177,34 @@ body {
   outline: none;
   min-width: 0;
 }
-.email-form input::placeholder { color: rgba(26,26,26,0.38); }
+
+.email-form input::placeholder {
+  color: rgba(26,26,26,0.38);
+}
+
 .email-form button {
   background: var(--charcoal);
   color: var(--gold);
   font-family: 'League Spartan', sans-serif;
   font-weight: 700;
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   letter-spacing: 0.05em;
   padding: 14px 28px;
   border-radius: 999px;
   border: none;
   cursor: pointer;
   white-space: nowrap;
-  transition: background 0.2s, transform 0.2s;
+  transition: opacity 0.2s;
   flex-shrink: 0;
 }
-.email-form button:hover {
-  background: var(--charcoal-soft);
-  transform: scale(1.02);
-}
+
+.email-form button:hover { opacity: 0.85; }
+
 .fine-print {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--charcoal);
   opacity: 0.45;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
@@ -288,35 +216,40 @@ body {
   padding: 64px 40px;
   text-align: center;
 }
+
 .footer-brand {
   font-family: 'League Spartan', sans-serif;
   font-weight: 900;
   font-size: 1.8rem;
   color: var(--gold);
   letter-spacing: -0.02em;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
+
 .footer-tagline {
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.38);
+  color: rgba(255,255,255,0.35);
   margin-bottom: 28px;
 }
+
 .footer-links {
   display: flex;
   justify-content: center;
   gap: 32px;
   margin-bottom: 32px;
 }
+
 .footer-links a {
   color: rgba(255,255,255,0.55);
   text-decoration: none;
-  font-size: 0.88rem;
-  letter-spacing: 0.05em;
+  font-size: 0.9rem;
   transition: color 0.2s;
 }
+
 .footer-links a:hover { color: var(--gold); }
+
 .copyright {
   font-size: 0.75rem;
   color: rgba(255,255,255,0.2);
@@ -324,25 +257,11 @@ body {
 }
 
 /* =============================================
-   SCROLL ANIMATIONS
-   ============================================= */
-.fade-up {
-  opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-.fade-up.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* =============================================
    RESPONSIVE
    ============================================= */
 @media (max-width: 768px) {
-  .hero-beam { width: clamp(160px, 70vw, 300px); }
-  .title-line { font-size: clamp(3rem, 18vw, 6rem); }
-  .hero-mudra { width: clamp(220px, 85vw, 380px); }
+  .hero-title span { font-size: clamp(4rem, 20vw, 7rem); }
+  .hero-mudra { width: clamp(240px, 88vw, 400px); }
   #what-we-do { padding: 80px 24px; }
   #what-we-do .container { padding: 0; }
   #join { padding: 80px 24px; }
