@@ -15,7 +15,6 @@
   <style>
     /* ============================================
        FUTURE VIBRANT SELF — Homepage
-       Design: Full Picture editorial meets FVS gold
        ============================================ */
 
     *, *::before, *::after {
@@ -118,47 +117,17 @@
       vertical-align: middle;
     }
 
-    /* ---- HERO: VIDEO BG + POSTER OVERLAY ---- */
+    /* ---- HERO IMAGE ---- */
 
     .hero {
       position: relative;
       width: 100%;
-      height: 100vh;
-      min-height: 500px;
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
-    .hero-video {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      min-width: 100%;
-      min-height: 100%;
-      width: auto;
-      height: auto;
-      transform: translate(-50%, -50%);
-      object-fit: cover;
-      z-index: 1;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(10, 10, 10, 0.45);
-      z-index: 2;
-    }
-
-    .hero-poster {
-      position: relative;
-      z-index: 3;
-      width: 90%;
-      max-width: 960px;
-      mix-blend-mode: screen;
-      opacity: 0;
-      animation: heroFadeIn 2s ease 0.3s forwards;
+    .hero-image {
+      width: 100%;
+      display: block;
     }
 
     .hero-fade {
@@ -166,9 +135,52 @@
       bottom: 0;
       left: 0;
       right: 0;
-      height: 160px;
+      height: 120px;
       background: linear-gradient(to bottom, transparent, var(--fvs-black));
-      z-index: 4;
+      z-index: 2;
+    }
+
+    /* ---- HERO VIDEO (below image) ---- */
+
+    .video-section {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      background: var(--fvs-black);
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+    }
+
+    .video-wrapper video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* iOS: prevent fullscreen takeover */
+      -webkit-playsinline: true;
+    }
+
+    .video-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        var(--fvs-black) 0%,
+        transparent 8%,
+        transparent 92%,
+        var(--fvs-black) 100%
+      );
+      z-index: 2;
+      pointer-events: none;
     }
 
     /* ---- WHAT IS FVS SECTION ---- */
@@ -214,68 +226,15 @@
       color: var(--fvs-white);
     }
 
-    /* ---- ABOUT / FOUNDER SECTION ---- */
-
-    .about-section {
-      padding: 120px 24px;
-      background: var(--fvs-charcoal);
-      position: relative;
-    }
-
-    .about-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--fvs-gray), transparent);
-    }
-
-    .about-inner {
-      max-width: 680px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .about-name {
-      font-family: var(--font-body);
-      font-weight: 400;
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      color: var(--fvs-white);
-      margin-bottom: 32px;
-      line-height: 1.2;
-    }
-
-    .about-bio {
-      font-family: var(--font-body);
-      font-weight: 300;
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: var(--fvs-text);
-      margin-bottom: 24px;
-    }
-
-    .about-link {
-      display: inline-block;
+    .what-cta {
+      display: block;
+      margin-top: 48px;
       font-family: var(--font-heading);
-      font-weight: 400;
-      font-size: 0.8rem;
-      letter-spacing: 0.15em;
+      font-weight: 500;
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--fvs-gold);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.3s ease;
-      padding-bottom: 4px;
-    }
-
-    .about-link:hover {
-      border-color: var(--fvs-gold);
-    }
-
-    .about-link::after {
-      content: ' \2192';
     }
 
     /* ---- EMAIL CAPTURE SECTION ---- */
@@ -348,6 +307,70 @@
 
     .capture-form button:hover {
       background: var(--fvs-gold-light);
+    }
+
+    /* ---- ABOUT / FOUNDER SECTION ---- */
+
+    .about-section {
+      padding: 120px 24px;
+      background: var(--fvs-charcoal);
+      position: relative;
+    }
+
+    .about-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--fvs-gray), transparent);
+    }
+
+    .about-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .about-name {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--fvs-white);
+      margin-bottom: 32px;
+      line-height: 1.2;
+    }
+
+    .about-bio {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--fvs-text);
+      margin-bottom: 24px;
+    }
+
+    .about-link {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-weight: 400;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--fvs-gold);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s ease;
+      padding-bottom: 4px;
+    }
+
+    .about-link:hover {
+      border-color: var(--fvs-gold);
+    }
+
+    .about-link::after {
+      content: ' \2192';
     }
 
     /* ---- FOOTER ---- */
@@ -443,11 +466,6 @@
 
     /* ---- ANIMATIONS ---- */
 
-    @keyframes heroFadeIn {
-      from { opacity: 0; transform: scale(1.02); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
     @keyframes barPulse {
       0% { transform: scaleY(0.5); }
       100% { transform: scaleY(1.3); }
@@ -489,8 +507,9 @@
         font-size: 0.7rem;
       }
 
-      .hero-poster {
-        width: 95%;
+      .video-wrapper {
+        /* Taller on mobile so the video has presence */
+        aspect-ratio: 4 / 3;
       }
 
       .capture-form {
@@ -532,14 +551,20 @@
     </div>
   </nav>
 
-  <!-- ====== HERO: VIDEO BG + POSTER OVERLAY ====== -->
+  <!-- ====== HERO IMAGE ====== -->
   <section class="hero">
-    <video class="hero-video" autoplay muted loop playsinline>
-      <source src="assets/video/hero.mp4" type="video/mp4">
-    </video>
-    <div class="hero-overlay"></div>
-    <img src="assets/images/hero.png" alt="Future Vibrant Self — Your Story Is Your Value" class="hero-poster">
+    <img src="assets/images/hero.png" alt="Future Vibrant Self — Your Story Is Your Value" class="hero-image">
     <div class="hero-fade"></div>
+  </section>
+
+  <!-- ====== HERO VIDEO ====== -->
+  <section class="video-section">
+    <div class="video-wrapper">
+      <video autoplay muted loop playsinline webkit-playsinline preload="auto" poster="assets/images/hero.png">
+        <source src="assets/video/hero.mp4" type="video/mp4">
+      </video>
+      <div class="video-overlay"></div>
+    </div>
   </section>
 
   <!-- ====== WHAT IS FVS ====== -->
@@ -554,18 +579,7 @@
     <p class="what-highlight">
       See yourself from a new angle — and discover your personal power.
     </p>
-  </section>
-
-  <!-- ====== ABOUT / FOUNDER ====== -->
-  <section class="about-section reveal">
-    <div class="about-inner">
-      <p class="section-label">The Creator</p>
-      <h2 class="about-name">Frank Reina</h2>
-      <p class="about-bio">
-        Filmmaker, storyteller, yogi, and creator of Future Vibrant Self. Over 15 years working on Hollywood's biggest productions — from <em>The Dark Knight Rises</em> to <em>Interstellar</em> to <em>Captain America: Civil War</em>. Now taking those cinematic tools and building a storytelling system for self-transformation.
-      </p>
-      <a href="https://www.frankreina.com" target="_blank" rel="noopener" class="about-link">Visit frankreina.com</a>
-    </div>
+    <p class="what-cta">Are you ready to become it?</p>
   </section>
 
   <!-- ====== EMAIL CAPTURE ====== -->
@@ -575,6 +589,18 @@
       <input type="email" name="email" placeholder="Your email address" required autocomplete="email">
       <button type="submit">Subscribe</button>
     </form>
+  </section>
+
+  <!-- ====== ABOUT / FOUNDER ====== -->
+  <section class="about-section reveal">
+    <div class="about-inner">
+      <p class="section-label">The Creator</p>
+      <h2 class="about-name">Frank Reina</h2>
+      <p class="about-bio">
+        Filmmaker, storyteller, and creator of Future Vibrant Self. Over 15 years working on Hollywood's biggest productions — from <em>The Dark Knight Rises</em> to <em>Interstellar</em> to <em>Captain America: Civil War</em>. Now taking those cinematic tools and building a storytelling system for self-transformation.
+      </p>
+      <a href="https://www.frankreina.com" target="_blank" rel="noopener" class="about-link">Visit frankreina.com</a>
+    </div>
   </section>
 
   <!-- ====== FOOTER ====== -->
@@ -620,7 +646,22 @@
     }, { threshold: 0.15 });
     reveals.forEach(el => observer.observe(el));
 
-    // Audio — play on first user interaction (browsers block true autoplay)
+    // iOS video autoplay fix — tap to play if autoplay blocked
+    const heroVideo = document.querySelector('.video-wrapper video');
+    if (heroVideo) {
+      heroVideo.play().catch(() => {
+        // Autoplay blocked — start on first interaction
+        function playOnInteraction() {
+          heroVideo.play().catch(() => {});
+          document.removeEventListener('touchstart', playOnInteraction);
+          document.removeEventListener('click', playOnInteraction);
+        }
+        document.addEventListener('touchstart', playOnInteraction, { once: true });
+        document.addEventListener('click', playOnInteraction, { once: true });
+      });
+    }
+
+    // Audio — play on first user interaction
     const audio = document.getElementById('bgAudio');
     const toggle = document.getElementById('audioToggle');
     audio.volume = 0.35;
@@ -631,10 +672,10 @@
       }).catch(() => {});
     }
 
-    // Try autoplay immediately
+    // Try autoplay
     startAudio();
 
-    // If browser blocked it, start on first click/scroll/touch anywhere
+    // If browser blocked, start on first interaction
     let audioStarted = false;
     function tryStartOnInteraction() {
       if (!audioStarted && audio.paused) {
@@ -643,7 +684,6 @@
           audioStarted = true;
         }).catch(() => {});
       }
-      // Clean up listeners after first success
       if (!audio.paused) {
         audioStarted = true;
         document.removeEventListener('click', tryStartOnInteraction);
@@ -652,11 +692,11 @@
       }
     }
 
-    document.addEventListener('click', tryStartOnInteraction, { once: false });
-    document.addEventListener('scroll', tryStartOnInteraction, { once: false });
-    document.addEventListener('touchstart', tryStartOnInteraction, { once: false });
+    document.addEventListener('click', tryStartOnInteraction);
+    document.addEventListener('scroll', tryStartOnInteraction, { once: true });
+    document.addEventListener('touchstart', tryStartOnInteraction);
 
-    // Toggle button still works to pause/resume
+    // Toggle button to pause/resume
     toggle.addEventListener('click', (e) => {
       e.stopPropagation();
       if (audio.paused) {
