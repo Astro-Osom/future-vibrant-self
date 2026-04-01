@@ -1,61 +1,673 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Future Vibrant Self | Self-Transformation Through Storytelling</title>
-  <meta name="description" content="Future Vibrant Self - a framework for transforming your experience and struggles into your greatest asset through storytelling." />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;700;900&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Future Vibrant Self — Your Story Is Your Value</title>
+  <meta name="description" content="Future Vibrant Self is a framework for transforming your experience and struggles into your greatest asset. Your story is your value.">
+  <meta property="og:title" content="Future Vibrant Self">
+  <meta property="og:description" content="Self-transformation through the power of your own story.">
+  <meta property="og:image" content="assets/images/hero.png">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================
+       FUTURE VIBRANT SELF — Homepage
+       Design: Full Picture editorial meets FVS gold
+       ============================================ */
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --fvs-gold: #E8B800;
+      --fvs-gold-light: #F5D44A;
+      --fvs-gold-dark: #C49A00;
+      --fvs-black: #0A0A0A;
+      --fvs-dark: #111111;
+      --fvs-charcoal: #1A1A1A;
+      --fvs-gray: #2A2A2A;
+      --fvs-text: #E8E4DC;
+      --fvs-text-muted: #9A9590;
+      --fvs-white: #F5F0EB;
+      --font-heading: 'League Spartan', sans-serif;
+      --font-body: 'Cormorant Garamond', serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background: var(--fvs-black);
+      color: var(--fvs-text);
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ---- NAVIGATION ---- */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 48px;
+      transition: background 0.4s ease, padding 0.4s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(10, 10, 10, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 16px 48px;
+    }
+
+    .nav-brand {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--fvs-white);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .nav-brand:hover {
+      color: var(--fvs-gold);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      font-family: var(--font-heading);
+      font-weight: 400;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--fvs-text-muted);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--fvs-gold);
+    }
+
+    .nav-links a svg {
+      width: 18px;
+      height: 18px;
+      vertical-align: middle;
+    }
+
+    /* ---- HERO: VIDEO BG + POSTER OVERLAY ---- */
+
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 500px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 10, 10, 0.45);
+      z-index: 2;
+    }
+
+    .hero-poster {
+      position: relative;
+      z-index: 3;
+      width: 90%;
+      max-width: 960px;
+      mix-blend-mode: screen;
+      opacity: 0;
+      animation: heroFadeIn 2s ease 0.3s forwards;
+    }
+
+    .hero-fade {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 160px;
+      background: linear-gradient(to bottom, transparent, var(--fvs-black));
+      z-index: 4;
+    }
+
+    /* ---- WHAT IS FVS SECTION ---- */
+
+    .what-section {
+      padding: 100px 24px 120px;
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .section-label {
+      font-family: var(--font-heading);
+      font-weight: 400;
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--fvs-gold);
+      margin-bottom: 48px;
+    }
+
+    .what-answer {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 1.2rem;
+      line-height: 1.9;
+      color: var(--fvs-text);
+      margin-bottom: 32px;
+    }
+
+    .what-answer:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .what-highlight {
+      display: block;
+      margin-top: 40px;
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 1.35rem;
+      font-style: italic;
+      line-height: 1.6;
+      color: var(--fvs-white);
+    }
+
+    /* ---- ABOUT / FOUNDER SECTION ---- */
+
+    .about-section {
+      padding: 120px 24px;
+      background: var(--fvs-charcoal);
+      position: relative;
+    }
+
+    .about-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--fvs-gray), transparent);
+    }
+
+    .about-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .about-name {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--fvs-white);
+      margin-bottom: 32px;
+      line-height: 1.2;
+    }
+
+    .about-bio {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--fvs-text);
+      margin-bottom: 24px;
+    }
+
+    .about-link {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-weight: 400;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--fvs-gold);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s ease;
+      padding-bottom: 4px;
+    }
+
+    .about-link:hover {
+      border-color: var(--fvs-gold);
+    }
+
+    .about-link::after {
+      content: ' \2192';
+    }
+
+    /* ---- EMAIL CAPTURE SECTION ---- */
+
+    .capture-section {
+      padding: 100px 24px;
+      text-align: center;
+      position: relative;
+    }
+
+    .capture-section .section-label {
+      margin-bottom: 32px;
+    }
+
+    .capture-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--fvs-gray), transparent);
+    }
+
+    .capture-form {
+      display: flex;
+      gap: 0;
+      max-width: 520px;
+      margin: 0 auto;
+      border: 1px solid var(--fvs-gray);
+      border-radius: 2px;
+      overflow: hidden;
+      transition: border-color 0.3s ease;
+    }
+
+    .capture-form:focus-within {
+      border-color: var(--fvs-gold);
+    }
+
+    .capture-form input[type="email"] {
+      flex: 1;
+      background: transparent;
+      border: none;
+      padding: 18px 24px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--fvs-white);
+      outline: none;
+    }
+
+    .capture-form input[type="email"]::placeholder {
+      color: var(--fvs-text-muted);
+      font-style: italic;
+    }
+
+    .capture-form button {
+      background: var(--fvs-gold);
+      border: none;
+      padding: 18px 32px;
+      font-family: var(--font-heading);
+      font-weight: 500;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--fvs-black);
+      cursor: pointer;
+      transition: background 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .capture-form button:hover {
+      background: var(--fvs-gold-light);
+    }
+
+    /* ---- FOOTER ---- */
+
+    footer {
+      padding: 60px 48px;
+      border-top: 1px solid var(--fvs-gray);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-left {
+      font-family: var(--font-heading);
+      font-weight: 400;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--fvs-text-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 28px;
+    }
+
+    .footer-links a {
+      font-family: var(--font-heading);
+      font-weight: 400;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--fvs-text-muted);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--fvs-gold);
+    }
+
+    /* ---- AUDIO CONTROL ---- */
+
+    .audio-control {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 999;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(26, 26, 26, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--fvs-gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: border-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .audio-control:hover {
+      border-color: var(--fvs-gold);
+      transform: scale(1.05);
+    }
+
+    .audio-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 16px;
+    }
+
+    .audio-bars span {
+      display: block;
+      width: 2px;
+      background: var(--fvs-text-muted);
+      border-radius: 1px;
+      transition: background 0.3s ease;
+    }
+
+    .audio-control.playing .audio-bars span {
+      background: var(--fvs-gold);
+      animation: barPulse 0.8s ease infinite alternate;
+    }
+
+    .audio-bars span:nth-child(1) { height: 6px; animation-delay: 0s; }
+    .audio-bars span:nth-child(2) { height: 12px; animation-delay: 0.15s; }
+    .audio-bars span:nth-child(3) { height: 8px; animation-delay: 0.3s; }
+    .audio-bars span:nth-child(4) { height: 14px; animation-delay: 0.1s; }
+
+    /* ---- ANIMATIONS ---- */
+
+    @keyframes heroFadeIn {
+      from { opacity: 0; transform: scale(1.02); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes barPulse {
+      0% { transform: scaleY(0.5); }
+      100% { transform: scaleY(1.3); }
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---- RESPONSIVE ---- */
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 16px 24px;
+      }
+
+      nav.scrolled {
+        padding: 12px 24px;
+      }
+
+      .nav-brand {
+        font-size: 0.85rem;
+        letter-spacing: 0.1em;
+      }
+
+      .nav-links {
+        gap: 20px;
+      }
+
+      .nav-links a {
+        font-size: 0.7rem;
+      }
+
+      .hero-poster {
+        width: 95%;
+      }
+
+      .capture-form {
+        flex-direction: column;
+      }
+
+      .capture-form button {
+        padding: 16px;
+      }
+
+      footer {
+        padding: 40px 24px;
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-links a.connect-text {
+        display: none;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-title">
-      <span>Future</span>
-      <span class="vibrant">Vibrant</span>
-      <span>Self</span>
+  <!-- ====== NAVIGATION ====== -->
+  <nav id="nav">
+    <a href="/" class="nav-brand">Future Vibrant Self</a>
+    <div class="nav-links">
+      <a href="https://www.instagram.com/futurevibrantself/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="5"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+      <a href="#connect" class="connect-text">Connect</a>
     </div>
-    <img src="Hand Mudra Front v2.png" alt="Future Vibrant Self" class="hero-mudra" />
-    <p class="hero-tagline">Self-Transformation Through Storytelling</p>
+  </nav>
+
+  <!-- ====== HERO: VIDEO BG + POSTER OVERLAY ====== -->
+  <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="assets/video/hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <img src="assets/images/hero.png" alt="Future Vibrant Self — Your Story Is Your Value" class="hero-poster">
+    <div class="hero-fade"></div>
   </section>
 
-  <!-- WHAT WE DO -->
-  <section id="what-we-do">
-    <div class="container">
-      <p class="what-open">We get consumed by life.<br>We get lost. We forget our value.</p>
-      <p class="what-body">Future Vibrant Self is a framework for transforming your experience and struggles into your greatest asset &mdash; so you can see yourself clearly through new perspective, and become who you were always meant to be.</p>
-      <p class="what-anchor">Your story is your value.</p>
+  <!-- ====== WHAT IS FVS ====== -->
+  <section class="what-section reveal">
+    <h2 class="section-label" style="font-size: 0.85rem; margin-bottom: 56px;">What is your Future Vibrant Self?</h2>
+    <p class="what-answer">
+      It's when your thoughts, words, actions, attitude, and heart align.
+    </p>
+    <p class="what-answer">
+      It's self-transformation using the power of your own story.
+    </p>
+    <p class="what-highlight">
+      See yourself from a new angle — and discover your personal power.
+    </p>
+  </section>
+
+  <!-- ====== ABOUT / FOUNDER ====== -->
+  <section class="about-section reveal">
+    <div class="about-inner">
+      <p class="section-label">The Creator</p>
+      <h2 class="about-name">Frank Reina</h2>
+      <p class="about-bio">
+        Filmmaker, storyteller, yogi, and creator of Future Vibrant Self. Over 15 years working on Hollywood's biggest productions — from <em>The Dark Knight Rises</em> to <em>Interstellar</em> to <em>Captain America: Civil War</em>. Now taking those cinematic tools and building a storytelling system for self-transformation.
+      </p>
+      <a href="https://www.frankreina.com" target="_blank" rel="noopener" class="about-link">Visit frankreina.com</a>
     </div>
   </section>
 
-  <!-- EMAIL SIGN UP -->
-  <section id="join">
-    <div class="container">
-      <h2>Ready to rewrite your story?</h2>
-      <p class="join-sub">Be the first to know when the book, film, and journal drop.</p>
-      <form class="email-form" action="#" method="POST">
-        <input type="email" name="email" placeholder="Enter your email" required />
-        <button type="submit">I&rsquo;m Ready &rarr;</button>
-      </form>
-      <p class="fine-print">No spam. Just signal.</p>
-    </div>
+  <!-- ====== EMAIL CAPTURE ====== -->
+  <section class="capture-section reveal" id="connect">
+    <p class="section-label">Sign Up for Updates</p>
+    <form class="capture-form" action="https://formspree.io/f/mqegbvyn" method="POST">
+      <input type="email" name="email" placeholder="Your email address" required autocomplete="email">
+      <button type="submit">Subscribe</button>
+    </form>
   </section>
 
-  <!-- FOOTER -->
-  <footer id="footer">
-    <div class="container">
-      <p class="footer-brand">Future Vibrant Self</p>
-      <p class="footer-tagline">Self-Transformation Through Storytelling</p>
-      <div class="footer-links">
-        <a href="https://www.frankreina.com" target="_blank" rel="noopener">frankreina.com</a>
-      </div>
-      <p class="copyright">&copy; 2026 Future Vibrant Self. All rights reserved.</p>
+  <!-- ====== FOOTER ====== -->
+  <footer>
+    <div class="footer-left">&copy; 2026 Future Vibrant Self</div>
+    <div class="footer-links">
+      <a href="https://www.frankreina.com" target="_blank" rel="noopener">frankreina.com</a>
+      <a href="https://frankjreina.substack.com" target="_blank" rel="noopener">substack</a>
+      <a href="https://www.instagram.com/futurevibrantself/" target="_blank" rel="noopener">instagram</a>
     </div>
   </footer>
+
+  <!-- ====== AUDIO PLAYER ====== -->
+  <audio id="bgAudio" loop preload="auto">
+    <source src="assets/audio/tomorrows-journey.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="audio-control" id="audioToggle" title="Play / Pause music">
+    <div class="audio-bars">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <!-- ====== SCRIPTS ====== -->
+  <script>
+    // Nav scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Audio — play on first user interaction (browsers block true autoplay)
+    const audio = document.getElementById('bgAudio');
+    const toggle = document.getElementById('audioToggle');
+    audio.volume = 0.35;
+
+    function startAudio() {
+      audio.play().then(() => {
+        toggle.classList.add('playing');
+      }).catch(() => {});
+    }
+
+    // Try autoplay immediately
+    startAudio();
+
+    // If browser blocked it, start on first click/scroll/touch anywhere
+    let audioStarted = false;
+    function tryStartOnInteraction() {
+      if (!audioStarted && audio.paused) {
+        audio.play().then(() => {
+          toggle.classList.add('playing');
+          audioStarted = true;
+        }).catch(() => {});
+      }
+      // Clean up listeners after first success
+      if (!audio.paused) {
+        audioStarted = true;
+        document.removeEventListener('click', tryStartOnInteraction);
+        document.removeEventListener('scroll', tryStartOnInteraction);
+        document.removeEventListener('touchstart', tryStartOnInteraction);
+      }
+    }
+
+    document.addEventListener('click', tryStartOnInteraction, { once: false });
+    document.addEventListener('scroll', tryStartOnInteraction, { once: false });
+    document.addEventListener('touchstart', tryStartOnInteraction, { once: false });
+
+    // Toggle button still works to pause/resume
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (audio.paused) {
+        audio.play();
+        toggle.classList.add('playing');
+      } else {
+        audio.pause();
+        toggle.classList.remove('playing');
+      }
+    });
+  </script>
 
 </body>
 </html>
