@@ -313,7 +313,7 @@
     /* ========== SECTIONS (shared) ========== */
 
     .section {
-      padding: 140px 24px;
+      padding: 80px 24px;
     }
 
     .section-white { background: var(--white); }
@@ -387,20 +387,13 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .act-thumb {
-      width: 100px;
-      height: 68px;
-      object-fit: cover;
-      flex-shrink: 0;
-    }
-
     .act-number {
       font-family: var(--heading);
       font-weight: 700;
-      font-size: 1.6rem;
+      font-size: 2.4rem;
       color: var(--black);
       flex-shrink: 0;
-      width: 36px;
+      width: 64px;
       line-height: 1;
     }
 
@@ -424,11 +417,11 @@
     /* ========== QUEST ========== */
 
     .quest-numbers {
-      display: flex !important;
-      flex-direction: row !important;
-      flex-wrap: nowrap !important;
+      display: flex;
+      flex-direction: row;
       justify-content: center;
-      gap: 80px;
+      gap: 4rem;
+      text-align: center;
       margin-bottom: 56px;
     }
 
@@ -438,6 +431,7 @@
       font-family: var(--heading);
       font-weight: 700;
       font-size: clamp(3rem, 8vw, 5rem);
+      min-width: 120px;
       line-height: 1;
       color: var(--black);
     }
@@ -649,11 +643,10 @@
       .nav { padding: 16px 24px; }
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
-      .section { padding: 100px 24px; }
+      .section { padding: 48px 24px; }
 
       .act-row { gap: 20px; }
-      .act-thumb { width: 72px; height: 50px; }
-      .act-number { font-size: 1.2rem; width: 28px; }
+      .act-number { font-size: 1.8rem; width: 48px; }
 
       .quest-numbers { gap: 40px; }
 
@@ -666,15 +659,13 @@
     }
 
     @media (max-width: 480px) {
-      .act-thumb { width: 56px; height: 40px; }
-
       .act-row {
         gap: 12px;
       }
 
       .act-number {
-        font-size: 1rem;
-        width: 24px;
+        font-size: 1.4rem;
+        width: 40px;
       }
     }
   </style>
@@ -736,7 +727,6 @@
       <h2 class="section-heading acts-heading-oneline">5 Acts of Personal Transformation</h2>
 
       <div class="act-row">
-        <img src="assets/images/act1.png" alt="Act 1" class="act-thumb">
         <div class="act-number">01</div>
         <div class="act-content">
           <p class="act-title">Foundation</p>
@@ -744,7 +734,6 @@
         </div>
       </div>
       <div class="act-row">
-        <img src="assets/images/act2.png" alt="Act 2" class="act-thumb">
         <div class="act-number">02</div>
         <div class="act-content">
           <p class="act-title">Imagination</p>
@@ -752,7 +741,6 @@
         </div>
       </div>
       <div class="act-row">
-        <img src="assets/images/act3.png" alt="Act 3" class="act-thumb">
         <div class="act-number">03</div>
         <div class="act-content">
           <p class="act-title">Physicalization</p>
@@ -760,7 +748,6 @@
         </div>
       </div>
       <div class="act-row">
-        <img src="assets/images/act4.png" alt="Act 4" class="act-thumb">
         <div class="act-number">04</div>
         <div class="act-content">
           <p class="act-title">Purification</p>
@@ -768,7 +755,6 @@
         </div>
       </div>
       <div class="act-row">
-        <img src="assets/images/act5.png" alt="Act 5" class="act-thumb">
         <div class="act-number">05</div>
         <div class="act-content">
           <p class="act-title">Recreation</p>
@@ -809,11 +795,6 @@
     </div>
   </section>
 
-  <!-- ========== HERO POSTER ========== -->
-  <section class="poster-section">
-    <img src="assets/images/hero.png" alt="Future Vibrant Self" loading="lazy">
-  </section>
-
   <!-- ========== THE FILM &mdash; video loop ========== -->
   <section class="section section-white" id="film">
     <div class="section-inner reveal">
@@ -827,7 +808,6 @@
   <!-- ========== WORK WITH ME ========== -->
   <section class="section section-cream" id="work">
     <div class="section-inner reveal">
-      <p class="section-label">Work With Me</p>
       <h2 class="section-heading">Let&rsquo;s Work Together</h2>
       <p class="section-body">I work with individuals, groups, and organizations turning personal stories into sources of strength and clarity.</p>
       <p class="section-body">Whether you&rsquo;re looking for a power-hour coaching session, an interactive workshop (online or in-person), a custom online toolkit, or the 10-Day On-Camera Confidence Program &mdash; where I give you the practical tools and exercises to speak confidently to the camera and feel at ease on screen &mdash; there&rsquo;s a meaningful path for us to work together.</p>
@@ -843,7 +823,7 @@
   <section class="section section-white" id="connect">
     <div class="connect-inner reveal">
       <h2 class="section-heading">Ready to Begin Your Own Journey?</h2>
-      <p class="connect-sub">Join the waitlist for the 100 Questions Quest.</p>
+      <p class="connect-sub">Join the waitlist.</p>
       <form class="connect-form" id="connectForm" action="https://formspree.io/f/mqegbvyn" method="POST">
         <input type="text" name="name" placeholder="First Name" required autocomplete="given-name">
         <input type="email" name="email" placeholder="Email Address" required autocomplete="email">
@@ -895,7 +875,7 @@
     }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
 
-    // iOS/Android video autoplay fix â hero video
+    // iOS/Android video autoplay fix - hero video
     const heroVideo = document.querySelector('.hero-video-bg');
     if (heroVideo) {
       heroVideo.play().catch(() => {
