@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Future Vibrant Self â Who Is Your Future Vibrant Self?</title>
-  <meta name="description" content="A cinematic 5-Act journey to change your life and own your story â the one only you can tell. Created by Frank Reina.">
+  <title>Future Vibrant Self &mdash; Who Is Your Future Vibrant Self?</title>
+  <meta name="description" content="A cinematic 5-Act journey to change your life and own your story &mdash; the one only you can tell. Created by Frank Reina.">
   <meta property="og:title" content="Future Vibrant Self">
   <meta property="og:description" content="A cinematic 5-Act journey to change your life and own your story.">
   <meta property="og:image" content="assets/images/hero.png">
@@ -217,6 +217,16 @@
       margin-bottom: 24px;
     }
 
+    .hero-headline {
+      font-family: var(--heading);
+      font-weight: 700;
+      font-size: clamp(2rem, 4.5vw, 3.6rem);
+      line-height: 1.1;
+      color: var(--black);
+      margin-bottom: 24px;
+      white-space: nowrap;
+    }
+
     .hero-sub {
       font-family: var(--body);
       font-style: italic;
@@ -233,6 +243,15 @@
       max-width: 580px;
       margin: 0 auto 40px;
       line-height: 1.7;
+    }
+
+    .hero-body-below {
+      font-family: var(--body);
+      font-size: 1.15rem;
+      color: var(--gray);
+      max-width: 580px;
+      margin: 0 auto 40px;
+      line-height: 1.85;
     }
 
     .hero-buttons {
@@ -344,6 +363,10 @@
 
     /* ========== 5 ACTS ========== */
 
+    .acts-heading-oneline {
+      white-space: nowrap;
+    }
+
     .acts-intro {
       font-family: var(--body);
       font-size: 1.15rem;
@@ -369,12 +392,6 @@
       height: 68px;
       object-fit: cover;
       flex-shrink: 0;
-      filter: grayscale(100%);
-      transition: filter 0.4s ease;
-    }
-
-    .act-row:hover .act-thumb {
-      filter: grayscale(0%);
     }
 
     .act-number {
@@ -408,10 +425,11 @@
 
     .quest-numbers {
       display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
       justify-content: center;
       gap: 64px;
       margin-bottom: 56px;
-      flex-wrap: wrap;
     }
 
     .quest-num { text-align: center; }
@@ -690,35 +708,32 @@
 
   <!-- ========== HERO ========== -->
   <section class="hero" id="home">
-    <iframe class="hero-video-bg"
-      src="https://www.youtube.com/embed/Mh1aMsZvZ60?autoplay=1&mute=1&loop=1&start=29&playlist=Mh1aMsZvZ60&controls=0&showinfo=0&rel=0&playsinline=1"
-      title="Future Vibrant Self"
-      frameborder="0"
-      allow="autoplay; encrypted-media"
-      allowfullscreen
-      style="position:absolute;top:50%;left:50%;width:177.78vh;height:100vh;min-width:100%;min-height:56.25vw;transform:translate(-50%,-50%);pointer-events:none;border:0;">
-    </iframe>
+    <video class="hero-video-bg" autoplay muted loop playsinline webkit-playsinline preload="auto"><source src="assets/video/trailer-loop.mp4" type="video/mp4"></video>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <h1>Who Is Your Future Vibrant Self?</h1>
-      <p class="hero-sub">A cinematic 5-Act journey to change your life and own your story â the one only you can tell.</p>
-      <p class="hero-body">If you're searching how to change your life when you feel stuck, or ready to reinvent yourself through the power of your own story, you're in the right place. Future Vibrant Self is a raw, honest framework that treats your life like a customized movie.</p>
-      <div class="hero-buttons">
-        <a href="https://youtu.be/Mh1aMsZvZ60" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Watch the Official Trailer</a>
-        <a href="#quest" class="btn btn-ghost">Begin the Journey</a>
-      </div>
+      <a href="https://youtu.be/Mh1aMsZvZ60" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Watch the Official Trailer</a>
     </div>
     <div class="scroll-arrow">
       <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
     </div>
   </section>
 
+  <!-- ========== HEADLINE / INTRO ========== -->
+  <section class="section section-white" id="intro">
+    <div class="section-inner reveal" style="text-align:center;">
+      <h1 class="hero-headline">Who Is Your Future Vibrant Self?</h1>
+      <p class="hero-sub">A 5-Act quest to change your life and own your story. The one only you can tell.</p>
+      <p class="hero-body-below">If you&rsquo;re looking how to change your life&hellip; if you feel stuck&hellip; or ready to reinvent yourself through the power of your own story, you&rsquo;re in the right place. Future Vibrant Self is a raw, honest framework that treats your life like a customized story. The more open you are, the more you get out of it.</p>
+      <div class="hero-buttons">
+        <a href="#quest" class="btn btn-primary">Begin the Journey</a>
+      </div>
+    </div>
+  </section>
+
   <!-- ========== THE 5 ACTS ========== -->
   <section class="section section-white" id="five-acts">
     <div class="section-inner reveal">
-      <p class="section-label">The Framework</p>
-      <h2 class="section-heading">The 5 Acts of Personal Transformation</h2>
-      <p class="acts-intro">Future Vibrant Self is built around five powerful acts â the same structure I lived while stepping into my own transformation:</p>
+      <h2 class="section-heading acts-heading-oneline">5 Acts of Personal Transformation</h2>
 
       <div class="act-row">
         <img src="assets/images/act1.png" alt="Act 1" class="act-thumb">
@@ -749,7 +764,7 @@
         <div class="act-number">04</div>
         <div class="act-content">
           <p class="act-title">Purification</p>
-          <p class="act-desc">Releasing what you've been carrying.</p>
+          <p class="act-desc">Releasing what you&rsquo;ve been carrying.</p>
         </div>
       </div>
       <div class="act-row">
@@ -785,10 +800,10 @@
         </div>
       </div>
 
-      <p class="section-body">Step into a 100-day cinematic quest to author your own life.</p>
-      <p class="section-body">One focused question each day. Answer in writing, voice, or video â however the truth moves you.</p>
-      <p class="section-body">By the end of 100 days, you will have written the autobiography of your life â transforming your raw experiences, deepest struggles, and hard-won victories into a story you fully own.</p>
-      <p class="section-body">Your story is your value. When we exist digitally, our stories transcend time and live on â helping others long after we're gone.</p>
+      <p class="section-body">A 100-day cinematic quest to author your own life.</p>
+      <p class="section-body">One focused question each day.<br>Answer in writing, voice, or video &mdash; however the truth moves you.</p>
+      <p class="section-body">By the end of 100 days, you will have written the autobiography of your life &mdash; transforming your raw experiences, deepest struggles, and hard-won victories into a story you fully own.</p>
+      <p class="section-body">Your story is your value.<br>When we exist digitally, our stories transcend time and live on &mdash; helping others long after we&rsquo;re gone.</p>
     </div>
   </section>
 
@@ -797,20 +812,11 @@
     <img src="assets/images/hero.png" alt="Future Vibrant Self" loading="lazy">
   </section>
 
-  <!-- ========== THE FILM â video loop ========== -->
+  <!-- ========== THE FILM &mdash; video loop ========== -->
   <section class="section section-white" id="film">
     <div class="section-inner reveal">
-      <p class="section-label">The Film</p>
-      <h2 class="section-heading">From Hollywood to Real Transformation</h2>
-      <p class="section-body">After years of working on films like The Dark Knight Rises, Interstellar, and Captain America: Civil War, I turned the camera on myself and made the most personal film of my life. Future Vibrant Self is the framework that helped me navigate divorce, physical change, grief, and unhealed trauma â and emerge freer and more aligned. This is the same path I'm now opening for others who want to own their story and step into their vibrant self.</p>
-    </div>
-  </section>
-
-  <section class="film-video-section">
-    <div class="film-video-wrapper">
-      <video autoplay muted loop playsinline webkit-playsinline preload="auto">
-        <source src="assets/video/trailer-loop.mp4" type="video/mp4">
-      </video>
+      <h2 class="section-heading" style="white-space:nowrap;">An Adventure in Self-transformation</h2>
+      <p class="section-body">After years of working on films like The Dark Knight Rises, Interstellar, and Captain America: Civil War, I turned the camera on myself and made the most personal film of my life. Future Vibrant Self is the framework that helped me navigate divorce, physical change, grief, and unhealed trauma &mdash; and emerge freer, stronger, and more purpose-driven. This is the same path I&rsquo;m now opening for others who want to author their story and sculpt into their vibrant self.</p>
     </div>
   </section>
 
@@ -820,9 +826,9 @@
   <section class="section section-cream" id="work">
     <div class="section-inner reveal">
       <p class="section-label">Work With Me</p>
-      <h2 class="section-heading">Let's Work Together</h2>
-      <p class="section-body">I work with individuals, groups, and organizations through my Future Vibrant Self framework â turning personal stories into sources of strength and clarity.</p>
-      <p class="section-body">Whether you're looking for a power-hour coaching session, an interactive workshop (online or in-person), a custom online toolkit, or the 10-Day On-Camera Confidence Program â where I give you the practical tools and exercises to speak confidently to the camera and feel at ease on screen â there's a meaningful path for us to work together.</p>
+      <h2 class="section-heading">Let&rsquo;s Work Together</h2>
+      <p class="section-body">I work with individuals, groups, and organizations through my Future Vibrant Self framework &mdash; turning personal stories into sources of strength and clarity.</p>
+      <p class="section-body">Whether you&rsquo;re looking for a power-hour coaching session, an interactive workshop (online or in-person), a custom online toolkit, or the 10-Day On-Camera Confidence Program &mdash; where I give you the practical tools and exercises to speak confidently to the camera and feel at ease on screen &mdash; there&rsquo;s a meaningful path for us to work together.</p>
       <div class="work-cta">
         <a href="#connect" class="btn btn-page">Get in Touch</a>
       </div>
@@ -839,9 +845,9 @@
       <form class="connect-form" id="connectForm" action="https://formspree.io/f/mqegbvyn" method="POST">
         <input type="text" name="name" placeholder="First Name" required autocomplete="given-name">
         <input type="email" name="email" placeholder="Email Address" required autocomplete="email">
-        <button type="submit">Notify Me When It Opens</button>
+        <button type="submit">I Am In</button>
       </form>
-      <p class="connect-success" id="connectSuccess">You're in. Your story is your value.</p>
+      <p class="connect-success" id="connectSuccess">You&rsquo;re in. Your story is your value.</p>
       <p class="connect-fine">No spam. Unsubscribe any time.</p>
     </div>
   </section>
@@ -887,12 +893,12 @@
     }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
 
-    // iOS video autoplay fix
-    const filmVideo = document.querySelector('.film-video-wrapper video');
-    if (filmVideo) {
-      filmVideo.play().catch(() => {
+    // iOS/Android video autoplay fix â hero video
+    const heroVideo = document.querySelector('.hero-video-bg');
+    if (heroVideo) {
+      heroVideo.play().catch(() => {
         function playOnTouch() {
-          filmVideo.play().catch(() => {});
+          heroVideo.play().catch(() => {});
           document.removeEventListener('touchstart', playOnTouch);
           document.removeEventListener('click', playOnTouch);
         }
