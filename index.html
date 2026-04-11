@@ -387,13 +387,20 @@
       border-bottom: 1px solid var(--border);
     }
 
+    .act-thumb {
+      width: 100px;
+      height: 68px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
     .act-number {
       font-family: var(--heading);
       font-weight: 700;
-      font-size: 2.4rem;
+      font-size: 1.6rem;
       color: var(--black);
       flex-shrink: 0;
-      width: 64px;
+      width: 36px;
       line-height: 1;
     }
 
@@ -648,7 +655,8 @@
       .section { padding: 48px 24px; }
 
       .act-row { gap: 20px; }
-      .act-number { font-size: 1.8rem; width: 48px; }
+      .act-thumb { width: 72px; height: 50px; }
+      .act-number { font-size: 1.2rem; width: 28px; }
 
       .quest-numbers { gap: 40px; }
 
@@ -661,13 +669,15 @@
     }
 
     @media (max-width: 480px) {
+      .act-thumb { width: 56px; height: 40px; }
+
       .act-row {
         gap: 12px;
       }
 
       .act-number {
-        font-size: 1.4rem;
-        width: 40px;
+        font-size: 1rem;
+        width: 24px;
       }
     }
   </style>
@@ -729,6 +739,7 @@
       <h2 class="section-heading acts-heading-oneline">5 Acts of Personal Transformation</h2>
 
       <div class="act-row">
+        <img src="assets/images/act1.png" alt="Act 1" class="act-thumb">
         <div class="act-number">01</div>
         <div class="act-content">
           <p class="act-title">Foundation</p>
@@ -736,6 +747,7 @@
         </div>
       </div>
       <div class="act-row">
+        <img src="assets/images/act2.png" alt="Act 2" class="act-thumb">
         <div class="act-number">02</div>
         <div class="act-content">
           <p class="act-title">Imagination</p>
@@ -743,6 +755,7 @@
         </div>
       </div>
       <div class="act-row">
+        <img src="assets/images/act3.png" alt="Act 3" class="act-thumb">
         <div class="act-number">03</div>
         <div class="act-content">
           <p class="act-title">Physicalization</p>
@@ -750,6 +763,7 @@
         </div>
       </div>
       <div class="act-row">
+        <img src="assets/images/act4.png" alt="Act 4" class="act-thumb">
         <div class="act-number">04</div>
         <div class="act-content">
           <p class="act-title">Purification</p>
@@ -757,6 +771,7 @@
         </div>
       </div>
       <div class="act-row">
+        <img src="assets/images/act5.png" alt="Act 5" class="act-thumb">
         <div class="act-number">05</div>
         <div class="act-content">
           <p class="act-title">Recreation</p>
@@ -795,6 +810,11 @@
       <p class="section-body" style="font-family:var(--heading);font-weight:700;font-size:1.4rem;color:var(--black);margin-bottom:24px;">Your story is your value.</p>
       <p class="section-body" style="margin-bottom:24px;">When we exist digitally, our stories transcend time and live on &mdash; helping others long after we&rsquo;re gone.</p>
     </div>
+  </section>
+
+  <!-- ========== HERO POSTER ========== -->
+  <section class="poster-section">
+    <img src="assets/images/hero.png" alt="Future Vibrant Self" loading="lazy">
   </section>
 
   <!-- ========== THE FILM &mdash; video loop ========== -->
