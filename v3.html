@@ -146,6 +146,10 @@
     overflow: hidden; background: #000; display: block;
   }
   .hero-video iframe, .hero-video video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; object-fit: cover; }
+  /* when the YouTube embed loads, it's inserted before the <video> — put it on top
+     and drop the paused loop so it doesn't cover the player (Frank 8-04: play showed nothing) */
+  .hero-video iframe { z-index: 3; }
+  .hero-video.playing video { display: none; }
   .hero-video-play {
     position: absolute; inset: 0; z-index: 2; border: 0; cursor: pointer;
     background: radial-gradient(circle at 50% 66%, rgba(0,0,0,0.03), rgba(0,0,0,0.12));
@@ -175,14 +179,16 @@
     pointer-events: none; z-index: 1;
   }
   .hero-video.playing::after { display: none; }
-  /* On phones a 16/9 hero collapses to a ~210px strip (letterbox look). Give it the same
-     band-height as the other media sections so it fills like a proper cinematic hero. */
-  @media (max-width: 720px) {
-    .hero-video { aspect-ratio: auto; height: min(56vh, 520px); min-height: 400px; }
-  }
 
-  /* looping video inside a full-bleed band (underwater fish, dog ball catch) */
-  .break-img video, .break-img .break-media { width: 100%; height: 100%; object-fit: cover; display: block; }
+  /* looping video inside a full-bleed band — show the WHOLE frame (no crop), so the
+     composition is identical on desktop and mobile. Band height follows the media's
+     real aspect ratio; default 16:9, overridden per asset (fish 4:3, 8mm portrait). */
+  .break-img video, .break-img .break-media { width: 100%; height: auto; display: block; aspect-ratio: 16 / 9; }
+  .break-media.ar43 { aspect-ratio: 4 / 3; }
+  /* 8mm is a portrait clip (1280×2276) — show it whole, centered as a portrait card;
+     full-width on phones, capped so it doesn't tower on desktop */
+  .break-media.portrait { aspect-ratio: 1280 / 2276; width: 100%; max-width: 460px; height: auto; margin: 0 auto; }
+  .break-img:has(.break-media.portrait) { background: var(--void); }
 
   /* standalone vulnerability line (relocated from the removed Why It Matters) */
   .vuln-band { text-align: center; padding: 34px 24px 44px; }
@@ -235,9 +241,8 @@
 
   /* ── What FVS Is — full-bleed studio hero (woman filming herself) ── */
   .fvs-is { padding: 0; }
-  .studio-hero { position: relative; width: 100%; height: min(62vh, 600px); min-height: 360px; overflow: hidden;
-    margin-top: -1px; }
-  .studio-hero img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 28%; }
+  .studio-hero { position: relative; width: 100%; overflow: hidden; margin-top: -1px; }
+  .studio-hero img { display: block; width: 100%; height: auto; }
   .studio-hero::after { content: ""; position: absolute; inset: 0;
     background: linear-gradient(180deg, rgba(13,11,8,0.12) 0%, rgba(13,11,8,0) 26%, rgba(13,11,8,0.5) 74%, var(--void) 100%); }
   .studio-hero-copy { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; padding-bottom: 40px; }
@@ -416,9 +421,8 @@
   .budget-dots i { width: 5px; height: 5px; border-radius: 50%; background: var(--teal); display: block; }
 
   /* ── Image breaks / stills ── */
-  .break-img { padding: 0; height: min(56vh, 540px); min-height: 380px; overflow: hidden; position: relative;
-    margin-top: -1px; }
-  .break-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .break-img { padding: 0; overflow: hidden; position: relative; margin-top: -1px; }
+  .break-img img { width: 100%; height: auto; display: block; }
   /* soft, imperceptible seam — a whisper of dark at the very edges, NO black bar (Frank 8-03) */
   .break-img::after { content: ""; position: absolute; inset: 0; pointer-events: none;
     background: linear-gradient(180deg, rgba(13,11,8,0.34) 0%, rgba(13,11,8,0) 8%, rgba(13,11,8,0) 92%, rgba(13,11,8,0.34) 100%); }
@@ -446,7 +450,7 @@
   .origin-lede em { color: var(--text); }
   /* trailer = full-bleed splash, sized like the video bands, no borders (Frank 8-03) */
   .trailer {
-    position: relative; width: 100%; height: min(56vh, 540px); min-height: 380px;
+    position: relative; width: 100%; aspect-ratio: 16 / 9;
     margin: 32px 0 0; border: 0; border-radius: 0; overflow: hidden; cursor: pointer; background: #000;
   }
   .trailer img { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; transition: opacity 0.4s ease, transform 2s ease; }
@@ -540,7 +544,7 @@
 
 <!-- the transform statement — set over the water -->
 <section class="break-img">
-  <video class="break-media" muted loop playsinline preload="metadata" poster="assets/v3/still-underwater.jpg">
+  <video class="break-media ar43" muted loop playsinline preload="metadata" poster="assets/v3/still-underwater.jpg">
     <source src="assets/v3/fish-underwater.mp4" type="video/mp4">
   </video>
   <div class="break-copy lc"><p class="bc-line nw">Discover something new about you</p></div>
@@ -591,7 +595,7 @@
 </section>
 
 <section class="break-img">
-  <video class="break-media" muted loop playsinline preload="metadata" poster="assets/v3/8mm-poster.jpg">
+  <video class="break-media portrait" muted loop playsinline preload="metadata" poster="assets/v3/8mm-poster.jpg">
     <source src="assets/v3/8mm.mp4" type="video/mp4">
   </video>
   <div class="break-copy lc"><p class="bc-line">A story you can share<br>for future&nbsp;generations.</p></div>
