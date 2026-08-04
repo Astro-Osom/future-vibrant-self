@@ -430,14 +430,14 @@
   .break-copy.tl::before { background: radial-gradient(120% 90% at 0% 0%, rgba(0,0,0,0.62), rgba(0,0,0,0) 56%); }
   .break-copy.tr { align-items: flex-end; justify-content: flex-start; text-align: right; }
   .break-copy.tr::before { background: radial-gradient(120% 90% at 100% 0%, rgba(0,0,0,0.62), rgba(0,0,0,0) 56%); }
-  .break-copy.br { align-items: flex-end; justify-content: flex-end; text-align: right; }
+  .break-copy.br { align-items: flex-end; justify-content: flex-end; text-align: right; padding-bottom: 13%; }
   .break-copy.br::before { background: radial-gradient(120% 90% at 100% 100%, rgba(0,0,0,0.62), rgba(0,0,0,0) 56%); }
   .break-copy.lc { align-items: center; justify-content: flex-end; text-align: center; padding-bottom: 9%; }
   .break-copy.lc::before { background: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 46%); }
   .break-copy .bc-line { max-width: 22ch; }
   /* one-line captions — never wrap (Frank 8-03); responsive so mobile still fits one line */
   .bc-line.nw { white-space: nowrap; max-width: none; font-size: clamp(15px, 3.9vw, 42px); }
-  .bc-line { position: relative; z-index: 1; font-family: "League Spartan", var(--sans); font-weight: 600; font-size: clamp(23px, 3.4vw, 42px); line-height: 1.2; letter-spacing: -0.005em; color: #fff; max-width: 20ch; text-shadow: 0 1px 2px rgba(0,0,0,0.75), 0 2px 10px rgba(0,0,0,0.5); }
+  .bc-line { position: relative; z-index: 1; font-family: "League Spartan", var(--sans); font-weight: 600; font-size: clamp(15px, 3.9vw, 42px); line-height: 1.2; letter-spacing: -0.005em; color: #fff; max-width: 20ch; text-shadow: 0 1px 2px rgba(0,0,0,0.75), 0 2px 10px rgba(0,0,0,0.5); }
   .bc-sub { position: relative; z-index: 1; font-family: var(--serif); font-style: italic; font-size: clamp(20px, 2.2vw, 28px); color: rgba(255,255,255,0.88); margin-top: 16px; text-shadow: 0 1px 16px rgba(0,0,0,0.6); }
   @media (max-width: 640px) { .break-copy { padding: 34px 28px 0; } }
 
@@ -560,7 +560,7 @@
         <div class="phone"><div class="phone-screen"><img src="assets/v3/q1-still.jpg" alt="Future Vibrant Self — Question 1" loading="lazy"></div></div>
       </div>
     </div>
-    <p class="hiw-closing rv">The more vulnerable you are, <b>the more rewarding your&nbsp;story.</b></p>
+    <p class="hiw-closing rv">The more vulnerable you&nbsp;are,<br><b>the more rewarding your&nbsp;story.</b></p>
   </div>
 </section>
 
