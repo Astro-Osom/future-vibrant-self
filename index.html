@@ -185,10 +185,6 @@
      real aspect ratio; default 16:9, overridden per asset (fish 4:3, 8mm portrait). */
   .break-img video, .break-img .break-media { width: 100%; height: auto; display: block; aspect-ratio: 16 / 9; }
   .break-media.ar43 { aspect-ratio: 4 / 3; }
-  /* 8mm is a portrait clip (1280×2276) — show it whole, centered as a portrait card;
-     full-width on phones, capped so it doesn't tower on desktop */
-  .break-media.portrait { aspect-ratio: 1280 / 2276; width: 100%; max-width: 460px; height: auto; margin: 0 auto; }
-  .break-img:has(.break-media.portrait) { background: var(--void); }
 
   /* standalone vulnerability line (relocated from the removed Why It Matters) */
   .vuln-band { text-align: center; padding: 34px 24px 44px; }
@@ -595,7 +591,7 @@
 </section>
 
 <section class="break-img">
-  <video class="break-media portrait" muted loop playsinline preload="metadata" poster="assets/v3/8mm-poster.jpg">
+  <video class="break-media" muted loop playsinline preload="metadata" poster="assets/v3/8mm-poster.jpg">
     <source src="assets/v3/8mm.mp4" type="video/mp4">
   </video>
   <div class="break-copy lc"><p class="bc-line">A story you can share<br>for future&nbsp;generations.</p></div>
