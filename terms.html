@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Future Vibrant Self — Terms &amp; Privacy</title>
+<meta name="description" content="How Future Vibrant Self handles your story, your recordings, and your email.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Montserrat:wght@200;300;400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --void: #0D0B08;
+    --deep: #050403;
+    --text: #eff2f7;
+    --dim: #99a2b2;
+    --faint: #59616f;
+    --teal: #1EC8C8;
+    --pink: #E84B8A;
+    --gold: #F0A500;
+    --hairline: rgba(255,255,255,0.10);
+    --hairline-soft: rgba(255,255,255,0.06);
+    --serif: "Newsreader", "Instrument Serif", Georgia, serif;
+    --display: "Instrument Serif", Georgia, serif;
+    --sans: "Montserrat", -apple-system, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; overflow-x: clip; }
+  body {
+    background: var(--void);
+    color: var(--text);
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  a { color: var(--teal); text-decoration: none; border-bottom: 1px solid rgba(30,200,200,0.35); transition: border-color .2s, color .2s; }
+  a:hover { color: var(--text); border-color: var(--text); }
+
+  .topbar {
+    position: sticky; top: 0; z-index: 10;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px clamp(22px, 6vw, 80px);
+    background: linear-gradient(180deg, rgba(13,11,8,0.92) 0%, rgba(13,11,8,0) 100%);
+    backdrop-filter: blur(6px);
+  }
+  .topbar .home {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--dim); border: 0;
+  }
+  .topbar .home:hover { color: var(--text); }
+  .topbar .wordmark {
+    font-family: var(--display); font-size: 17px; letter-spacing: 0.02em; color: var(--text); border: 0;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: clamp(40px, 8vw, 96px) clamp(22px, 6vw, 40px) 120px;
+  }
+
+  h1 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(38px, 7vw, 64px);
+    line-height: 1.04;
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+  }
+  .eyebrow {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--faint); margin-bottom: 22px;
+  }
+  .updated {
+    font-family: var(--sans); font-weight: 300; font-size: 12px; letter-spacing: 0.06em;
+    color: var(--faint); margin-bottom: 54px;
+  }
+
+  h2 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(24px, 3.6vw, 32px);
+    line-height: 1.15;
+    margin: 52px 0 16px;
+    color: var(--text);
+  }
+  h2 .accent { color: var(--gold); }
+
+  p { color: var(--dim); margin-bottom: 18px; max-width: 62ch; }
+  p strong, li strong { color: var(--text); font-weight: 500; }
+  em { font-style: italic; color: var(--text); }
+
+  ul { list-style: none; margin: 0 0 18px; padding: 0; max-width: 62ch; }
+  li { color: var(--dim); position: relative; padding-left: 22px; margin-bottom: 12px; }
+  li::before {
+    content: ""; position: absolute; left: 2px; top: 12px;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: linear-gradient(90deg, var(--teal), var(--pink));
+  }
+
+  .lede {
+    font-family: var(--serif); font-style: italic;
+    font-size: clamp(20px, 2.6vw, 24px);
+    line-height: 1.5; color: var(--text);
+    border-left: 2px solid var(--hairline);
+    padding-left: 22px; margin: 0 0 8px;
+    max-width: 60ch;
+  }
+
+  hr { border: 0; height: 1px; background: var(--hairline-soft); margin: 56px 0; }
+
+  .contact {
+    font-family: var(--sans); font-weight: 300; font-size: 15px; letter-spacing: 0.02em;
+    color: var(--dim);
+  }
+
+  footer {
+    border-top: 1px solid var(--hairline-soft);
+    padding: 34px clamp(22px, 6vw, 40px);
+    max-width: 720px; margin: 0 auto;
+    display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between;
+    font-family: var(--sans); font-weight: 300; font-size: 12px; letter-spacing: 0.06em;
+    color: var(--faint);
+  }
+  footer .links { display: flex; gap: 22px; }
+  footer a { color: var(--faint); border: 0; }
+  footer a:hover { color: var(--text); }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="home" href="/">&larr; Back</a>
+  <a class="wordmark" href="/">Future Vibrant Self</a>
+</div>
+
+<main class="wrap">
+  <div class="eyebrow">Terms &amp; Privacy</div>
+  <h1>Your story stays yours.</h1>
+  <div class="updated">Last updated August 4, 2026</div>
+
+  <p class="lede">Future Vibrant Self turns your words and images into a personal documentary. Everything below is one promise, said in plain language: what you make here belongs to you.</p>
+
+  <h2>Quality <span class="accent">review</span></h2>
+  <p>Our team privately reviews the films and story documents the app generates for you, solely to improve the product. Your recordings and films are <strong>never public</strong>, <strong>never shared outside the team</strong>, and <strong>never used in marketing without your explicit permission</strong>. Your story remains yours: if you delete a film — or your account — our internal review notes about it are deleted as well.</p>
+  <p>That last promise isn&rsquo;t just words. Deletion is enforced by construction: removing your account or a film automatically removes the associated review notes from our systems.</p>
+
+  <h2>Your <span class="accent">recordings</span></h2>
+  <ul>
+    <li>Your video, audio, photos, and the story we help you shape are <strong>yours</strong>. We don&rsquo;t claim ownership of your content.</li>
+    <li>We use your content only to generate your story document and film, and to privately improve the product as described above.</li>
+    <li>We don&rsquo;t sell your content, and we don&rsquo;t share it with third parties for advertising.</li>
+    <li>You can delete a film or your account at any time; when you do, we delete the associated content and our notes about it.</li>
+  </ul>
+
+  <h2>The <span class="accent">waitlist</span></h2>
+  <p>When you join the waitlist, we collect your name and email for one reason: to tell you when the beta opens and to share occasional news about Future Vibrant Self. We won&rsquo;t sell your email or share it with anyone else, and you can ask us to remove you at any time.</p>
+
+  <hr>
+
+  <p class="contact">Questions about any of this? Email <a href="mailto:hello@futurevibrantself.com">hello@futurevibrantself.com</a> and a real person will answer.</p>
+</main>
+
+<footer>
+  <span>© 2026 Future Vibrant Self</span>
+  <div class="links">
+    <a href="/">Home</a>
+    <a href="https://www.instagram.com/futurevibrantself/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.frankreina.com/" target="_blank" rel="noopener">Frank Reina</a>
+  </div>
+</footer>
+
+</body>
+</html>
