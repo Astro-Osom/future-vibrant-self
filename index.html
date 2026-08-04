@@ -708,9 +708,15 @@
     }, { once: true });
   }
 
-  // trailer: click-to-load embed
+  // trailer: click to play the self-hosted trailer with sound (was a dead YouTube embed)
   document.getElementById('trailer').addEventListener('click', function () {
-    this.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/Mh1aMsZvZ60?autoplay=1&rel=0" title="Future Vibrant Self — Official Trailer" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+    const v = document.createElement('video');
+    v.src = 'assets/v3/fvs-trailer.mp4';
+    v.controls = true; v.autoplay = true; v.playsInline = true;
+    v.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000;z-index:3';
+    this.innerHTML = '';
+    this.appendChild(v);
+    v.play().catch(function () {});
   }, { once: true });
 
   // waitlist submit (AJAX so the visitor never leaves the page)
