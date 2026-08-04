@@ -615,11 +615,11 @@
   <div class="wrap rv">
     <div class="neon-section" style="margin-bottom: 34px;">Your story is your value.</div>
     <!--
-      Waitlist backend: currently Formspree (mqegbvyn).
-      CUTOVER (pending CP deploy): swap action URL to the `waitlist-join` Supabase edge
-      function per docs/handoffs/MR_W_WAITLIST_BETA100_SPEC — same field names, same fetch.
+      Waitlist backend: Supabase `waitlist-join` edge fn (migration 095_waitlist_signups,
+      verify_jwt:false). Cut over from Formspree 2026-08-04 per MR_W_WAITLIST_BETA100_SPEC.
+      Fields name/email/source posted as FormData via the fetch handler below.
     -->
-    <form id="waitlist-form" action="https://formspree.io/f/mqegbvyn" method="POST">
+    <form id="waitlist-form" action="https://tffhhfbuwahtavaghugj.supabase.co/functions/v1/waitlist-join" method="POST">
       <input type="text" name="name" placeholder="Your name" autocomplete="name" required>
       <input type="email" name="email" placeholder="Your email" autocomplete="email" required>
       <input type="hidden" name="source" value="website-v3">
