@@ -4,6 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="noindex, nofollow" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 <title>FVS — Private draft</title>
 <style>
   html, body { margin: 0; min-height: 100%; background: #050403; color: rgba(255,255,255,0.88);
@@ -19,6 +20,7 @@
     font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; font-size: 12px; padding: 0.85rem; cursor: pointer; }
   .err { color: #E84B8A; font-family: system-ui, sans-serif; font-size: 13px; min-height: 1.2em; margin: 0 0 0.5rem; }
   .note { margin: 0.9rem 0 0; font-size: 0.9rem; color: rgba(255,255,255,0.45); line-height: 1.4; }
+  .rev { margin: 0.55rem 0 0; font-family: system-ui, sans-serif; font-size: 11px; color: rgba(255,255,255,0.28); letter-spacing: 0.04em; }
 </style>
 </head>
 <body>
@@ -29,12 +31,14 @@
       <input id="pw" type="password" autocomplete="current-password" placeholder="Access password" />
       <button type="button" id="go">Open deck</button>
       <p class="note">Future Vibrant Self · Investor draft · Not for redistribution</p>
+      <p class="rev">Draft revision 20260807225115</p>
     </div>
   </div>
   <script>
     const KEY = "fvs_pitch_ok";
     const PASS = "FVS-Pitch-f1185e";
-    function enter() { sessionStorage.setItem(KEY, "1"); location.replace("./deck.html"); }
+    const DECK = "./deck.html?v=20260807225115";
+    function enter() { sessionStorage.setItem(KEY, "1"); location.replace(DECK); }
     if (sessionStorage.getItem(KEY) === "1") enter();
     document.getElementById("go").onclick = () => {
       if (document.getElementById("pw").value === PASS) enter();
