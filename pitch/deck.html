@@ -1,0 +1,2120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Future Vibrant Self — Pre-Seed Pitch Deck (15)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600;1,700&family=IBM+Plex+Mono:wght@400;500&family=League+Spartan:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --void: #0D0B08;
+    --deep: #050403;
+    --ink: rgba(255, 255, 255, 0.88);
+    --ink-2: rgba(255, 255, 255, 0.68);
+    --ink-3: rgba(255, 255, 255, 0.38);
+    --teal: #1EC8C8;
+    --pink: #E84B8A;
+    --gold: #F0A500;
+    --hair: rgba(255, 255, 255, 0.16);
+    --surface: rgba(255, 255, 255, 0.04);
+    --surface-teal: rgba(30, 200, 200, 0.06);
+    --media-h: clamp(240px, 44vh, 366px);
+    --shadow-cine: 0 28px 64px -26px rgba(0, 0, 0, 0.9), 0 10px 26px -14px rgba(0, 0, 0, 0.65);
+    --slide-w: min(1120px, 96vw);
+    --slide-h: min(630px, 72vh);
+    --font-display: "Cormorant Garamond", Georgia, serif;
+    --font-head: "League Spartan", "Montserrat", "Helvetica Neue", Arial, sans-serif;
+    --font-ui: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    background: var(--deep);
+    color: var(--ink);
+    font-family: var(--font-display);
+  }
+  body { min-height: 100vh; }
+  .chrome {
+    position: sticky; top: 0; z-index: 20;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    padding: 0.65rem 1.25rem;
+    background: rgba(13, 11, 8, 0.88);
+    border-bottom: 1px solid var(--hair);
+    backdrop-filter: blur(12px);
+    font-family: var(--font-ui);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .chrome .draft { color: var(--gold); font-weight: 600; }
+  .chrome nav { display: flex; gap: 0.5rem; align-items: center; color: var(--ink-2); }
+  .chrome button {
+    background: var(--surface);
+    color: var(--ink);
+    border: 1px solid var(--hair);
+    border-radius: 999px;
+    padding: 0.45rem 0.85rem;
+    cursor: pointer;
+    font-family: var(--font-ui);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .chrome button:hover { border-color: var(--teal); color: var(--teal); }
+  .deck {
+    padding: 1.5rem 1rem 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+  .slide {
+    width: var(--slide-w);
+    min-height: var(--slide-h);
+    background:
+      radial-gradient(900px 420px at 8% -8%, rgba(30, 200, 200, 0.14), transparent 55%),
+      radial-gradient(700px 380px at 92% 108%, rgba(232, 75, 138, 0.10), transparent 50%),
+      linear-gradient(165deg, #14110e 0%, var(--void) 48%, #0a0907 100%);
+    border: 1px solid var(--hair);
+    border-radius: 4px;
+    padding: 2.5rem 3rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .slide::before {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--teal), var(--pink), var(--gold));
+    opacity: 0.14;
+    pointer-events: none;
+  }
+  .slide::after {
+    content: attr(data-num);
+    position: absolute;
+    right: 1.5rem;
+    bottom: 1rem;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--ink-3);
+  }
+  .eyebrow {
+    font-family: var(--font-ui);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin: 0 0 0.7rem;
+    font-weight: 500;
+  }
+  h1, h2 {
+    margin: 0 0 0.65rem;
+    font-family: var(--font-head);
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+  }
+  h1 { font-size: clamp(2.4rem, 4.2vw, 3.5rem); line-height: 1.02; font-weight: 700; }
+  h2 { font-size: clamp(1.6rem, 2.9vw, 2.3rem); line-height: 1.1; }
+  p, li { font-size: 1.02rem; line-height: 1.42; color: var(--ink-2); font-weight: 300; }
+  .ui { font-family: var(--font-ui); font-weight: 400; }
+  .muted { color: var(--ink-3); }
+  .lockup {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(1.2rem, 2.1vw, 1.5rem);
+    line-height: 1.3;
+    background: linear-gradient(90deg, var(--teal), var(--pink));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  /* Slide 2 — Frank positions baked; teal drag chrome removed */
+  #s2.slide {
+    justify-content: flex-start;
+    padding-top: 2.35rem;
+    padding-bottom: 2.35rem;
+  }
+  #s2 .eyebrow { margin: 0 0 0.75rem; }
+  #s2 h2 {
+    max-width: none;
+    white-space: nowrap;
+    margin: 0;
+  }
+  #s2 .s2-stage {
+    --s2-line-gap: 0.32rem;
+    position: relative;
+    width: 100%;
+    height: min(440px, 58vh);
+    margin-top: clamp(2rem, 5vh, 3.25rem);
+  }
+  #s2 .s2-copy,
+  #s2 .s2-stage .lockup,
+  #s2 .s2-phone {
+    position: absolute;
+    margin: 0;
+  }
+  #s2 .s2-copy p {
+    margin: 0;
+    font-size: clamp(1.28rem, 2.15vw, 1.55rem);
+    line-height: 1.45;
+    color: var(--ink);
+    font-weight: 300;
+  }
+  #s2 .s2-copy.have {
+    left: 26px;
+    top: 11px;
+  }
+  #s2 .s2-copy.have p + p { margin-top: var(--s2-line-gap); }
+  #s2 .s2-copy.problem {
+    left: 144px;
+    top: 165px;
+  }
+  #s2 .s2-copy.problem p + p { margin-top: 0.26rem; }
+  #s2 .s2-copy .hit {
+    color: var(--teal);
+    font-weight: 600;
+  }
+  #s2 .s2-stage .lockup {
+    left: 235px;
+    top: 340px;
+    font-size: calc(1.3rem + 2pt);
+    max-width: 22em;
+  }
+  #s2 .s2-phone {
+    left: 727px;
+    top: 0;
+  }
+  #s2 .s2-phone img {
+    display: block;
+    height: 409px;
+    width: auto;
+    object-fit: contain;
+    object-position: top center;
+    border-radius: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: var(--shadow-cine);
+    background: #000;
+  }
+  /* Slide 3 — strict 54/46 grid; gaps only for hierarchy */
+  #s3.slide {
+    justify-content: center;
+  }
+  #s3 .s3-grid {
+    display: grid;
+    grid-template-columns: 54% 46%;
+    column-gap: 1.75rem;
+    align-items: center; /* right visual centers to left content block */
+    width: 100%;
+  }
+  #s3 .s3-left {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-width: 0;
+  }
+  #s3 .s3-left .eyebrow {
+    margin: 0 0 0.65rem;
+  }
+  #s3 .s3-left h2 {
+    margin: 0;
+    max-width: 16em;
+    /* ~one headline-height before steps */
+    margin-bottom: 1.15em;
+  }
+  #s3 .s3-steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  #s3 .s3-steps li {
+    display: grid;
+    grid-template-columns: 1.55rem minmax(0, 1fr);
+    column-gap: 0.6rem;
+    align-items: baseline;
+    margin: 0;
+    padding: 0;
+    font-size: clamp(1.1rem, 1.8vw, 1.28rem);
+    line-height: 1.35;
+    color: var(--ink);
+    font-weight: 300;
+  }
+  #s3 .s3-steps li + li { margin-top: 14px; } /* 12–16px */
+  #s3 .s3-steps .num {
+    font-family: var(--font-ui);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: var(--teal);
+  }
+  #s3 .s3-outcome {
+    margin: 1.2rem 0 0; /* modest gap after Step 02 */
+    max-width: 22em;
+    font-size: clamp(1.22rem, 2.05vw, 1.48rem);
+    line-height: 1.35;
+    color: var(--ink);
+    font-weight: 400;
+  }
+  #s3 .s3-outcome .weight {
+    font-weight: 600;
+  }
+  #s3 .s3-reassure-block {
+    margin-top: 1rem;
+  }
+  #s3 .s3-reassure-block .s3-reassure {
+    margin: 0;
+    font-size: clamp(1.02rem, 1.65vw, 1.15rem);
+    line-height: 1.35;
+    color: var(--ink-2);
+    font-weight: 300;
+  }
+  #s3 .s3-reassure-block .lockup {
+    margin: 0.35rem 0 0;
+    font-size: clamp(1.15rem, 1.9vw, 1.35rem);
+  }
+  #s3 .s3-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+  }
+  #s3 .s3-visual {
+    margin: 0;
+    width: 56%; /* another ~15–20% reduction */
+    max-width: 204px;
+  }
+  #s3 .s3-visual img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain; /* full frame — no crop */
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: var(--shadow-cine);
+    background: #000;
+  }
+  .tagline { font-style: italic; color: var(--ink-2); font-size: 1.15rem; font-weight: 300; }
+  .grid-2 { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 1.25rem; align-items: center; }
+  .grid-2-eq { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items: start; }
+  .grid-2-top { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.65rem; }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--hair);
+    border-radius: 2px;
+    padding: 0.85rem 0.95rem;
+  }
+  .card.teal { background: var(--surface-teal); border-color: rgba(30, 200, 200, 0.22); }
+  .card strong {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-family: var(--font-ui);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--teal);
+  }
+  .card p { margin: 0; font-size: 0.95rem; }
+  .card .num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--pink);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.3rem;
+  }
+  ul { margin: 0.35rem 0 0; padding-left: 1.05rem; }
+  li + li { margin-top: 0.28rem; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-ui);
+    font-size: 0.82rem;
+  }
+  table.table-roomy {
+    font-size: 0.95rem;
+  }
+  table.table-roomy th,
+  table.table-roomy td {
+    padding: 0.72rem 0.85rem 0.72rem 0;
+  }
+  th, td {
+    text-align: left;
+    padding: 0.42rem 0.35rem;
+    border-bottom: 1px solid var(--hair);
+    vertical-align: top;
+    color: var(--ink-2);
+  }
+  th {
+    color: var(--teal);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    font-size: 0.64rem;
+    text-transform: uppercase;
+  }
+  td:last-child { color: var(--ink); }
+  .flag {
+    display: inline-block;
+    font-family: var(--font-ui);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--void);
+    background: var(--gold);
+    padding: 0.18rem 0.4rem;
+    border-radius: 2px;
+    font-weight: 600;
+  }
+  /* ===== Cinematic media system — one look across every slide ===== */
+  .media-row {
+    display: flex;
+    gap: 1.15rem;
+    justify-content: center;
+    align-items: flex-end;
+    flex-wrap: wrap;
+  }
+  .media-row.center { align-items: center; }
+  /* Slide 3: identical portrait frames — same ratio, same size */
+  .media-duo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem;
+    align-items: stretch;
+    justify-items: stretch;
+    width: 100%;
+    max-width: 420px;
+    margin-left: auto;
+  }
+  .media-duo figure.media {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .media-duo .frame {
+    flex: 1;
+    width: 100%;
+    aspect-ratio: 473 / 1024; /* matches story-doc-audio.png */
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: var(--shadow-cine);
+    background: #0a0907;
+  }
+  .media-duo .frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+  /* Full UI, no crop — readable story + audio */
+  .media-duo .frame.frame-ui {
+    background: #061412;
+  }
+  .media-duo .frame.frame-ui img {
+    object-fit: contain;
+    object-position: center;
+  }
+  .media-duo figcaption {
+    min-height: 2.4em;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  /* Product slide: three equal outcome phones — room-readable */
+  .outcome-trio {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.25rem;
+    width: 100%;
+    max-width: 860px;
+    margin: 1.15rem auto 0;
+    align-items: start;
+  }
+  .outcome-trio figure {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .outcome-trio .shot {
+    width: 100%;
+    max-width: 200px;
+    aspect-ratio: 9 / 19.5;
+    border-radius: 22px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: var(--shadow-cine);
+    background: #061412;
+  }
+  .outcome-trio .shot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+  .outcome-trio .shot.shot-ui img {
+    object-fit: contain;
+    object-position: center top;
+  }
+  .outcome-trio .shot.shot-hand {
+    background: #f2f0eb;
+  }
+  .outcome-trio .shot.shot-hand img {
+    object-fit: cover;
+    object-position: center 42%;
+  }
+  .outcome-step {
+    margin: 0 0 0.7rem;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .outcome-cap {
+    margin: 0.75rem 0 0;
+    max-width: 12em;
+    font-family: var(--font-ui);
+    font-weight: 400;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    line-height: 1.35;
+    color: var(--ink-3);
+  }
+  figure.media { margin: 0; text-align: center; }
+  figure.media figcaption,
+  .media-cap {
+    font-family: var(--font-ui);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--ink-3);
+    margin-top: 0.55rem;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  /* Portrait phone screenshots — uniform height keeps slides even */
+  .screen {
+    height: var(--media-h);
+    width: auto;
+    max-width: 100%;
+    display: block;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: #000;
+    box-shadow: var(--shadow-cine);
+  }
+  /* Photographic hero (studio hand) — soft frame, no hard bezel */
+  .photo {
+    height: var(--media-h);
+    width: auto;
+    max-width: 100%;
+    display: block;
+    border-radius: 16px;
+    object-fit: cover;
+    box-shadow: var(--shadow-cine);
+  }
+  /* Landscape framed media (trailer still, prompt banner, logo motion) */
+  .plate {
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: #000;
+    object-fit: cover;
+    box-shadow: var(--shadow-cine);
+  }
+  /* Cinematic video frame with play affordance */
+  .video-embed {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: var(--shadow-cine);
+    background: #000;
+  }
+  .video-embed video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    background: #000;
+  }
+  .trailer-stage { position: relative; }
+  .trailer-poster {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+    background: #000;
+    line-height: 0;
+  }
+  .trailer-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    background: #000;
+  }
+  .trailer-poster .play-btn {
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    width: 68px; height: 68px;
+    border-radius: 50%;
+    background: rgba(13, 11, 8, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(2px);
+    pointer-events: none;
+  }
+  .trailer-poster .play-btn::after {
+    content: "";
+    position: absolute;
+    left: 54%; top: 50%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 12px 0 12px 20px;
+    border-color: transparent transparent transparent rgba(255, 255, 255, 0.95);
+  }
+  .trailer-poster:hover .play-btn {
+    transform: translate(-50%, -50%) scale(1.08);
+    background: rgba(30, 200, 200, 0.35);
+  }
+  .trailer-stage.is-playing .trailer-poster { display: none; }
+  .video-embed iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+  .video-frame {
+    position: relative;
+    display: block;
+    line-height: 0;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: var(--shadow-cine);
+    background: #000;
+  }
+  .video-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* full thumbnail — no crop */
+    display: block;
+    background: #000;
+  }
+  .video-frame .play-btn {
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    width: 68px; height: 68px;
+    border-radius: 50%;
+    background: rgba(13, 11, 8, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(2px);
+    transition: transform 0.18s ease, background 0.18s ease;
+    pointer-events: none;
+  }
+  .video-frame .play-btn::after {
+    content: "";
+    position: absolute;
+    left: 54%; top: 50%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 12px 0 12px 20px;
+    border-color: transparent transparent transparent rgba(255, 255, 255, 0.95);
+  }
+  .video-frame:hover .play-btn { transform: translate(-50%, -50%) scale(1.08); background: rgba(30, 200, 200, 0.35); }
+  .photo-round {
+    width: clamp(170px, 20vw, 210px);
+    height: clamp(170px, 20vw, 210px);
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid rgba(30, 200, 200, 0.4);
+    box-shadow: var(--shadow-cine);
+    display: block;
+  }
+  /* Slide 15 — Close */
+  #s15.slide {
+    justify-content: center;
+  }
+  #s15 .s15-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2.5rem;
+    align-items: center;
+    width: 100%;
+  }
+  #s15 .s15-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+  }
+  #s15 .s15-copy .eyebrow {
+    margin: 0 0 0.85rem;
+  }
+  #s15 .s15-name {
+    margin: 0 0 0.45rem;
+    font-family: var(--font-head);
+    font-size: clamp(2rem, 3.4vw, 2.7rem);
+    font-weight: 700;
+    line-height: 1.05;
+    color: var(--ink);
+  }
+  #s15 .s15-role {
+    margin: 0 0 1.1rem;
+    font-size: 1.05rem;
+    color: var(--ink-2);
+    font-weight: 300;
+  }
+  #s15 .s15-lockup {
+    margin: 0 0 1.35rem;
+    font-size: clamp(1.25rem, 2vw, 1.45rem);
+  }
+  #s15 .s15-contact {
+    max-width: 26em;
+    padding: 1.05rem 1.15rem;
+  }
+  #s15 .s15-contact .s15-contact-row {
+    margin: 0;
+    font-family: var(--font-ui);
+    color: var(--ink);
+  }
+  #s15 .s15-contact .s15-contact-row + .s15-contact-row {
+    margin-top: 1.1rem;
+  }
+  #s15 .s15-contact-label {
+    display: block;
+    color: var(--teal);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+  #s15 .s15-photo-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  #s15 .s15-photo-wrap .photo-round {
+    width: clamp(220px, 26vw, 280px);
+    height: clamp(220px, 26vw, 280px);
+  }
+  .logo {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    border-radius: 10px;
+    background: #000;
+    border: 1px solid var(--hair);
+    margin-bottom: 1rem;
+  }
+  /* Even two-up: copy + media, vertically matched */
+  .split-even {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    width: 100%;
+  }
+  .split-copy { min-width: 0; }
+  .split-media {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+  }
+  /* Founder proof: trailer top lines up with "Founder proof" eyebrow */
+  #s8 .split-even {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    gap: 1.75rem;
+    align-items: start;
+  }
+  #s8 .split-media { align-self: start; padding-top: 0; }
+  #s8 .split-copy .eyebrow { margin-top: 0; margin-bottom: 0.7rem; }
+  #s8 .split-copy h2 { margin-bottom: 0.85rem; }
+  #s8 .split-copy p { margin-top: 0; margin-bottom: 0.7rem; }
+  #s8 .split-copy .lockup { margin-top: 1.1rem; margin-bottom: 0; }
+  #s8 .video-embed { max-width: 100%; margin-top: 0; }
+  .logo.logo-hero {
+    width: clamp(160px, 20vw, 220px);
+    height: clamp(160px, 20vw, 220px);
+    margin: 0;
+    flex-shrink: 0;
+    border-radius: 22px;
+    border: 1px solid rgba(30, 200, 200, 0.28);
+  }
+  .brand-motion {
+    width: 100%;
+    max-width: 460px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: center;
+    margin: 0 auto;
+    border-radius: 12px;
+    border: 1px solid rgba(30, 200, 200, 0.28);
+    box-shadow: var(--shadow-cine);
+    background: #000;
+    display: block;
+  }
+  .title-slide {
+    min-height: calc(var(--slide-h) - 2rem);
+  }
+  /* Title slide: vertically centered like other slides; GIF still rules left-copy height */
+  #s1.slide {
+    justify-content: center; /* was flex-start — caused the top-heavy empty bottom */
+  }
+  #s1 .title-lock {
+    position: relative;
+    width: 100%;
+  }
+  #s1 .brand-motion {
+    display: block;
+    width: min(52%, 580px);
+    max-width: none;
+    margin: 0 0 0 auto;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+  }
+  #s1 .title-copy {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0; /* = GIF border-box bottom */
+    width: calc(48% - 1.25rem);
+    min-width: 0;
+  }
+  #s1 .title-top {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+  }
+  #s1 .title-top h1 {
+    margin: 0 0 0.65rem;
+    white-space: nowrap;
+    font-size: clamp(2.35rem, 4vw, 3.2rem);
+    line-height: 0.92;
+    letter-spacing: -0.025em;
+    /* JS sets margin-top so CAP ink (not the line box) meets the GIF top border */
+  }
+  #s1 .title-top .promise { margin-top: 0; }
+  #s1 .title-top .tagline { margin-top: 0.85rem; }
+  #s1 .title-foot {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0; /* stack sits on GIF bottom; email ink locked by JS */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+    margin: 0;
+    font-family: var(--font-ui);
+    font-size: 11px;
+    letter-spacing: 0.03em;
+    color: var(--ink-3);
+    line-height: 1.15;
+  }
+  #s1 .title-foot .foot-role {
+    margin: 0;
+    color: var(--ink-3);
+  }
+  #s1 .title-foot .sep {
+    opacity: 0.55;
+    padding: 0 0.2em;
+  }
+  #s1 .title-foot .contact-link {
+    display: inline-block;
+    line-height: 1.15;
+  }
+  #s1 .title-foot .foot-email {
+    margin: 0;
+    /* JS: bottom of this line = GIF bottom border */
+  }
+  .title-slide h1 { margin-bottom: 0.85rem; }
+  .title-slide .promise {
+    margin: 0;
+    max-width: 22em;
+    font-size: clamp(1.25rem, 2.1vw, 1.55rem);
+    line-height: 1.35;
+    color: var(--ink);
+  }
+  .title-slide .tagline {
+    margin: 1.15rem 0 0;
+    font-size: calc(1.05rem + 1pt);
+    font-style: italic;
+    color: var(--ink-2);
+  }
+  .footer-note {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    letter-spacing: 0.03em;
+    color: var(--ink-3);
+    margin-top: 0.85rem;
+  }
+  .checklist { list-style: none; margin: 0.5rem 0 0; padding: 0; }
+  .checklist li {
+    font-family: var(--font-ui);
+    font-size: 0.9rem;
+    color: var(--ink-2);
+    margin: 0.35rem 0;
+    padding-left: 1.15rem;
+    position: relative;
+  }
+  .checklist li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.42em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    border: 1px solid var(--ink-3);
+  }
+  .checklist li.done::before {
+    background: var(--teal);
+    border-color: var(--teal);
+  }
+  .q { font-style: italic; color: var(--ink); font-size: 1rem; }
+  .diff-banner {
+    margin-top: 0.85rem;
+    padding: 0.75rem 0.95rem;
+    border: 1px solid rgba(30, 200, 200, 0.35);
+    background: var(--surface-teal);
+  }
+  .diff-banner p {
+    margin: 0;
+    color: var(--ink);
+    font-size: 1.02rem;
+  }
+  #s6 tr.fvs-row td {
+    color: var(--ink);
+    font-weight: 500;
+    border-top: 1px solid rgba(30, 200, 200, 0.35);
+  }
+  #s6 tr.fvs-row td:first-child {
+    color: rgba(255, 255, 255, 0.92);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  #s6 .diff-banner .lockup {
+    margin-top: 0;
+    display: inline-block;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 300;
+    font-size: calc(1.3rem + 2pt);
+    line-height: 1.3;
+    /* pink ↔ lavender spectrum (Frank ref) */
+    background-color: transparent;
+    background-image: linear-gradient(90deg, #C4B5FD 0%, #E0A0D8 42%, #E84B8A 100%);
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: transparent !important;
+  }
+  #s6 .diff-banner .lockup .lockup-punch {
+    background: none;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    -webkit-text-fill-color: var(--teal);
+    color: var(--teal);
+    font-weight: 600;
+  }
+  #s7.slide { justify-content: center; }
+  #s7 .s7-grid {
+    display: grid;
+    grid-template-columns: 54% 46%;
+    column-gap: 2.75rem;
+    align-items: center; /* image centers to full left text block */
+    width: 100%;
+  }
+  #s7 .s7-left { min-width: 0; }
+  #s7 .s7-left .eyebrow { margin-bottom: 0.55rem; }
+  #s7 .s7-left h2 { margin-bottom: 0.35rem; }
+  #s7 .s7-sub {
+    font-family: var(--font-ui);
+    font-size: 0.92rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    font-weight: 400;
+    margin: 0.25rem 0 1.45rem;
+  }
+  #s7 .s7-sub strong {
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.88);
+  }
+  #s7 .s7-flywheel {
+    justify-content: flex-start;
+    margin: 0 0 1.5rem;
+    gap: 0.45rem;
+  }
+  #s7 .s7-flywheel span {
+    padding: 0.42rem 0.6rem;
+    font-size: 0.7rem;
+  }
+  #s7 .s7-flywheel .arrow { display: none; }
+  #s7 .s7-copy p {
+    margin: 0 0 0.75rem;
+    font-size: clamp(1.02rem, 1.55vw, 1.15rem);
+    line-height: 1.42;
+    color: var(--ink);
+    font-weight: 300;
+  }
+  #s7 .s7-copy .s7-bold {
+    font-weight: 600;
+    color: var(--ink);
+  }
+  #s7 .s7-copy .lockup {
+    margin-top: 1.1rem;
+    margin-bottom: 0;
+    font-size: calc(1.2rem + 1pt);
+    background-image: linear-gradient(90deg, #C4B5FD 0%, #E0A0D8 40%, #E84B8A 70%, #1EC8C8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  #s7 .s7-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+  }
+  #s7 .s7-visual {
+    margin: 0;
+    width: min(100%, 380px);
+  }
+  #s7 .s7-visual img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: min(420px, 56vh);
+    object-fit: cover;
+    object-position: center center;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .flywheel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-ui);
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+  }
+  .flywheel span {
+    background: var(--surface);
+    border: 1px solid var(--hair);
+    padding: 0.55rem 0.75rem;
+    border-radius: 2px;
+  }
+  .flywheel span.ns {
+    border-color: rgba(30, 200, 200, 0.45);
+    color: var(--teal);
+    font-weight: 600;
+  }
+  .flywheel .arrow { border: 0; background: transparent; color: var(--pink); padding: 0 0.15rem; font-size: 1rem; }
+  .flywheel-hero {
+    margin-top: 1.35rem;
+    padding: 1.25rem 1.35rem;
+    border: 1px solid rgba(30, 200, 200, 0.28);
+    background: var(--surface-teal);
+  }
+  .action-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.9rem;
+    margin-top: 1.1rem;
+  }
+  .action-pair .card .num {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--pink);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.4rem;
+  }
+  .action-pair .card p {
+    margin: 0;
+    font-size: 1.15rem;
+    color: var(--ink);
+    line-height: 1.35;
+  }
+  /* Slide 10 — Growth Loop */
+  #s10 .s10-sub {
+    margin: 0.4rem 0 0;
+    max-width: 38em;
+    color: var(--ink-2);
+  }
+  #s10 .action-pair {
+    margin-top: 1rem;
+    margin-bottom: 0.15rem;
+  }
+  #s10 .action-pair .card {
+    padding: 1.05rem 1.15rem;
+  }
+  #s10 .action-pair .card p {
+    font-size: 1.22rem;
+    font-weight: 400;
+  }
+  #s10 .growth-loop {
+    margin-top: 1.35rem;
+    padding: 1.35rem 1.4rem 1.45rem;
+    border: 1px solid rgba(30, 200, 200, 0.32);
+    background: var(--surface-teal);
+  }
+  #s10 .growth-loop-title {
+    margin: 0 0 1.15rem;
+    font-family: var(--font-ui);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+  }
+  #s10 .growth-loop-track {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 0.35rem;
+    width: 100%;
+  }
+  #s10 .growth-loop-track .stage {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: var(--surface);
+    border: 1px solid var(--hair);
+    border-radius: 2px;
+    padding: 0.7rem 0.4rem;
+    font-family: var(--font-ui);
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink);
+    line-height: 1.25;
+  }
+  #s10 .growth-loop-track .arrow {
+    flex: 0 0 auto;
+    align-self: center;
+    color: var(--pink);
+    font-size: 1rem;
+    padding: 0 0.05rem;
+  }
+  #s10 .s10-metric {
+    margin: 2.35rem 0 0;
+    font-family: var(--font-ui);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-align: center;
+    font-weight: 500;
+  }
+  #s10 .s10-metric-label {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+  #s10 .s10-lockup {
+    margin-top: 2.35rem;
+    text-align: center;
+    max-width: 36em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* Slide 14 — The Ask · final hierarchy */
+  /* Slide 13 — Why Now */
+  #s13 .s13-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1.25rem;
+    margin-top: 0.85rem;
+    align-items: stretch;
+  }
+  #s13 .s13-copy {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  #s13 .s13-copy > p:not(.s13-lockup) {
+    margin: 0 0 1.2rem; /* +half space between body paragraphs */
+    font-size: 1.15rem;
+  }
+  #s13 .s13-lockup {
+    margin: auto 0 0 !important;
+    font-size: 1.25rem;
+  }
+  #s13 .s13-lockup .s13-lockup-heavy {
+    font-weight: 700;
+    font-style: italic;
+  }
+  #s13 .s13-cards {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 1.1rem; /* space between Today / Tomorrow */
+  }
+  #s13 #s13-tomorrow {
+    margin-top: auto; /* keep bottom box aligned with lockup */
+  }
+  #s13 .s13-card-body {
+    margin: 0.35rem 0 0;
+    font-family: var(--font-ui);
+    font-size: 0.9rem;
+    color: var(--ink-2);
+    font-weight: 400;
+    line-height: 1.42;
+  }
+  #s13 .s13-cards ul.ui {
+    font-size: 0.9rem;
+    color: var(--ink-2);
+    margin: 0.35rem 0 0;
+    padding-left: 1.05rem;
+  }
+
+  /* Slide 11 — conclusion lockup */
+  #s11.slide {
+    justify-content: flex-start;
+  }
+  #s11 .s11-conclusion {
+    margin-top: auto;
+    margin-bottom: 3.5rem; /* ~56px above page number */
+    max-width: none;
+    width: max-content;
+    align-self: flex-start;
+  }
+  #s11 .s11-conclusion-rule {
+    width: 2rem;
+    height: 1px;
+    background: var(--teal);
+    opacity: 0.85;
+    margin: 0 0 0.75rem;
+  }
+  #s11 .s11-conclusion-label {
+    margin: 0 0 0.4rem;
+    font-family: var(--font-ui);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 500;
+  }
+  #s11 .s11-conclusion-line {
+    margin: 0;
+    font-family: var(--font-ui);
+    font-size: clamp(0.875rem, 1.3vw, 1.0625rem);
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--ink);
+    font-style: normal;
+    white-space: nowrap !important;
+    display: block;
+    width: max-content;
+    max-width: none;
+  }
+  #s14 .eyebrow { margin-bottom: 0.55rem; }
+  #s14 h2 {
+    max-width: none;
+    font-family: var(--font-head);
+    font-size: clamp(1.6rem, 2.9vw, 2.3rem); /* match Slide 13 / default h2 */
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.005em;
+    margin: 0 0 0.65rem;
+    white-space: nowrap;
+  }
+  #s14 .s14-grid {
+    display: grid;
+    grid-template-columns: 1.08fr 1fr;
+    column-gap: 1.5rem;
+    margin-top: 1.15rem;
+    align-items: stretch;
+  }
+  #s14 .s14-left {
+    padding: 1.3rem 1.35rem 1.4rem;
+    height: 100%;
+  }
+  #s14 .s14-right {
+    padding: 1.15rem 1.15rem 1.2rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.1);
+    height: 100%;
+    box-sizing: border-box;
+  }
+  #s14 .s14-label {
+    display: block;
+    font-family: var(--font-ui);
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 500;
+    margin: 0 0 0.15rem;
+  }
+  #s14 .s14-label.s14-raising {
+    font-family: var(--font-ui);
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: var(--teal);
+    -webkit-text-fill-color: var(--teal);
+    background: none;
+  }
+  #s14 .s14-raise {
+    margin: 2rem 0 0;
+    font-family: var(--font-head);
+    font-weight: 600;
+    font-size: clamp(1.15rem, 2vw, 1.5rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  #s14 .s14-runway {
+    margin: 1.45rem 0 0;
+    font-family: var(--font-ui);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--teal);
+  }
+  #s14 .s14-contrast {
+    margin: 1.35rem 0 0;
+    padding: 0;
+  }
+  #s14 .s14-contrast-lead {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.52);
+    max-width: 22em;
+  }
+  #s14 .s14-contrast-punch {
+    margin: 0.7rem 0 0;
+    font-family: var(--font-ui);
+    font-size: clamp(0.92rem, 1.45vw, 1.05rem);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--teal);
+    line-height: 1.25;
+  }
+  #s14 .s14-contrast-sub {
+    margin: 0.35rem 0 0;
+    font-size: 0.98rem;
+    line-height: 1.35;
+    color: var(--ink);
+    max-width: 20em;
+    font-style: italic;
+    font-family: var(--font-display);
+  }
+  #s14 .s14-unlocks {
+    margin-top: 1.4rem;
+  }
+  #s14 .s14-unlocks .s14-label {
+    margin-bottom: 0.45rem;
+  }
+  #s14 .s14-milestones {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  #s14 .s14-milestones li {
+    position: relative;
+    padding: 0.22rem 0 0.22rem 0.85rem;
+    font-size: 0.88rem;
+    line-height: 1.35;
+    color: var(--ink-2);
+  }
+  #s14 .s14-milestones li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.7em;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--teal);
+  }
+  #s14 .card.s14-right .s14-funds-title {
+    display: block;
+    margin: 0 0 0.65rem;
+    font-family: var(--font-ui);
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #ffffff !important;
+    background: none;
+    -webkit-text-fill-color: #ffffff;
+  }
+  #s14 .s14-table {
+    width: 100%;
+    font-size: 0.76rem;
+    table-layout: fixed;
+  }
+  #s14 .s14-table th:first-child { width: 52%; }
+  #s14 .s14-table th:nth-child(2) { width: 30%; }
+  #s14 .s14-table th:nth-child(3) { width: 18%; }
+  #s14 .s14-table th {
+    padding: 0.35rem 0.4rem 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--ink-3);
+    font-weight: 500;
+  }
+  #s14 .s14-table td {
+    padding: 0.52rem 0.4rem 0.52rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    vertical-align: middle;
+    color: var(--ink-3);
+    font-weight: 400;
+  }
+  #s14 .s14-table td:first-child {
+    color: var(--ink-2);
+    padding-right: 0.65rem;
+    white-space: normal;
+    line-height: 1.3;
+  }
+  #s14 .s14-table td:nth-child(2) {
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 0.88rem;
+  }
+  #s14 .s14-table td:nth-child(3),
+  #s14 .s14-table th:nth-child(3) {
+    color: var(--ink-3);
+    font-size: 0.68rem;
+    font-weight: 400;
+  }
+  #s14 .s14-table td:nth-child(2),
+  #s14 .s14-table th:nth-child(2),
+  #s14 .s14-table td:nth-child(3),
+  #s14 .s14-table th:nth-child(3) {
+    text-align: right;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+  #s14 .s14-table tr.total td {
+    border-bottom: 0;
+    border-top: 2px solid rgba(255, 255, 255, 0.32);
+    padding-top: 0.7rem;
+    color: var(--ink);
+    font-weight: 700;
+  }
+  #s14 .s14-table tr.total td:nth-child(2) {
+    font-size: 0.92rem;
+  }
+  #s14 .s14-table tr.total td:nth-child(3) {
+    color: var(--ink);
+    font-size: 0.74rem;
+    font-weight: 700;
+  }
+  #s14 .s14-lockup {
+    margin: 2.35rem auto 0;
+    max-width: none;
+    font-size: clamp(1.15rem, 1.8vw, 1.32rem);
+    opacity: 0.88;
+    white-space: nowrap;
+    text-align: center;
+  }
+  a.trailer-link {
+    color: var(--teal);
+    text-decoration: none;
+    font-family: var(--font-ui);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  a.trailer-link:hover { color: var(--pink); }
+  a.contact-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(30, 200, 200, 0.35);
+  }
+  a.contact-link:hover { color: var(--teal); border-bottom-color: var(--teal); }
+  .compact p { font-size: 0.95rem; }
+  @media (max-width: 900px) {
+    .slide { padding: 1.45rem; min-height: auto; }
+    #s2 h2 { white-space: normal; }
+    #s2 .s2-stage { height: auto; min-height: 420px; }
+    #s2 .s2-phone img { max-width: 180px; height: auto; }
+    #s3 .s3-grid {
+      grid-template-columns: 1fr;
+      row-gap: 1.35rem;
+    }
+    #s7 .s7-grid {
+      grid-template-columns: 1fr;
+      row-gap: 1.35rem;
+    }
+    #s7 .s7-visual {
+      max-width: 280px;
+      margin: 0 auto;
+    }
+    #s3 .s3-visual {
+      width: min(240px, 62vw);
+      max-width: none;
+      margin: 0 auto;
+    }
+    #s3 .s3-visual img { height: auto; }
+    .grid-2, .grid-2-eq, .grid-2-top, .grid-3, .grid-4, .split-even, .action-pair, .outcome-trio, #s14 .s14-grid { grid-template-columns: 1fr; }
+    #s1 .brand-motion { width: 100%; margin-left: 0; }
+    #s1 .title-copy {
+      position: relative;
+      left: auto; top: auto; bottom: auto;
+      width: 100%;
+      height: auto;
+      margin-bottom: 1.25rem;
+    }
+    #s1 .title-top,
+    #s1 .title-foot {
+      position: relative;
+      left: auto; top: auto; right: auto; bottom: auto;
+    }
+    #s1 .title-top h1,
+    #s1 .title-foot .foot-email {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+      transform: none !important;
+    }
+    #s1 .title-foot { margin-top: 1.25rem; }
+    #s1 .title-top h1 { white-space: normal; font-size: clamp(1.8rem, 8vw, 2.4rem); }
+    .media-duo { max-width: 280px; margin: 0.75rem auto 0; }
+    .outcome-trio { gap: 1.5rem; max-width: 320px; }
+  }
+  @media print {
+    .chrome { display: none; }
+    .deck { padding: 0; gap: 0; }
+    .slide {
+      width: 11in;
+      height: 6.1875in;
+      min-height: 0;
+      page-break-after: always;
+      border-radius: 0;
+    }
+  }
+</style>
+</head>
+<body>
+<script>(function(){{if(sessionStorage.getItem("fvs_pitch_ok")!=="1"){{location.replace("./");}}}})();</script>
+
+  <div class="chrome">
+    <div><span class="draft">Draft — Frank review only · Not for distribution</span></div>
+    <nav>
+      <button type="button" id="prev">Prev</button>
+      <span id="counter">1 / 15</span>
+      <button type="button" id="next">Next</button>
+    </nav>
+  </div>
+
+  <div class="deck" id="deck">
+
+    <!-- ========== SLIDE 01 · TITLE · EDIT BELOW ========== -->
+    <section class="slide title-slide" data-num="01 / 15" id="s1">
+      <p class="eyebrow">Pre-seed · Draft</p>
+      <div class="title-lock">
+        <div class="title-copy">
+          <div class="title-top">
+            <h1>Future Vibrant Self</h1>
+            <p class="promise">Tell your story. We make the movie.</p>
+            <p class="tagline">A personal documentary studio app.</p>
+          </div>
+          <div class="title-foot">
+            <p class="foot-role">Founder <span class="sep">|</span> Frank Reina</p>
+            <a class="contact-link" href="https://futurevibrantself.com" target="_blank" rel="noopener noreferrer">futurevibrantself.com</a>
+            <a class="contact-link foot-email" href="mailto:FJR@futurevibrantself.com">FJR@futurevibrantself.com</a>
+          </div>
+        </div>
+        <img class="brand-motion" src="assets/fvs-logo-indent.gif" alt="Future Vibrant Self" />
+      </div>
+    </section>
+
+    <!-- ========== SLIDE 02 · PROBLEM · EDIT BELOW ========== -->
+    <section class="slide" data-num="02 / 15" id="s2">
+      <p class="eyebrow">Problem</p>
+      <h2>Most of us have years of photos and videos stored on our phones.</h2>
+      <div class="s2-stage">
+        <div class="s2-copy have">
+          <p>We have the memories.</p>
+          <p>We have the life experience.</p>
+        </div>
+        <div class="s2-copy problem">
+          <p>But our phones turn them into montages.</p>
+          <p>Montages are fragments. <span class="hit">Not stories.</span></p>
+        </div>
+        <p class="lockup">What if your life became a powerful story?</p>
+        <figure class="s2-phone">
+          <img src="assets/ios-collections.png" alt="iPhone Photos — Collections of memories" />
+        </figure>
+      </div>
+    </section>
+
+    <!-- ========== SLIDE 03 · SOLUTION · EDIT BELOW ========== -->
+    <section class="slide" data-num="03 / 15" id="s3">
+      <div class="s3-grid">
+        <div class="s3-left">
+          <p class="eyebrow">Solution</p>
+          <h2>Transform one meaningful chapter of your life into a powerful story.</h2>
+          <ol class="s3-steps">
+            <li><span class="num">01</span><span>Answer a few thoughtful questions.</span></li>
+            <li><span class="num">02</span><span>Choose your photos and videos.</span></li>
+          </ol>
+          <p class="s3-outcome">
+            FVS shapes your words, memories, and life events into a
+            <span class="weight">documentary-style movie</span>.
+          </p>
+          <div class="s3-reassure-block">
+            <p class="s3-reassure">No editing skills required.</p>
+            <p class="lockup">All you need is your phone.</p>
+          </div>
+        </div>
+        <div class="s3-right">
+          <figure class="s3-visual">
+            <img src="assets/Eyeball%202.jpg" alt="FVS cinematic eye — documentary vision" />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SLIDE 04 · PRODUCT · EDIT BELOW ========== -->
+    <section class="slide" data-num="04 / 15" id="s4">
+      <p class="eyebrow">Product</p>
+      <h2>One chapter. One simple path.</h2>
+      <div class="outcome-trio">
+        <figure>
+          <p class="outcome-step">Tell it.</p>
+          <div class="shot shot-ui">
+            <img src="assets/story-doc-audio.png" alt="Your Story with Audio" />
+          </div>
+          <p class="outcome-cap">Your Story with Audio.</p>
+        </figure>
+        <figure>
+          <p class="outcome-step">Make it.</p>
+          <div class="shot shot-ui">
+            <img src="assets/My%20Stories%20Section.PNG" alt="Your Movie Moments" />
+          </div>
+          <p class="outcome-cap">Your Movie Moments</p>
+        </figure>
+        <figure>
+          <p class="outcome-step">View it.</p>
+          <div class="shot shot-hand">
+            <img src="assets/fvs-my-chapters-studio-hand.png" alt="Your Chapters" />
+          </div>
+          <p class="outcome-cap">Your Chapters</p>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ========== SLIDE 05 · BENEFITS · EDIT BELOW ========== -->
+    <section class="slide" data-num="05 / 15" id="s5">
+      <p class="eyebrow">Product</p>
+      <h2>Easy to use. Built for your phone.</h2>
+      <p class="ui muted" style="font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; margin: 0.4rem 0 0.9rem;">What FVS can do for you</p>
+      <div class="grid-4">
+        <div class="card teal"><div class="num">01</div><strong>Capture</strong><p>Guided questions help you tell the story</p></div>
+        <div class="card teal"><div class="num">02</div><strong>Discover</strong><p>FVS finds the themes and emotional through-line</p></div>
+        <div class="card teal"><div class="num">03</div><strong>See</strong><p>Story, audio, and film — from one chapter</p></div>
+        <div class="card teal"><div class="num">04</div><strong>Share</strong><p>Keep it private or share it with the people who matter</p></div>
+      </div>
+      <figure class="media" style="margin: 1.2rem auto 0;">
+        <img class="plate" style="height: clamp(180px, 26vh, 244px); width: auto; max-width: 100%; margin: 0 auto;" src="assets/7Qs%20Screenshot.PNG" alt="The guided questions" />
+        <figcaption class="media-cap">The guided questions</figcaption>
+      </figure>
+    </section>
+
+    <!-- ========== SLIDE 06 · MARKET · DIFFERENTIATION · EDIT BELOW ========== -->
+    <section class="slide" data-num="06 / 15" id="s6">
+      <p class="eyebrow">Why We Win</p>
+      <h2>You tell the story. We make the movie.</h2>
+      <p style="max-width: none; white-space: nowrap;">Most tools help you create content. FVS finds the story in your life and makes the movie.</p>
+      <table class="table-roomy" style="margin-top: 1.1rem;">
+        <thead>
+          <tr><th>Product</th><th>What they do</th><th>What’s missing</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Camera Roll</td>
+            <td>Stores photos and videos</td>
+            <td>No story</td>
+          </tr>
+          <tr>
+            <td>Day One · Journey · Reflectly</td>
+            <td>Capture memories and reflections</td>
+            <td>No structured narrative</td>
+          </tr>
+          <tr>
+            <td>CapCut · iMovie · Adobe</td>
+            <td>Edit videos</td>
+            <td>You still have to tell the story</td>
+          </tr>
+          <tr>
+            <td>Runway · Pika · Kling</td>
+            <td>Generate AI videos</td>
+            <td>Not your real life</td>
+          </tr>
+          <tr class="fvs-row">
+            <td>FUTURE VIBRANT SELF</td>
+            <td>A complete story-to-film experience</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="diff-banner" style="margin-top: 1.15rem;">
+        <p class="lockup" style="background-image:linear-gradient(90deg,#C4B5FD 0%,#E0A0D8 45%,#E84B8A 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;">Your story. Your voice. Your memories. <span class="lockup-punch">One finished movie.</span></p>
+      </div>
+    </section>
+
+    <!-- ========== SLIDE 07 · WHO · EDIT BELOW ========== -->
+    <section class="slide" data-num="07 / 15" id="s7">
+      <div class="s7-grid">
+        <div class="s7-left">
+          <p class="eyebrow">Who it’s for</p>
+          <h2>You.</h2>
+          <p class="s7-sub">You’ve lived through something that <strong>changed you</strong>.</p>
+          <div class="flywheel s7-flywheel">
+            <span>A Loss</span>
+            <span>A Reinvention</span>
+            <span>A Journey</span>
+            <span>A Defining Moment</span>
+          </div>
+          <div class="s7-copy">
+            <p class="s7-bold">Every meaningful chapter deserves a story.</p>
+            <p>Future Vibrant Self turns it into a finished story and movie — in your own words — so you can see who you’ve become, and who you’re still becoming.</p>
+            <p class="lockup">Your story is your value</p>
+          </div>
+        </div>
+        <div class="s7-right">
+          <figure class="s7-visual">
+            <img src="assets/you-fr-kmac.png" alt="" />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SLIDE 08 · FOUNDER PROOF · EDIT BELOW ========== -->
+    <section class="slide" data-num="08 / 15" id="s8">
+      <div class="split-even">
+        <div class="split-copy">
+          <p class="eyebrow">Founder proof</p>
+          <h2>I built the product I needed</h2>
+          <p>For a year, I documented my own transformation using nothing but an iPhone, guided questions, and footage from my life. I turned that process into a feature-length documentary.</p>
+          <p>When friends and family watched it, they said: “I know you better.”</p>
+          <p>That became the proof of concept for Future Vibrant Self.</p>
+          <p class="lockup" style="margin-top: 1rem; font-size: 1.2rem;">The movie is the proof. The app is the product.</p>
+        </div>
+        <div class="split-media">
+          <div class="video-embed">
+            <video id="trailerVideo"
+              controls
+              playsinline
+              preload="metadata"
+              controlslist="nodownload"
+              poster="assets/trailer-thumbnail.png"
+              src="assets/fvs-trailer.mp4"
+              title="Future Vibrant Self — Official Trailer">
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SLIDE 09 · BUSINESS · GTM · EDIT BELOW ========== -->
+    <section class="slide" data-num="09 / 15" id="s9">
+      <p class="eyebrow">Business · Go-to-market</p>
+      <h2>Pay per chapter. Not a subscription.</h2>
+      <table class="table-roomy" style="margin-top: 1.1rem;">
+        <thead>
+          <tr><th>Offer</th><th>Price</th><th>What you receive</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Story + Audio</td>
+            <td>Free</td>
+            <td>Story Document and narrated audio for your first chapter</td>
+          </tr>
+          <tr>
+            <td>Director’s Cut</td>
+            <td>$19.99</td>
+            <td>A finished cinematic movie of that chapter</td>
+          </tr>
+          <tr>
+            <td>Final Cut</td>
+            <td>$29.99</td>
+            <td>Premium. More footage, retakes, and an extended finished movie</td>
+          </tr>
+          <tr>
+            <td>2-Chapter Pack</td>
+            <td>$39.99</td>
+            <td>Two Director’s Cut credits</td>
+          </tr>
+          <tr>
+            <td>3-Chapter Pack</td>
+            <td>$49.99</td>
+            <td>Three Director’s Cut credits</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="lockup" style="margin-top: 1.25rem;">Start free. Pay only when you’re ready for the movie.</p>
+    </section>
+
+    <!-- ========== SLIDE 10 · GROWTH LOOP · EDIT BELOW ========== -->
+    <section class="slide" data-num="10 / 15" id="s10">
+      <p class="eyebrow">Growth</p>
+      <h2>Every finished story can start another.</h2>
+      <p class="s10-sub">When someone chooses to share their film, it creates two actions:</p>
+      <div class="action-pair">
+        <div class="card teal">
+          <div class="num">01</div>
+          <p>Someone shares their film.</p>
+        </div>
+        <div class="card teal">
+          <div class="num">02</div>
+          <p>Someone else starts their own chapter.</p>
+        </div>
+      </div>
+      <div class="growth-loop">
+        <p class="growth-loop-title">Every shared story becomes proof, referral, and distribution.</p>
+        <div class="growth-loop-track">
+          <span class="stage">Tell Story</span>
+          <span class="arrow">→</span>
+          <span class="stage">Finish Movie</span>
+          <span class="arrow">→</span>
+          <span class="stage">Share Movie</span>
+          <span class="arrow">→</span>
+          <span class="stage">Friend Starts</span>
+          <span class="arrow">→</span>
+          <span class="stage">Another Movie</span>
+        </div>
+      </div>
+      <p class="s10-metric"><span class="s10-metric-label">North Star Metric</span>: % of completed films that lead to a new chapter started.</p>
+      <p class="lockup s10-lockup">Share your film. When a friend makes their first movie, get 50% off your next chapter.</p>
+    </section>
+
+    <!-- ========== SLIDE 11 · WHAT WE ARE PROVING · EDIT BELOW ========== -->
+    <section class="slide" data-num="11 / 15" id="s11">
+      <p class="eyebrow">What we are proving</p>
+      <h2>The beta proves whether personal storytelling can become a repeatable, shareable product.</h2>
+      <p class="ui muted" style="font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; margin: 0.85rem 0 0.55rem;">100-user beta goals</p>
+      <div class="grid-2-top">
+        <ul class="checklist">
+          <li>Time from first prompt to finished film</li>
+          <li>Prompt-flow completion rate</li>
+          <li>Story / film completion rate</li>
+          <li>Percentage of users who share</li>
+        </ul>
+        <ul class="checklist">
+          <li>Referral rate: completed user → new user</li>
+          <li>Willingness to pay for a finished Chapter Film</li>
+          <li>Emotional resonance: “Did this help you see your story differently?”</li>
+        </ul>
+      </div>
+      <div class="s11-conclusion">
+        <div class="s11-conclusion-rule" aria-hidden="true"></div>
+        <p class="s11-conclusion-label">One story engine.</p>
+        <p class="s11-conclusion-line">A&nbsp;lifetime&nbsp;of&nbsp;meaningful&nbsp;chapters.</p>
+      </div>
+    </section>
+
+    <!-- ========== SLIDE 12 · STATUS · ROADMAP · EDIT BELOW ========== -->
+    <section class="slide" data-num="12 / 15" id="s12">
+      <p class="eyebrow">Status · Roadmap</p>
+      <h2>Where we are</h2>
+      <div class="grid-2-top" style="margin-top: 0.85rem;">
+        <div>
+          <p class="ui muted" style="font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 0.35rem;">Done</p>
+          <ul class="checklist">
+            <li class="done">Feature film completed (proof)</li>
+            <li class="done">Book written</li>
+            <li class="done">Closed beta-ready product in final build for iOS and Android</li>
+            <li class="done">Trademark registered</li>
+            <li class="done"><a class="contact-link" href="https://futurevibrantself.com" target="_blank" rel="noopener noreferrer">futurevibrantself.com</a></li>
+          </ul>
+          <p class="ui muted" style="font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; margin: 1rem 0 0.35rem;">Open</p>
+          <ul class="checklist">
+            <li>Closed beta — 100 early users</li>
+            <li>Raising pre-seed</li>
+          </ul>
+        </div>
+        <div style="display: grid; gap: 0.65rem;">
+          <div class="card teal"><strong>Now</strong><p>Make story + film rock solid.</p></div>
+          <div class="card"><strong>Next</strong><p>100 users. Learn. Harden.</p></div>
+          <div class="card"><strong>Then</strong><p>Ready for a wider launch.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SLIDE 13 · WHY NOW · EDIT BELOW ========== -->
+    <section class="slide" data-num="13 / 15" id="s13">
+      <p class="eyebrow">Why now</p>
+      <h2>Everyone already carries the raw material for a personal film.</h2>
+      <div class="s13-grid">
+        <div class="s13-copy compact">
+          <p>Smartphones gave people years of photos and videos.</p>
+          <p>AI can now understand language, media, and narrative at scale.</p>
+          <p>But no product guides ordinary people from lived experience to a finished, meaningful story.</p>
+          <p class="lockup s13-lockup">We are building the <span class="s13-lockup-heavy">Future of Storytelling</span>.</p>
+        </div>
+        <div class="s13-cards">
+          <div class="card teal">
+            <strong>Today</strong>
+            <p class="s13-card-body">Chapter Films</p>
+          </div>
+          <div class="card" id="s13-tomorrow">
+            <strong>Tomorrow</strong>
+            <ul class="ui">
+              <li>Family histories</li>
+              <li>Personal memoirs</li>
+              <li>Guided legacy creation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SLIDE 14 · THE ASK · EDIT BELOW ========== -->
+    <section class="slide" data-num="14 / 15" id="s14">
+      <p class="eyebrow">The ask</p>
+      <h2>Build the infrastructure for thousands of personal documentaries.</h2>
+      <div class="s14-grid">
+        <div class="card teal s14-left">
+          <span class="s14-label s14-raising">Raising</span>
+          <p class="s14-raise">$3.7M</p>
+          <p class="s14-runway">24 months of runway</p>
+          <div class="s14-contrast">
+            <p class="s14-contrast-lead">For context, $3.7M is less than the average budget of a low-budget independent film.</p>
+            <p class="s14-contrast-punch">This isn’t one movie.</p>
+            <p class="s14-contrast-sub">It’s the infrastructure to create thousands of them.</p>
+          </div>
+          <div class="s14-unlocks">
+            <span class="s14-label">What this unlocks</span>
+            <ul class="s14-milestones">
+              <li>Launch-ready iOS + Android product</li>
+              <li>Scalable Story Lab, AI, and film-processing system</li>
+              <li>Original music and premium cinematic output</li>
+              <li>First paid users, repeat chapters, and referral growth</li>
+              <li>Validated unit economics for personal films at scale</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card s14-right">
+          <p class="s14-funds-title" style="color:#ffffff;font-weight:800;-webkit-text-fill-color:#ffffff;">Use of funds</p>
+          <table class="s14-table">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Allocation</th>
+                <th>%</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Product build — eng, design, contractors (excl. founder)</td>
+                <td>$1,480,000</td>
+                <td>40%</td>
+              </tr>
+              <tr>
+                <td>AI, video processing, cloud, and media storage</td>
+                <td>$370,000</td>
+                <td>10%</td>
+              </tr>
+              <tr>
+                <td>Growth, partnerships, and customer acquisition</td>
+                <td>$555,000</td>
+                <td>15%</td>
+              </tr>
+              <tr>
+                <td>Original music, creative, and content production</td>
+                <td>$110,000</td>
+                <td>3%</td>
+              </tr>
+              <tr>
+                <td>Legal, privacy, security, and operations</td>
+                <td>$300,000</td>
+                <td>8%</td>
+              </tr>
+              <tr>
+                <td>Founder + core team</td>
+                <td>$555,000</td>
+                <td>15%</td>
+              </tr>
+              <tr>
+                <td>Contingency reserve</td>
+                <td>$330,000</td>
+                <td>9%</td>
+              </tr>
+              <tr class="total">
+                <td>Total</td>
+                <td>$3,700,000</td>
+                <td>100%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="lockup s14-lockup">Not one movie. A platform for personal films at scale — where every shared film can start another.</p>
+    </section>
+
+    <!-- ========== SLIDE 15 · CLOSE · EDIT BELOW ========== -->
+    <section class="slide title-slide" data-num="15 / 15" id="s15">
+      <div class="s15-grid">
+        <div class="s15-copy">
+          <p class="eyebrow">Next step</p>
+          <h1 class="s15-name">Frank Reina</h1>
+          <p class="s15-role">Founder · Writer · Creator</p>
+          <p class="lockup s15-lockup">Your story is your value</p>
+          <div class="card s15-contact">
+            <p class="s15-contact-row">
+              <span class="s15-contact-label">Web</span>
+              <a class="contact-link" href="https://futurevibrantself.com" target="_blank" rel="noopener noreferrer">futurevibrantself.com</a>
+            </p>
+            <p class="s15-contact-row">
+              <span class="s15-contact-label">Email</span>
+              <a class="contact-link" href="mailto:FJR@futurevibrantself.com">FJR@futurevibrantself.com</a>
+            </p>
+          </div>
+        </div>
+        <div class="s15-photo-wrap">
+          <img class="photo-round" src="assets/Founder%20FR%20Profile%20Pic%20BW%2012.24.jpg" alt="Frank Reina" />
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    const slides = [...document.querySelectorAll(".slide")];
+    const counter = document.getElementById("counter");
+    let i = 0;
+    function show(n) {
+      i = Math.max(0, Math.min(slides.length - 1, n));
+      slides[i].scrollIntoView({ behavior: "smooth", block: "center" });
+      counter.textContent = (i + 1) + " / " + slides.length;
+    }
+    document.getElementById("prev").onclick = () => show(i - 1);
+    document.getElementById("next").onclick = () => show(i + 1);
+    document.addEventListener("keydown", (e) => {
+      // Never steal keys from the trailer player
+      if (e.target && (e.target.closest("video") || e.target.tagName === "VIDEO")) return;
+      if (e.key === "ArrowRight" || e.key === "PageDown") {
+        e.preventDefault();
+        show(i + 1);
+      }
+      if (e.key === "ArrowLeft" || e.key === "PageUp") {
+        e.preventDefault();
+        show(i - 1);
+      }
+      // Space only advances slides when NOT interacting with media
+      if (e.key === " " && !e.target.closest("a, button, video, input, textarea")) {
+        e.preventDefault();
+        show(i + 1);
+      }
+    });
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting) {
+          const idx = slides.indexOf(en.target);
+          if (idx >= 0) {
+            i = idx;
+            counter.textContent = (i + 1) + " / " + slides.length;
+          }
+        }
+      });
+    }, { threshold: 0.55 });
+    slides.forEach((s) => io.observe(s));
+    counter.textContent = "1 / " + slides.length;
+
+    /* Slide 1: pin letterform ink to GIF borders (title top · email bottom) */
+    function opticalAlignTitleSlide() {
+      if (window.matchMedia("(max-width: 900px)").matches) return;
+      const h1 = document.querySelector("#s1 .title-top h1");
+      const email = document.querySelector("#s1 .title-foot .foot-email");
+      if (!h1 || !email) return;
+      const ctx = document.createElement("canvas").getContext("2d");
+      if (!ctx) return;
+
+      const nudgeInk = (el, edge) => {
+        const cs = getComputedStyle(el);
+        ctx.font = `${cs.fontStyle} ${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
+        const m = ctx.measureText(el.textContent.trim());
+        const fontAscent = m.fontBoundingBoxAscent;
+        const fontDescent = m.fontBoundingBoxDescent;
+        const inkAscent = m.actualBoundingBoxAscent;
+        const inkDescent = m.actualBoundingBoxDescent;
+        if (![fontAscent, fontDescent, inkAscent, inkDescent].every((n) => Number.isFinite(n))) {
+          el.style.marginTop = edge === "top" ? "-0.12em" : "";
+          el.style.marginBottom = edge === "bottom" ? "-0.05em" : "";
+          return;
+        }
+        if (edge === "top") {
+          el.style.marginTop = `${-(fontAscent - inkAscent)}px`;
+          el.style.marginBottom = "";
+          el.style.transform = "";
+        } else {
+          // Bottom of email ink = GIF bottom border
+          el.style.marginTop = "";
+          el.style.marginBottom = `${-(fontDescent - inkDescent)}px`;
+          el.style.transform = "";
+        }
+      };
+
+      nudgeInk(h1, "top");
+      nudgeInk(email, "bottom");
+    }
+
+    const s1Gif = document.querySelector("#s1 .brand-motion");
+    const runS1Align = () => {
+      opticalAlignTitleSlide();
+    };
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(runS1Align);
+    }
+    if (s1Gif) {
+      if (s1Gif.complete) runS1Align();
+      else s1Gif.addEventListener("load", runS1Align, { once: true });
+    }
+    window.addEventListener("resize", runS1Align);
+    requestAnimationFrame(runS1Align);
+
+  </script>
+</body>
+</html>
