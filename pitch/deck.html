@@ -3,7 +3,17 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
 <title>Future Vibrant Self — Pre-Seed Pitch Deck (15)</title>
+<script>
+  /* Private draft gate — must enter via /pitch/ password */
+  if (sessionStorage.getItem("fvs_pitch_ok") !== "1") {
+    location.replace("./");
+  }
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600;1,700&family=IBM+Plex+Mono:wght@400;500&family=League+Spartan:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -138,69 +148,124 @@
     background-clip: text;
     color: transparent;
   }
-  /* Slide 2 — Frank positions baked; teal drag chrome removed */
+  /* Slide 2 — clean left sequence; phone stays right */
   #s2.slide {
     justify-content: flex-start;
     padding-top: 2.35rem;
     padding-bottom: 2.35rem;
   }
-  #s2 .eyebrow { margin: 0 0 0.75rem; }
+  #s2 .eyebrow {
+    margin: 1em 0 0.75rem; /* drop Problem + headline one space; stage compensated below */
+    text-align: left;
+    align-self: flex-start;
+  }
   #s2 h2 {
     max-width: none;
     white-space: nowrap;
     margin: 0;
+    text-align: left;
+    align-self: flex-start;
+    width: auto;
   }
   #s2 .s2-stage {
-    --s2-line-gap: 0.32rem;
+    --s2-line-gap: 0.35rem;
+    --s2-group-gap: 1.85rem;
     position: relative;
     width: 100%;
     height: min(440px, 58vh);
-    margin-top: clamp(2rem, 5vh, 3.25rem);
+    /* keep body/phone where they were */
+    margin-top: calc(clamp(2rem, 5vh, 3.25rem) - 1em);
+    align-self: stretch;
   }
-  #s2 .s2-copy,
-  #s2 .s2-stage .lockup,
-  #s2 .s2-phone {
+  #s2 .s2-copy {
     position: absolute;
+    left: 0; /* same left edge as eyebrow + headline */
+    top: 11px;
+    width: min(34em, 52%);
     margin: 0;
+    text-align: left;
   }
-  #s2 .s2-copy p {
+  #s2 .s2-group p {
     margin: 0;
     font-size: clamp(1.28rem, 2.15vw, 1.55rem);
     line-height: 1.45;
     color: var(--ink);
     font-weight: 300;
   }
-  #s2 .s2-copy.have {
-    left: 26px;
-    top: 11px;
+  #s2 .s2-group p + p { margin-top: var(--s2-line-gap); }
+  #s2 .s2-group + .s2-group { margin-top: var(--s2-group-gap); }
+  #s2 .s2-group p.s2-not-stories {
+    margin-top: calc(var(--s2-line-gap) + 0.5em); /* half-space extra under "fragments" */
   }
-  #s2 .s2-copy.have p + p { margin-top: var(--s2-line-gap); }
-  #s2 .s2-copy.problem {
-    left: 144px;
-    top: 165px;
-  }
-  #s2 .s2-copy.problem p + p { margin-top: 0.26rem; }
   #s2 .s2-copy .hit {
     color: var(--teal);
+    font-weight: 300; /* teal only — no bold */
+  }
+  #s2 .s2-copy strong {
     font-weight: 600;
+    color: inherit;
   }
-  #s2 .s2-stage .lockup {
-    left: 235px;
-    top: 340px;
-    font-size: calc(1.3rem + 2pt);
+  #s2 .s2-underline {
+    text-decoration: underline;
+    text-underline-offset: 0.28em; /* half-space more air under the word */
+  }
+  #s2 .s2-dash {
+    display: block;
+    margin: 2.75rem 0 0.85rem; /* space after "Not stories." */
+    font-family: var(--font-display);
+    font-size: clamp(1.28rem, 2.15vw, 1.55rem);
+    font-weight: 300;
+    line-height: 1;
+    color: var(--ink-2);
+    letter-spacing: 0;
+  }
+  #s2 .s2-copy .lockup {
+    display: block;
+    position: static;
+    left: auto;
+    top: auto;
+    margin: 0;
+    font-size: clamp(1.28rem, 2.15vw, 1.55rem); /* match body */
+    line-height: 1.45;
     max-width: 22em;
+    text-align: left;
+    /* pink ↔ lavender (same spectrum as other lockups) */
+    background-image: linear-gradient(90deg, #C4B5FD 0%, #E0A0D8 42%, #E84B8A 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
   }
+  #s2 .s2-copy .lockup strong {
+    font-weight: 600;
+    font-style: italic; /* keep lockup italic */
+    background-image: inherit;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  /*
+   * S3 visual reference (measured @ 1120×630 slide):
+   *   img 204 × 443.58px
+   *   left 761.92 · top 93.2 · right inset 154.08 · border-radius 18px
+   * Absolute coords are inset by the 1px slide border (padding-edge containing block).
+   */
   #s2 .s2-phone {
-    left: 727px;
-    top: 0;
+    position: absolute;
+    left: 760.92px; /* 761.92 − 1px border */
+    top: 92.2px;    /* 93.2 − 1px border */
+    margin: 0;
+    z-index: 2;
   }
   #s2 .s2-phone img {
     display: block;
-    height: 409px;
-    width: auto;
+    width: 204px;
+    max-width: 204px;
+    height: 443.58px;
     object-fit: contain;
-    object-position: top center;
-    border-radius: 22px;
+    object-position: center center;
+    border-radius: 18px;
     border: 1px solid rgba(255, 255, 255, 0.14);
     box-shadow: var(--shadow-cine);
     background: #000;
@@ -249,37 +314,46 @@
     font-weight: 300;
   }
   #s3 .s3-steps li + li { margin-top: 14px; } /* 12–16px */
+  #s3 .s3-steps li.s3-step-nowrap span:last-child {
+    white-space: nowrap;
+  }
   #s3 .s3-steps .num {
     font-family: var(--font-ui);
     font-size: 0.7rem;
     font-weight: 500;
     letter-spacing: 0.12em;
-    color: var(--teal);
+    color: var(--pink); /* match slide 5 flowchart box numbers */
   }
-  #s3 .s3-outcome {
-    margin: 1.2rem 0 0; /* modest gap after Step 02 */
-    max-width: 22em;
-    font-size: clamp(1.22rem, 2.05vw, 1.48rem);
-    line-height: 1.35;
-    color: var(--ink);
-    font-weight: 400;
-  }
-  #s3 .s3-outcome .weight {
+  #s3 .s3-steps .weight {
     font-weight: 600;
   }
-  #s3 .s3-reassure-block {
-    margin-top: 1rem;
-  }
-  #s3 .s3-reassure-block .s3-reassure {
-    margin: 0;
-    font-size: clamp(1.02rem, 1.65vw, 1.15rem);
-    line-height: 1.35;
-    color: var(--ink-2);
+  #s3 .s3-dash {
+    display: block;
+    margin: 1.35rem 0 0.85rem; /* space, then dash above lockup */
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 1.8vw, 1.28rem);
     font-weight: 300;
+    line-height: 1;
+    color: var(--ink-2);
   }
-  #s3 .s3-reassure-block .lockup {
-    margin: 0.35rem 0 0;
-    font-size: clamp(1.15rem, 1.9vw, 1.35rem);
+  #s3 .s3-left .lockup {
+    margin: 0;
+    font-size: clamp(1.1rem, 1.8vw, 1.28rem); /* match body steps */
+    /* solid teal — no pink gradient; bold phrase matches */
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    -webkit-text-fill-color: var(--teal);
+    color: var(--teal);
+  }
+  #s3 .s3-left .lockup strong {
+    font-weight: 600;
+    font-style: italic;
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    -webkit-text-fill-color: var(--teal);
+    color: var(--teal);
   }
   #s3 .s3-right {
     display: flex;
@@ -332,6 +406,14 @@
     color: var(--pink);
     letter-spacing: 0.08em;
     margin-bottom: 0.3rem;
+  }
+  /* Slide 5 — short phrase body in flow boxes */
+  #s5 .grid-4 .card p {
+    font-size: 1.08rem;
+    font-weight: 300;
+    line-height: 1.3;
+    white-space: nowrap;
+    color: var(--ink-2);
   }
   ul { margin: 0.35rem 0 0; padding-left: 1.05rem; }
   li + li { margin-top: 0.28rem; }
@@ -493,7 +575,7 @@
     font-size: 0.78rem;
     letter-spacing: 0.04em;
     line-height: 1.35;
-    color: var(--ink-3);
+    color: var(--ink); /* white — captions under Story / Movie / Chapters */
   }
   figure.media { margin: 0; text-align: center; }
   figure.media figcaption,
@@ -751,17 +833,70 @@
     justify-content: center;
     align-self: center;
   }
-  /* Founder proof: trailer top lines up with "Founder proof" eyebrow */
-  #s8 .split-even {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
-    gap: 1.75rem;
-    align-items: start;
+  /* Founder proof: trailer stays centered; copy centers to match it */
+  #s8.slide {
+    justify-content: stretch;
   }
-  #s8 .split-media { align-self: start; padding-top: 0; }
-  #s8 .split-copy .eyebrow { margin-top: 0; margin-bottom: 0.7rem; }
+  #s8 .split-even {
+    flex: 1 1 auto;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    grid-template-rows: 1fr;
+    gap: 1.75rem;
+    align-items: center; /* text + trailer share the same vertical center */
+    min-height: 0;
+    height: 100%;
+  }
+  #s8 .split-copy {
+    align-self: center;
+  }
+  #s8 .split-media {
+    align-self: center;
+    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    min-height: 0;
+  }
+  #s8 .split-copy .eyebrow {
+    margin-top: 0;
+    margin-bottom: 0.7rem;
+    font-size: 10px; /* match other slides (was inflated by body p rule) */
+  }
   #s8 .split-copy h2 { margin-bottom: 0.85rem; }
-  #s8 .split-copy p { margin-top: 0; margin-bottom: 0.7rem; }
-  #s8 .split-copy .lockup { margin-top: 1.1rem; margin-bottom: 0; }
+  #s8 .split-copy p:not(.lockup):not(.eyebrow) {
+    margin-top: 0;
+    margin-bottom: 0.7rem;
+    font-size: 1.15rem; /* one step up from default body — not eyebrow/title */
+  }
+  #s8 .split-copy .s8-dash {
+    display: block;
+    margin: 1.65rem 0 0.85rem; /* space after proof-of-concept line, then dash */
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1;
+    color: var(--ink-2);
+  }
+  #s8 .split-copy .lockup {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 1.2rem;
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    -webkit-text-fill-color: var(--teal);
+    color: var(--teal);
+  }
+  #s8 .split-copy .lockup strong {
+    font-weight: 600;
+    font-style: italic;
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    -webkit-text-fill-color: var(--teal);
+    color: var(--teal);
+  }
   #s8 .video-embed { max-width: 100%; margin-top: 0; }
   .logo.logo-hero {
     width: clamp(160px, 20vw, 220px);
@@ -848,6 +983,12 @@
     margin: 0;
     color: var(--ink-3);
   }
+  #s1 .title-foot .foot-name {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff;
+    font-weight: 700 !important;
+    font-family: var(--font-head);
+  }
   #s1 .title-foot .sep {
     opacity: 0.55;
     padding: 0 0.2em;
@@ -870,7 +1011,7 @@
   }
   .title-slide .tagline {
     margin: 1.15rem 0 0;
-    font-size: calc(1.05rem + 1pt);
+    font-size: calc(1.2rem + 1pt);
     font-style: italic;
     color: var(--ink-2);
   }
@@ -903,6 +1044,97 @@
   .checklist li.done::before {
     background: var(--teal);
     border-color: var(--teal);
+  }
+  /* Slide 12 — hierarchy only: Done → Now → Next → Then */
+  #s12.slide {
+    justify-content: flex-start;
+  }
+  /* Drop eyebrow + headline only — cut dead air above; lists/boxes stay centered */
+  #s12 .eyebrow {
+    margin-top: 2.75rem;
+  }
+  #s12 h2 {
+    /* keep largest text on slide */
+    font-size: clamp(1.6rem, 2.9vw, 2.3rem);
+  }
+  #s12 .s12-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.9rem;
+    margin-top: 0.85rem;
+    align-items: start;
+    width: 100%;
+    /* columns are absolutely centered; grid keeps horizontal lanes */
+    min-height: 0;
+  }
+  /* Status lists share the same vertical center as the roadmap boxes */
+  #s12 .s12-left {
+    position: absolute;
+    top: 50%;
+    left: 3rem; /* match slide padding */
+    transform: translateY(-50%);
+    width: calc((100% - 6rem - 0.9rem) / 2);
+    margin: 0;
+  }
+  #s12 .s12-label {
+    margin: 0 0 0.35rem;
+    font-family: var(--font-ui);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 400;
+  }
+  #s12 .s12-label-open {
+    margin-top: 1rem;
+  }
+  #s12 .s12-done {
+    margin-top: 0;
+  }
+  #s12 .s12-done li {
+    color: var(--ink); /* brighter — main proof */
+  }
+  #s12 .s12-open {
+    margin-top: 0;
+  }
+  #s12 .s12-open li {
+    color: var(--ink-3); /* more muted — pending */
+  }
+  #s12 .s12-open li::before {
+    border-color: rgba(255, 255, 255, 0.22);
+  }
+  /* Three boxes: vertically centered between slide top & bottom borders */
+  #s12 .s12-roadmap {
+    position: absolute;
+    top: 50%;
+    right: 3rem; /* match slide padding */
+    transform: translateY(-50%);
+    width: calc((100% - 6rem - 0.9rem) / 2);
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    padding-top: 0;
+    margin: 0;
+  }
+  #s12 .s12-now p {
+    font-size: 1.05rem;
+    color: var(--ink);
+    font-weight: 400;
+  }
+  #s12 .s12-next,
+  #s12 .s12-then {
+    border-color: rgba(255, 255, 255, 0.10);
+    background: rgba(255, 255, 255, 0.02);
+  }
+  #s12 .s12-next strong,
+  #s12 .s12-then strong {
+    color: var(--ink-3);
+  }
+  #s12 .s12-next p,
+  #s12 .s12-then p {
+    font-size: 0.95rem;
+    color: var(--ink-3);
+    font-weight: 300;
   }
   .q { font-style: italic; color: var(--ink); font-size: 1rem; }
   .diff-banner {
@@ -1497,7 +1729,7 @@
       margin: 0 auto;
     }
     #s3 .s3-visual img { height: auto; }
-    .grid-2, .grid-2-eq, .grid-2-top, .grid-3, .grid-4, .split-even, .action-pair, .outcome-trio, #s14 .s14-grid { grid-template-columns: 1fr; }
+    .grid-2, .grid-2-eq, .grid-2-top, .grid-3, .grid-4, .split-even, .action-pair, .outcome-trio, #s12 .s12-grid, #s14 .s14-grid { grid-template-columns: 1fr; }
     #s1 .brand-motion { width: 100%; margin-left: 0; }
     #s1 .title-copy {
       position: relative;
@@ -1536,8 +1768,6 @@
 </style>
 </head>
 <body>
-<script>(function(){if(sessionStorage.getItem("fvs_pitch_ok")!=="1"){location.replace("./");}})();</script>
-
   <div class="chrome">
     <div><span class="draft">Draft — Frank review only · Not for distribution</span></div>
     <nav>
@@ -1560,7 +1790,7 @@
             <p class="tagline">A personal documentary studio app.</p>
           </div>
           <div class="title-foot">
-            <p class="foot-role">Founder <span class="sep">|</span> Frank Reina</p>
+            <p class="foot-role">Founder <span class="sep">|</span> <span class="foot-name">Frank Reina</span></p>
             <a class="contact-link" href="https://futurevibrantself.com" target="_blank" rel="noopener noreferrer">futurevibrantself.com</a>
             <a class="contact-link foot-email" href="mailto:FJR@futurevibrantself.com">FJR@futurevibrantself.com</a>
           </div>
@@ -1572,21 +1802,26 @@
     <!-- ========== SLIDE 02 · PROBLEM · EDIT BELOW ========== -->
     <section class="slide" data-num="02 / 15" id="s2">
       <p class="eyebrow">Problem</p>
-      <h2>Most of us have years of photos and videos stored on our phones.</h2>
+      <h2>We have years of photos and videos stored.</h2>
       <div class="s2-stage">
-        <div class="s2-copy have">
-          <p>We have the memories.</p>
-          <p>We have the life experience.</p>
+        <div class="s2-copy">
+          <div class="s2-group">
+            <p>We have the memories.</p>
+            <p>We have the life experience.</p>
+          </div>
+          <div class="s2-group">
+            <p><strong>But our <span class="s2-underline">phones</span></strong> turn them into montages.</p>
+            <p>Montages are fragments.</p>
+            <p class="s2-not-stories"><span class="hit">Not stories.</span></p>
+          </div>
+          <span class="s2-dash" aria-hidden="true">—</span>
+          <p class="lockup">What if your life became <strong>a powerful story</strong>?</p>
         </div>
-        <div class="s2-copy problem">
-          <p>But our phones turn them into montages.</p>
-          <p>Montages are fragments. <span class="hit">Not stories.</span></p>
-        </div>
-        <p class="lockup">What if your life became a powerful story?</p>
-        <figure class="s2-phone">
-          <img src="assets/ios-collections.png" alt="iPhone Photos — Collections of memories" />
-        </figure>
       </div>
+      <!-- Anchored to slide (not stage) so coords match S3 visual exactly -->
+      <figure class="s2-phone">
+        <img src="assets/ios-collections.png" alt="iPhone Photos — Collections of memories" />
+      </figure>
     </section>
 
     <!-- ========== SLIDE 03 · SOLUTION · EDIT BELOW ========== -->
@@ -1598,15 +1833,11 @@
           <ol class="s3-steps">
             <li><span class="num">01</span><span>Answer a few thoughtful questions.</span></li>
             <li><span class="num">02</span><span>Choose your photos and videos.</span></li>
+            <li class="s3-step-nowrap"><span class="num">03</span><span>FVS shapes your words, memories, and events into a documentary.</span></li>
+            <li><span class="num">04</span><span>No editing skills required.</span></li>
           </ol>
-          <p class="s3-outcome">
-            FVS shapes your words, memories, and life events into a
-            <span class="weight">documentary-style movie</span>.
-          </p>
-          <div class="s3-reassure-block">
-            <p class="s3-reassure">No editing skills required.</p>
-            <p class="lockup">All you need is your phone.</p>
-          </div>
+          <span class="s3-dash" aria-hidden="true">—</span>
+          <p class="lockup">All you need is <strong>your phone</strong>.</p>
         </div>
         <div class="s3-right">
           <figure class="s3-visual">
@@ -1619,7 +1850,7 @@
     <!-- ========== SLIDE 04 · PRODUCT · EDIT BELOW ========== -->
     <section class="slide" data-num="04 / 15" id="s4">
       <p class="eyebrow">Product</p>
-      <h2>One chapter. One simple path.</h2>
+      <h2>One chapter. One simple flow.</h2>
       <div class="outcome-trio">
         <figure>
           <p class="outcome-step">Tell it.</p>
@@ -1651,10 +1882,10 @@
       <h2>Easy to use. Built for your phone.</h2>
       <p class="ui muted" style="font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; margin: 0.4rem 0 0.9rem;">What FVS can do for you</p>
       <div class="grid-4">
-        <div class="card teal"><div class="num">01</div><strong>Capture</strong><p>Guided questions help you tell the story</p></div>
-        <div class="card teal"><div class="num">02</div><strong>Discover</strong><p>FVS finds the themes and emotional through-line</p></div>
-        <div class="card teal"><div class="num">03</div><strong>See</strong><p>Story, audio, and film — from one chapter</p></div>
-        <div class="card teal"><div class="num">04</div><strong>Share</strong><p>Keep it private or share it with the people who matter</p></div>
+        <div class="card teal"><div class="num">01</div><strong>Capture</strong><p>Answer 7 prompts</p></div>
+        <div class="card teal"><div class="num">02</div><strong>Discover</strong><p>Find your story</p></div>
+        <div class="card teal"><div class="num">03</div><strong>See</strong><p>Story · Audio · Film</p></div>
+        <div class="card teal"><div class="num">04</div><strong>Share</strong><p>With loved ones</p></div>
       </div>
       <figure class="media" style="margin: 1.2rem auto 0;">
         <img class="plate" style="height: clamp(180px, 26vh, 244px); width: auto; max-width: 100%; margin: 0 auto;" src="assets/7Qs%20Screenshot.PNG" alt="The guided questions" />
@@ -1737,10 +1968,12 @@
         <div class="split-copy">
           <p class="eyebrow">Founder proof</p>
           <h2>I built the product I needed</h2>
-          <p>For a year, I documented my own transformation using nothing but an iPhone, guided questions, and footage from my life. I turned that process into a feature-length documentary.</p>
-          <p>When friends and family watched it, they said: “I know you better.”</p>
-          <p>That became the proof of concept for Future Vibrant Self.</p>
-          <p class="lockup" style="margin-top: 1rem; font-size: 1.2rem;">The movie is the proof. The app is the product.</p>
+          <p>For a year, I documented my own transformation using only an <em>iPhone, guided questions, and raw footage from my life</em>.</p>
+          <p>I turned that process into a feature-length documentary.</p>
+          <p>When friends and family watched it, they said:</p>
+          <p>“I know you better.”</p>
+          <span class="s8-dash" aria-hidden="true">—</span>
+          <p class="lockup">The movie is the proof. <strong>The FVS app is the product.</strong></p>
         </div>
         <div class="split-media">
           <div class="video-embed">
@@ -1826,7 +2059,7 @@
           <span class="stage">Another Movie</span>
         </div>
       </div>
-      <p class="s10-metric"><span class="s10-metric-label">North Star Metric</span>: % of completed films that lead to a new chapter started.</p>
+      <p class="s10-metric"><span class="s10-metric-label">North Star Metric</span>: % of completed films that lead to a new chapter.</p>
       <p class="lockup s10-lockup">Share your film. When a friend makes their first movie, get 50% off your next chapter.</p>
     </section>
 
@@ -1859,26 +2092,26 @@
     <section class="slide" data-num="12 / 15" id="s12">
       <p class="eyebrow">Status · Roadmap</p>
       <h2>Where we are</h2>
-      <div class="grid-2-top" style="margin-top: 0.85rem;">
-        <div>
-          <p class="ui muted" style="font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 0.35rem;">Done</p>
-          <ul class="checklist">
+      <div class="s12-grid">
+        <div class="s12-left">
+          <p class="s12-label">Done</p>
+          <ul class="checklist s12-done">
             <li class="done">Feature film completed (proof)</li>
             <li class="done">Book written</li>
             <li class="done">Closed beta-ready product in final build for iOS and Android</li>
             <li class="done">Trademark registered</li>
             <li class="done"><a class="contact-link" href="https://futurevibrantself.com" target="_blank" rel="noopener noreferrer">futurevibrantself.com</a></li>
           </ul>
-          <p class="ui muted" style="font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; margin: 1rem 0 0.35rem;">Open</p>
-          <ul class="checklist">
+          <p class="s12-label s12-label-open">Open</p>
+          <ul class="checklist s12-open">
             <li>Closed beta — 100 early users</li>
             <li>Raising pre-seed</li>
           </ul>
         </div>
-        <div style="display: grid; gap: 0.65rem;">
-          <div class="card teal"><strong>Now</strong><p>Make story + film rock solid.</p></div>
-          <div class="card"><strong>Next</strong><p>100 users. Learn. Harden.</p></div>
-          <div class="card"><strong>Then</strong><p>Ready for a wider launch.</p></div>
+        <div class="s12-roadmap">
+          <div class="card teal s12-now"><strong>Now</strong><p>Make story + film rock solid.</p></div>
+          <div class="card s12-next"><strong>Next</strong><p>100 users. Learn. Harden.</p></div>
+          <div class="card s12-then"><strong>Then</strong><p>Ready for a wider launch.</p></div>
         </div>
       </div>
     </section>
