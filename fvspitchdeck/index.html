@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<title>FVS — Private pitch deck</title>
+<style>
+  html, body { margin: 0; min-height: 100%; background: #050403; color: rgba(255,255,255,0.88);
+    font-family: Georgia, "Times New Roman", serif; }
+  .gate { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem; }
+  .card { width: min(360px, 92vw); border: 1px solid rgba(255,255,255,0.16); background: rgba(255,255,255,0.04);
+    padding: 1.75rem 1.5rem; border-radius: 4px; }
+  label { display: block; font-family: system-ui, sans-serif; font-size: 11px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: #1EC8C8; margin-bottom: 0.65rem; }
+  input { width: 100%; box-sizing: border-box; background: #0D0B08; border: 1px solid rgba(255,255,255,0.2);
+    color: #fff; padding: 0.75rem 0.85rem; font-size: 1rem; margin-bottom: 0.85rem; }
+  button { width: 100%; border: 0; background: #1EC8C8; color: #041414; font-family: system-ui, sans-serif;
+    font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; font-size: 12px; padding: 0.85rem; cursor: pointer; }
+  .err { color: #E84B8A; font-family: system-ui, sans-serif; font-size: 13px; min-height: 1.2em; margin: 0 0 0.5rem; }
+  .note { margin: 0.9rem 0 0; font-size: 0.9rem; color: rgba(255,255,255,0.45); line-height: 1.4; }
+</style>
+</head>
+<body>
+  <div class="gate">
+    <div class="card">
+      <label for="pw">Private draft access</label>
+      <p class="err" id="err"></p>
+      <input id="pw" type="password" autocomplete="current-password" placeholder="Access password" />
+      <button type="button" id="go">Open deck</button>
+      <p class="note">Future Vibrant Self · Investor draft · Not for redistribution</p>
+    </div>
+  </div>
+  <script>
+    const KEY = "fvs_pitch_ok";
+    const PASS = "fvs-pitchdeck-080826";
+    const DECK = "./deck.html";
+    function enter() { sessionStorage.setItem(KEY, "1"); location.replace(DECK); }
+    if (sessionStorage.getItem(KEY) === "1") enter();
+    document.getElementById("go").onclick = () => {
+      if (document.getElementById("pw").value === PASS) enter();
+      else document.getElementById("err").textContent = "Incorrect password";
+    };
+    document.getElementById("pw").addEventListener("keydown", (e) => {
+      if (e.key === "Enter") document.getElementById("go").click();
+    });
+  </script>
+</body>
+</html>
