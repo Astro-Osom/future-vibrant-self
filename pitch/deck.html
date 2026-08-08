@@ -897,6 +897,23 @@
     color: var(--teal);
   }
   #s8 .video-embed { max-width: 100%; margin-top: 0; }
+  #s9 .s9-footer {
+    margin: 1.25rem 0 0;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(1.2rem, 2.1vw, 1.5rem); /* match .lockup size */
+    line-height: 1.3;
+    background-image: linear-gradient(90deg, #C4B5FD 0%, #E0A0D8 42%, #E84B8A 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  #s9 .s9-lockup {
+    margin-top: 0.55rem;
+    margin-bottom: 0;
+  }
   .logo.logo-hero {
     width: clamp(160px, 20vw, 220px);
     height: clamp(160px, 20vw, 220px);
@@ -2068,28 +2085,29 @@
             <td>Story Document and narrated audio for your first chapter</td>
           </tr>
           <tr>
-            <td>Director’s Cut</td>
+            <td>FVS Director’s Cut</td>
             <td>$19.99</td>
             <td>A finished cinematic movie of that chapter</td>
           </tr>
           <tr>
-            <td>Final Cut</td>
+            <td>User Final Cut</td>
             <td>$29.99</td>
-            <td>Premium. More footage, retakes, and an extended finished movie</td>
+            <td>Premium — more footage, retakes, extended finished movie</td>
           </tr>
           <tr>
             <td>2-Chapter Pack</td>
-            <td>$39.99</td>
-            <td>Two Director’s Cut credits</td>
+            <td>$29.99 DC · $49.99 FC</td>
+            <td>Two chapter credits at that tier</td>
           </tr>
           <tr>
             <td>3-Chapter Pack</td>
-            <td>$49.99</td>
-            <td>Three Director’s Cut credits</td>
+            <td>$39.99 DC · $69.99 FC</td>
+            <td>Three chapter credits at that tier</td>
           </tr>
         </tbody>
       </table>
-      <p class="lockup" style="margin-top: 1.25rem;">Start free. Pay only when you’re ready for the movie.</p>
+      <p class="s9-footer">Buy more chapters, save more — FVS Director’s Cut or User Final Cut.</p>
+      <p class="lockup s9-lockup">Start free. Pay only when you’re ready for the movie.</p>
     </section>
 
     <!-- ========== SLIDE 10 · GROWTH LOOP · EDIT BELOW ========== -->
