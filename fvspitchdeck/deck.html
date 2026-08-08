@@ -1450,30 +1450,70 @@
     margin-left: auto;
     margin-right: auto;
   }
-  /* Slide 14 — The Ask · final hierarchy */
-  /* Slide 13 — Why Now */
-  #s13 .s13-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 1.25rem;
-    margin-top: 0.85rem;
+  /* Slide 13 — The future of storytelling */
+  #s13.slide {
+    justify-content: center;
     align-items: stretch;
+    padding-top: 2.4rem;
+    padding-bottom: 2.4rem;
   }
-  #s13 .s13-copy {
+  #s13 .s13-vision {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    width: 100%;
+    min-height: 0;
+    text-align: center;
   }
-  #s13 .s13-copy > p:not(.s13-lockup) {
-    margin: 0 0 1.2rem; /* +half space between body paragraphs */
-    font-size: 1.15rem;
+  #s13 .eyebrow {
+    margin: 0 0 0.85rem;
+    text-align: center;
   }
-  #s13 .s13-lockup-block {
-    margin: auto 0 0; /* keep lockup band aligned with Tomorrow card */
+  #s13 .s13-headline {
+    margin: 0 0 1.35rem;
+    max-width: 18em;
+    text-align: center;
+    font-family: var(--font-head); /* League Spartan */
+    font-size: clamp(1.66rem, 3.06vw, 2.38rem); /* ~10% quieter than prior */
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+    text-transform: none;
+    color: #fff;
+  }
+  #s13 .s13-lead {
+    margin: 0 0 2rem;
+    max-width: 22em;
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 2vw, 1.45rem);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.35;
+    color: var(--ink-2);
+  }
+  #s13 .s13-beats {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: min(28em, 100%);
+  }
+  #s13 .s13-beats li {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.22rem, 2vw, 1.58rem); /* half-step quieter */
+    font-weight: 400;
+    line-height: 1.45;
+    color: #fff;
+  }
+  #s13 .s13-beats li + li {
+    margin-top: 0.55rem;
   }
   #s13 .s13-dash {
     display: block;
-    margin: 0 0 0.85rem;
+    margin: 2.35rem 0 0.85rem;
     font-family: var(--font-display);
     font-size: 1.25rem;
     font-weight: 300;
@@ -1481,45 +1521,14 @@
     color: var(--ink-2);
   }
   #s13 .s13-lockup {
-    margin: 0 !important;
-    font-size: 1.25rem;
+    margin: 0;
+    font-size: clamp(1.38rem, 2.35vw, 1.68rem); /* lands above the lead */
+    font-weight: 500;
     background: none;
     -webkit-background-clip: unset;
     background-clip: unset;
     -webkit-text-fill-color: var(--teal);
     color: var(--teal);
-  }
-  #s13 .s13-lockup strong {
-    font-weight: 600;
-    font-style: italic;
-    background: none;
-    -webkit-background-clip: unset;
-    background-clip: unset;
-    -webkit-text-fill-color: var(--teal);
-    color: var(--teal);
-  }
-  #s13 .s13-cards {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    gap: 1.1rem; /* space between Today / Tomorrow */
-  }
-  #s13 #s13-tomorrow {
-    margin-top: auto; /* keep bottom box aligned with lockup */
-  }
-  #s13 .s13-card-body {
-    margin: 0.35rem 0 0;
-    font-family: var(--font-ui);
-    font-size: 0.9rem;
-    color: var(--ink-2);
-    font-weight: 400;
-    line-height: 1.42;
-  }
-  #s13 .s13-cards ul.ui {
-    font-size: 0.9rem;
-    color: var(--ink-2);
-    margin: 0.35rem 0 0;
-    padding-left: 1.05rem;
   }
 
   /* Slide 11 — conclusion lockup */
@@ -2333,34 +2342,20 @@
       </div>
     </section>
 
-    <!-- ========== SLIDE 13 · WHY NOW · EDIT BELOW ========== -->
+    <!-- ========== SLIDE 13 · THE FUTURE OF STORYTELLING · EDIT BELOW ========== -->
     <section class="slide" data-num="13 / 15" id="s13">
-      <p class="eyebrow">Why now</p>
-      <h2>Everyone already carries the raw material for a personal film.</h2>
-      <div class="s13-grid">
-        <div class="s13-copy compact">
-          <p>Smartphones give people years of photos and videos.</p>
-          <p>AI can now understand language, media, and narrative at scale.</p>
-          <p>But no product guides ordinary people from lived experience to a finished, meaningful story.</p>
-          <div class="s13-lockup-block">
-            <span class="s13-dash" aria-hidden="true">—</span>
-            <p class="lockup s13-lockup">We are building the <strong>future of storytelling</strong>.</p>
-          </div>
-        </div>
-        <div class="s13-cards">
-          <div class="card teal">
-            <strong>Today</strong>
-            <p class="s13-card-body">Chapter Films</p>
-          </div>
-          <div class="card" id="s13-tomorrow">
-            <strong>Tomorrow</strong>
-            <ul class="ui">
-              <li>Family histories</li>
-              <li>Personal memoirs</li>
-              <li>Guided legacy creation</li>
-            </ul>
-          </div>
-        </div>
+      <div class="s13-vision">
+        <p class="eyebrow">Why now</p>
+        <h2 class="s13-headline">The Future of Storytelling</h2>
+        <p class="s13-lead">Our chapters create the arc of our story.</p>
+        <ul class="s13-beats">
+          <li>What we’ve done.</li>
+          <li>Who we’ve loved.</li>
+          <li>How we’ve changed.</li>
+          <li>Where we can go.</li>
+        </ul>
+        <span class="s13-dash" aria-hidden="true">—</span>
+        <p class="lockup s13-lockup">FVS helps us see the full picture.</p>
       </div>
     </section>
 
