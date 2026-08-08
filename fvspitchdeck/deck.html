@@ -1786,10 +1786,143 @@
   a.contact-link:hover { color: var(--teal); border-bottom-color: var(--teal); }
   .compact p { font-size: 0.95rem; }
   @media (max-width: 900px) {
-    .slide { padding: 1.45rem; min-height: auto; }
+    .slide {
+      padding: 1.45rem;
+      min-height: auto;
+      overflow: visible; /* don’t clip mobile reflow */
+      width: min(1120px, 100%);
+    }
+    .deck { padding-left: 0.65rem; padding-right: 0.65rem; }
+
+    /* —— Slide 2: stack copy + phone (absolute desktop coords go off-screen) —— */
     #s2 h2 { white-space: normal; }
-    #s2 .s2-stage { height: auto; min-height: 420px; }
-    #s2 .s2-phone img { max-width: 180px; height: auto; }
+    #s2 .s2-stage {
+      height: auto;
+      min-height: 0;
+      margin-top: 1.25rem;
+    }
+    #s2 .s2-copy {
+      position: static;
+      left: auto;
+      top: auto;
+      width: 100%;
+    }
+    #s2 .s2-group p,
+    #s2 .s2-dash,
+    #s2 .s2-copy .lockup {
+      font-size: clamp(1.05rem, 4.2vw, 1.28rem);
+    }
+    #s2 .s2-phone {
+      position: static;
+      left: auto;
+      top: auto;
+      margin: 1.5rem auto 0;
+      display: flex;
+      justify-content: center;
+      z-index: auto;
+    }
+    #s2 .s2-phone img {
+      width: auto;
+      max-width: min(200px, 52vw);
+      height: auto;
+      max-height: 390px;
+    }
+
+    /* —— Slide 12: kill absolute centering; stack Done/Open then Now/Next/Then —— */
+    #s12 .eyebrow { margin-top: 0.35rem; }
+    #s12 .s12-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 0.85rem;
+    }
+    #s12 .s12-left,
+    #s12 .s12-roadmap {
+      position: static;
+      transform: none;
+      left: auto;
+      right: auto;
+      top: auto;
+      width: 100%;
+      margin: 0;
+    }
+    #s12 .s12-roadmap {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    /* —— Slide 14: wrap headlines; fit funds table on screen —— */
+    #s14 h2 {
+      white-space: normal;
+      font-size: clamp(1.25rem, 5.5vw, 1.7rem);
+    }
+    #s14 .s14-contrast-lead { white-space: normal; max-width: none; }
+    #s14 .s14-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    #s14 .s14-right {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      max-width: 100%;
+    }
+    #s14 .s14-table {
+      width: 100%;
+      min-width: 0;
+      table-layout: fixed;
+      font-size: 0.72rem;
+    }
+    #s14 .s14-table th:first-child { width: 46%; }
+    #s14 .s14-table th:nth-child(2) { width: 34%; }
+    #s14 .s14-table th:nth-child(3) { width: 20%; }
+    #s14 .s14-table th,
+    #s14 .s14-table td {
+      padding: 0.4rem 0.25rem 0.4rem 0;
+    }
+    #s14 .s14-table td:first-child {
+      font-size: 0.68rem;
+      line-height: 1.25;
+      padding-right: 0.35rem;
+    }
+    #s14 .s14-table td:nth-child(2) { font-size: 0.72rem; }
+    #s14 .s14-table td:nth-child(3),
+    #s14 .s14-table th:nth-child(3) { font-size: 0.68rem; }
+    #s14 .s14-lockup {
+      white-space: normal;
+      max-width: 100%;
+      font-size: clamp(1rem, 4vw, 1.15rem);
+      margin-top: 1.25rem;
+      text-align: left;
+    }
+
+    /* —— Slide 15: full-width contact card; no clipped border —— */
+    #s15 .s15-grid {
+      grid-template-columns: 1fr;
+      row-gap: 1.5rem;
+    }
+    #s15 .s15-copy {
+      width: 100%;
+      max-width: 100%;
+    }
+    #s15 .s15-contact {
+      max-width: none;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 1rem 1.1rem;
+      align-self: stretch;
+    }
+    #s15 .s15-contact .contact-link {
+      display: inline-block;
+      max-width: 100%;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+    #s15 .s15-photo-wrap .photo-round {
+      width: min(220px, 58vw);
+      height: min(220px, 58vw);
+    }
+
     #s3 .s3-grid {
       grid-template-columns: 1fr;
       row-gap: 1.35rem;
@@ -1801,6 +1934,10 @@
     #s7 .s7-visual {
       max-width: 280px;
       margin: 0 auto;
+    }
+    #s7 .s7-right {
+      justify-content: center;
+      padding-right: 0;
     }
     #s3 .s3-visual {
       width: min(240px, 62vw);
