@@ -1181,17 +1181,35 @@
     color: var(--teal);
     font-weight: 600;
   }
-  #s7.slide { justify-content: center; }
+  #s7.slide {
+    justify-content: flex-start; /* lift Who it’s for / You — less top dead air */
+    padding-top: 2.1rem;
+    padding-bottom: 2.1rem;
+  }
   #s7 .s7-grid {
     display: grid;
-    grid-template-columns: 54% 46%;
-    column-gap: 2.75rem;
+    grid-template-columns: 52% 48%;
+    column-gap: 2.25rem;
     align-items: center; /* image centers to full left text block */
     width: 100%;
+    flex: 1 1 auto;
+    min-height: 0;
   }
-  #s7 .s7-left { min-width: 0; }
-  #s7 .s7-left .eyebrow { margin-bottom: 0.55rem; }
-  #s7 .s7-left h2 { margin-bottom: 0.35rem; }
+  /* Left column: four evenly paced groups — spacing only */
+  #s7 .s7-left {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+  }
+  #s7 .s7-left .eyebrow {
+    margin: 0 0 0.4rem; /* keep close to You. */
+    text-align: left;
+  }
+  #s7 .s7-left h2 {
+    margin: 0.5em 0 18px; /* half-space down; keep gap to statement */
+    text-align: left;
+  }
   #s7 .s7-sub {
     font-family: var(--font-ui);
     font-size: 0.92rem;
@@ -1199,7 +1217,8 @@
     text-transform: uppercase;
     color: var(--ink-2);
     font-weight: 400;
-    margin: 0.25rem 0 1.45rem;
+    margin: 0 0 22px; /* 20–24px to pills — top group continues */
+    text-align: left;
   }
   #s7 .s7-sub strong {
     font-weight: 700;
@@ -1207,50 +1226,71 @@
   }
   #s7 .s7-flywheel {
     justify-content: flex-start;
-    margin: 0 0 1.5rem;
-    gap: 0.45rem;
+    margin: 0 0 40px; /* 36–44px after pills → second group */
+    gap: 0.5rem;
+    padding: 0;
   }
   #s7 .s7-flywheel span {
     padding: 0.42rem 0.6rem;
     font-size: 0.7rem;
   }
   #s7 .s7-flywheel .arrow { display: none; }
+  #s7 .s7-copy {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+  }
   #s7 .s7-copy p {
-    margin: 0 0 0.75rem;
+    margin: 0;
     font-size: clamp(1.02rem, 1.55vw, 1.15rem);
     line-height: 1.42;
     color: var(--ink);
     font-weight: 300;
+    text-align: left;
   }
   #s7 .s7-copy .s7-bold {
     font-weight: 600;
     color: var(--ink);
+    margin: 0 0 calc(16px + 0.5em); /* half-space extra before FVS paragraph */
+  }
+  #s7 .s7-dash {
+    display: block;
+    margin: 40px 0 0.85rem; /* same larger gap before close, then dash */
+    font-family: var(--font-display);
+    font-size: calc(1.2rem + 1pt);
+    font-weight: 300;
+    line-height: 1;
+    color: var(--ink-2);
+    text-align: left;
   }
   #s7 .s7-copy .lockup {
-    margin-top: 1.1rem;
+    margin-top: 0;
     margin-bottom: 0;
     font-size: calc(1.2rem + 1pt);
+    font-weight: 600; /* bold only — color treatment unchanged */
     background-image: linear-gradient(90deg, #C4B5FD 0%, #E0A0D8 40%, #E84B8A 70%, #1EC8C8 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
+    text-align: left;
   }
   #s7 .s7-right {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* nudge image left — more right gutter */
     min-width: 0;
+    padding-right: 0.85rem;
   }
   #s7 .s7-visual {
     margin: 0;
-    width: min(100%, 380px);
+    width: min(100%, 455px); /* a little bigger */
   }
   #s7 .s7-visual img {
     display: block;
     width: 100%;
     height: auto;
-    max-height: min(420px, 56vh);
+    max-height: min(500px, 64vh);
     object-fit: cover;
     object-position: center center;
     border: 0;
@@ -1411,13 +1451,35 @@
     margin: 0 0 1.2rem; /* +half space between body paragraphs */
     font-size: 1.15rem;
   }
-  #s13 .s13-lockup {
-    margin: auto 0 0 !important;
-    font-size: 1.25rem;
+  #s13 .s13-lockup-block {
+    margin: auto 0 0; /* keep lockup band aligned with Tomorrow card */
   }
-  #s13 .s13-lockup .s13-lockup-heavy {
-    font-weight: 700;
+  #s13 .s13-dash {
+    display: block;
+    margin: 0 0 0.85rem;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 300;
+    line-height: 1;
+    color: var(--ink-2);
+  }
+  #s13 .s13-lockup {
+    margin: 0 !important;
+    font-size: 1.25rem;
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    -webkit-text-fill-color: var(--teal);
+    color: var(--teal);
+  }
+  #s13 .s13-lockup strong {
+    font-weight: 600;
     font-style: italic;
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    -webkit-text-fill-color: var(--teal);
+    color: var(--teal);
   }
   #s13 .s13-cards {
     display: flex;
@@ -1551,7 +1613,7 @@
     color: var(--teal);
   }
   #s14 .s14-contrast {
-    margin: 1.35rem 0 0;
+    margin: 0.65rem 0 0; /* bring context line up */
     padding: 0;
   }
   #s14 .s14-contrast-lead {
@@ -1559,7 +1621,8 @@
     font-size: 0.95rem;
     line-height: 1.4;
     color: rgba(255, 255, 255, 0.52);
-    max-width: 22em;
+    max-width: none;
+    white-space: nowrap;
   }
   #s14 .s14-contrast-punch {
     margin: 0.7rem 0 0;
@@ -1830,7 +1893,7 @@
           <p class="eyebrow">Solution</p>
           <h2>Transform one meaningful chapter of your life into a powerful story.</h2>
           <ol class="s3-steps">
-            <li><span class="num">01</span><span>Answer a few thoughtful questions.</span></li>
+            <li><span class="num">01</span><span>Answer 7 guided questions on camera.</span></li>
             <li><span class="num">02</span><span>Choose your photos and videos.</span></li>
             <li class="s3-step-nowrap"><span class="num">03</span><span>FVS shapes your words, memories, and events into a documentary.</span></li>
             <li><span class="num">04</span><span>No editing skills required.</span></li>
@@ -1949,7 +2012,8 @@
           </div>
           <div class="s7-copy">
             <p class="s7-bold">Every meaningful chapter deserves a story.</p>
-            <p>Future Vibrant Self turns it into a finished story and movie — in your own words — so you can see who you’ve become, and who you’re still becoming.</p>
+            <p>Future Vibrant Self turns that chapter into a finished story and movie — in your own words — so you can see who you’ve become.</p>
+            <span class="s7-dash" aria-hidden="true">—</span>
             <p class="lockup">Your story is your value</p>
           </div>
         </div>
@@ -2121,10 +2185,13 @@
       <h2>Everyone already carries the raw material for a personal film.</h2>
       <div class="s13-grid">
         <div class="s13-copy compact">
-          <p>Smartphones gave people years of photos and videos.</p>
+          <p>Smartphones give people years of photos and videos.</p>
           <p>AI can now understand language, media, and narrative at scale.</p>
           <p>But no product guides ordinary people from lived experience to a finished, meaningful story.</p>
-          <p class="lockup s13-lockup">We are building the <span class="s13-lockup-heavy">Future of Storytelling</span>.</p>
+          <div class="s13-lockup-block">
+            <span class="s13-dash" aria-hidden="true">—</span>
+            <p class="lockup s13-lockup">We are building the <strong>future of storytelling</strong>.</p>
+          </div>
         </div>
         <div class="s13-cards">
           <div class="card teal">
@@ -2153,7 +2220,7 @@
           <p class="s14-raise">$3.7M</p>
           <p class="s14-runway">24 months of runway</p>
           <div class="s14-contrast">
-            <p class="s14-contrast-lead">For context, $3.7M is less than the average budget of a low-budget independent film.</p>
+            <p class="s14-contrast-lead">For context, $3.7M is less than the budget of a low-budget film.</p>
             <p class="s14-contrast-punch">This isn’t one movie.</p>
             <p class="s14-contrast-sub">It’s the infrastructure to create thousands of them.</p>
           </div>
