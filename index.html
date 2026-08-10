@@ -171,6 +171,8 @@
   }
   .hero-video:hover .hero-video-play::before { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.12); }
   .hero-video:hover .hero-video-play i { border-color: transparent transparent transparent rgba(255,255,255,0.92); }
+  /* sound on: triangle → a stop/mute square (tap again to mute) */
+  .hero-video-play.sound-on i { border: 0; width: 16px; height: 16px; border-radius: 3px; background: rgba(255,255,255,0.88); transform: translate(-50%, -50%); }
   .hero-video.playing .hero-video-play { opacity: 0; pointer-events: none; }
   /* bottom fade → melts into the next image (like the break-img bands) */
   .hero-video::after {
@@ -570,13 +572,20 @@
   <video class="break-media" muted loop playsinline preload="metadata" poster="assets/v3/redwoods-poster.jpg">
     <source src="assets/v3/redwoods.mp4" type="video/mp4">
   </video>
-  <div class="break-copy tl"><p class="bc-line nw">Choose your footage</p></div>
+  <div class="break-copy tl"><p class="bc-line nw">Choose your moments</p></div>
+</section>
+
+<!-- PINK WALL — "we layer it into your movie" -->
+<section class="break-img">
+  <video class="break-media" muted loop playsinline preload="metadata" poster="assets/v3/pink-wall-poster.jpg">
+    <source src="assets/v3/pink-wall.mp4" type="video/mp4">
+  </video>
   <div class="break-copy br"><p class="bc-line nw">We layer it into your movie</p></div>
 </section>
 
 <section class="break-img">
   <video class="break-media" muted loop playsinline preload="metadata" poster="assets/v3/feet-in-surf-poster.jpg">
-    <source src="assets/v3/feet-in-surf.mp4" type="video/mp4">
+    <source src="assets/v3/feet-in-surf.mp4?v=2" type="video/mp4">
   </video>
   <div class="break-copy tl"><p class="bc-line nw">No video editing skills required</p></div>
 </section>
@@ -592,11 +601,17 @@
   <div class="break-copy lc"><p class="bc-line nw">Small moments become big memories</p></div>
 </section>
 
+<!-- SUNSET WOMAN — "a story you can share" -->
+<section class="break-img">
+  <img src="assets/v3/sunset-woman.jpg" alt="A woman at sunset">
+  <div class="break-copy lc"><p class="bc-line nw">A story you can share</p></div>
+</section>
+
 <section class="break-img">
   <video class="break-media" muted loop playsinline preload="metadata" poster="assets/v3/8mm-poster.jpg">
     <source src="assets/v3/8mm.mp4" type="video/mp4">
   </video>
-  <div class="break-copy lc"><p class="bc-line">A story you can share<br>for future&nbsp;generations.</p></div>
+  <div class="break-copy lc"><p class="bc-line nw">For future generations</p></div>
 </section>
 
 <!-- 6 · WHERE IT BEGAN -->
@@ -643,6 +658,7 @@
   <span>© 2026 Future Vibrant Self</span>
   <div class="links">
     <a href="/terms.html">Terms &amp; Privacy</a>
+    <a href="mailto:fjr@futurevibrantself.com">Contact</a>
     <a href="https://www.instagram.com/futurevibrantself/" target="_blank" rel="noopener">Instagram</a>
     <a href="https://frankjreina.substack.com/" target="_blank" rel="noopener">Substack</a>
     <a href="https://www.frankreina.com/" target="_blank" rel="noopener">Frank Reina</a>
@@ -702,13 +718,21 @@
     heroLoop.addEventListener('loadeddata', kick);
     document.addEventListener('visibilitychange', () => { if (!document.hidden) kick(); });
   }
-  if (heroVideo) {
-    document.getElementById('heroPlay').addEventListener('click', () => {
-      const loop = document.getElementById('heroLoop'); if (loop) loop.pause();
-      heroVideo.insertAdjacentHTML('afterbegin',
-        '<iframe src="https://www.youtube-nocookie.com/embed/OVM1ERV_Dis?autoplay=1&mute=0&controls=1&rel=0&playsinline=1" title="Future Vibrant Self — promo" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>');
-      heroVideo.classList.add('playing');
-    }, { once: true });
+  if (heroVideo && heroLoop) {
+    const playBtn = document.getElementById('heroPlay');
+    playBtn.addEventListener('click', () => {
+      if (heroLoop.muted) {
+        heroLoop.muted = false;
+        heroLoop.currentTime = 0;            // restart so it plays with sound from the top
+        heroLoop.play().catch(() => {});
+        playBtn.classList.add('sound-on');
+        playBtn.setAttribute('aria-label', 'Mute');
+      } else {
+        heroLoop.muted = true;
+        playBtn.classList.remove('sound-on');
+        playBtn.setAttribute('aria-label', 'Play with sound');
+      }
+    });
   }
 
   // trailer: click to play the self-hosted 1080p trailer with sound (guaranteed HD, no adaptive downgrade)
