@@ -433,6 +433,9 @@
   .break-copy.br::before { background: radial-gradient(120% 90% at 100% 100%, rgba(0,0,0,0.62), rgba(0,0,0,0) 56%); }
   .break-copy.lc { align-items: center; justify-content: flex-end; text-align: center; padding-bottom: 9%; }
   .break-copy.lc::before { background: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 46%); }
+  /* top-center — caption sits in the upper third with space below */
+  .break-copy.tc { align-items: center; justify-content: flex-start; text-align: center; padding-top: 13%; }
+  .break-copy.tc::before { background: linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 48%); }
   .break-copy .bc-line { max-width: 22ch; }
   /* one-line captions — never wrap (Frank 8-03); responsive so mobile still fits one line */
   .bc-line.nw { white-space: nowrap; max-width: none; font-size: clamp(15px, 3.9vw, 42px); }
@@ -609,7 +612,7 @@
 <!-- SUNSET WOMAN — "for future generations" -->
 <section class="break-img">
   <img src="assets/v3/sunset-woman.jpg?v=2" alt="A woman at sunset">
-  <div class="break-copy lc"><p class="bc-line nw">For future generations</p></div>
+  <div class="break-copy tc"><p class="bc-line nw">For future generations</p></div>
 </section>
 
 <!-- 6 · WHERE IT BEGAN -->
