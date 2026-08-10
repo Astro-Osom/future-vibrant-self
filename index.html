@@ -485,6 +485,8 @@
   input::placeholder { color: var(--faint); }
   input:focus { border-color: rgba(30,200,200,0.5); }
   button.cta { border: 0; cursor: pointer; width: 100%; }
+  /* honeypot — off-screen; real users never see/fill it, bots auto-fill it → server drops those */
+  .hp { position: absolute !important; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
   .form-note { margin-top: 26px; font-family: var(--sans); font-weight: 300; font-size: 13px; color: var(--faint); }
   .form-note b { color: var(--dim); font-weight: 400; }
   .trust { margin-top: 40px; font-family: var(--display); font-style: italic; font-size: 19px; color: var(--dim); }
@@ -628,6 +630,7 @@
       <input type="text" name="name" placeholder="Your name" autocomplete="name" required>
       <input type="email" name="email" placeholder="Your email" autocomplete="email" required>
       <input type="hidden" name="source" value="website-v3">
+      <div class="hp" aria-hidden="true"><label>Leave this field empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
       <button class="cta" type="submit">Join the Waitlist</button>
     </form>
     <p class="form-success" id="form-success">You&rsquo;re on the list. Your story is safe with us — and it stays yours.</p>
