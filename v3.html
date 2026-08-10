@@ -418,15 +418,9 @@
   .budget-dots { display: inline-flex; gap: 5px; margin-right: 9px; vertical-align: 1px; }
   .budget-dots i { width: 5px; height: 5px; border-radius: 50%; background: var(--teal); display: block; }
 
-  /* ── Image breaks / stills ── */
-  .break-img { padding: 0; overflow: hidden; position: relative; margin-top: -34px; }
+  /* ── Image breaks / stills — clean full-bleed edges, no blend, no hairline ── */
+  .break-img { padding: 0; overflow: hidden; position: relative; margin-top: -1px; background: #000; }
   .break-img img { width: 100%; height: auto; display: block; }
-  /* bands bleed into each other — each media's top feathers into the band above it, no hard
-     seam/border; captions (siblings) stay fully opaque (Frank 8-05) */
-  .break-img img, .break-img .break-media {
-    -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 36px);
-            mask-image: linear-gradient(180deg, transparent 0, #000 36px);
-  }
   /* the transform statement, set over the water */
   .break-copy { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; padding: 48px 60px; }
   .break-copy::before { content: ""; position: absolute; inset: 0; pointer-events: none; }
@@ -567,7 +561,7 @@
         <div class="phone"><div class="phone-screen"><img src="assets/v3/q1-still.jpg" alt="Future Vibrant Self — Question 1" loading="lazy"></div></div>
       </div>
     </div>
-    <div class="neon-section rv" style="text-align:center; margin-top: 44px;">The future of storytelling<br>is your hero&rsquo;s journey</div>
+    <div class="neon-section rv" style="text-align:center; margin-top: 18px; line-height: 1.8;">The future of storytelling<br>is your hero&rsquo;s journey</div>
   </div>
 </section>
 
@@ -588,7 +582,7 @@
 
 <section class="break-img">
   <video class="break-media" muted loop playsinline preload="metadata" poster="assets/v3/feet-in-surf-poster.jpg">
-    <source src="assets/v3/feet-in-surf.mp4?v=3" type="video/mp4">
+    <source src="assets/v3/feet-in-surf.mp4?v=4" type="video/mp4">
   </video>
   <div class="break-copy tl"><p class="bc-line nw">No video editing skills required</p></div>
 </section>
