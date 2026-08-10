@@ -419,11 +419,14 @@
   .budget-dots i { width: 5px; height: 5px; border-radius: 50%; background: var(--teal); display: block; }
 
   /* ── Image breaks / stills ── */
-  .break-img { padding: 0; overflow: hidden; position: relative; margin-top: -1px; }
+  .break-img { padding: 0; overflow: hidden; position: relative; margin-top: -34px; }
   .break-img img { width: 100%; height: auto; display: block; }
-  /* soft, imperceptible seam — a whisper of dark at the very edges, NO black bar (Frank 8-03) */
-  .break-img::after { content: ""; position: absolute; inset: 0; pointer-events: none;
-    background: linear-gradient(180deg, rgba(13,11,8,0.34) 0%, rgba(13,11,8,0) 8%, rgba(13,11,8,0) 92%, rgba(13,11,8,0.34) 100%); }
+  /* bands bleed into each other — each media's top feathers into the band above it, no hard
+     seam/border; captions (siblings) stay fully opaque (Frank 8-05) */
+  .break-img img, .break-img .break-media {
+    -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 36px);
+            mask-image: linear-gradient(180deg, transparent 0, #000 36px);
+  }
   /* the transform statement, set over the water */
   .break-copy { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; padding: 48px 60px; }
   .break-copy::before { content: ""; position: absolute; inset: 0; pointer-events: none; }
@@ -564,7 +567,7 @@
         <div class="phone"><div class="phone-screen"><img src="assets/v3/q1-still.jpg" alt="Future Vibrant Self — Question 1" loading="lazy"></div></div>
       </div>
     </div>
-    <p class="hiw-closing rv">The more vulnerable you&nbsp;are,<br><b>the more rewarding your&nbsp;story.</b></p>
+    <div class="neon-section rv" style="text-align:center; margin-top: 44px;">The future of storytelling<br>is your hero&rsquo;s journey</div>
   </div>
 </section>
 
@@ -585,7 +588,7 @@
 
 <section class="break-img">
   <video class="break-media" muted loop playsinline preload="metadata" poster="assets/v3/feet-in-surf-poster.jpg">
-    <source src="assets/v3/feet-in-surf.mp4?v=2" type="video/mp4">
+    <source src="assets/v3/feet-in-surf.mp4?v=3" type="video/mp4">
   </video>
   <div class="break-copy tl"><p class="bc-line nw">No video editing skills required</p></div>
 </section>
@@ -604,7 +607,7 @@
 <!-- SUNSET WOMAN — "a story you can share" -->
 <section class="break-img">
   <img src="assets/v3/sunset-woman.jpg" alt="A woman at sunset">
-  <div class="break-copy lc"><p class="bc-line nw">A story you can share</p></div>
+  <div class="break-copy tr"><p class="bc-line nw">A story you can share</p></div>
 </section>
 
 <section class="break-img">
