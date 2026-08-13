@@ -210,7 +210,7 @@
   }
   #s2 .s2-dash {
     display: block;
-    margin: 2.75rem 0 0.85rem; /* space after "Not stories." */
+    margin: 2.75rem 0 0.85rem; /* space, then dash above lockup */
     font-family: var(--font-display);
     font-size: clamp(1.28rem, 2.15vw, 1.55rem);
     font-weight: 300;
@@ -226,7 +226,9 @@
     margin: 0;
     font-size: clamp(1.28rem, 2.15vw, 1.55rem); /* match body */
     line-height: 1.45;
-    max-width: 22em;
+    max-width: none;
+    width: max-content;
+    white-space: nowrap;
     text-align: left;
     /* pink ↔ lavender (same spectrum as other lockups) */
     background-image: linear-gradient(90deg, #C4B5FD 0%, #E0A0D8 42%, #E84B8A 100%);
@@ -291,7 +293,7 @@
   }
   #s3 .s3-left h2 {
     margin: 0;
-    max-width: 16em;
+    max-width: 18em; /* fits “What if your phone could create…” */
     /* ~one headline-height before steps */
     margin-bottom: 1.15em;
   }
@@ -337,7 +339,7 @@
   }
   #s3 .s3-left .lockup {
     margin: 0;
-    font-size: clamp(1.1rem, 1.8vw, 1.28rem); /* match body steps */
+    font-size: clamp(1.28rem, 2.1vw, 1.48rem); /* half-step larger than steps */
     /* solid teal — no pink gradient; bold phrase matches */
     background: none;
     -webkit-background-clip: unset;
@@ -1682,9 +1684,9 @@
   }
   #s14 .s14-milestones li {
     position: relative;
-    padding: 0.22rem 0 0.22rem 0.85rem;
-    font-size: 0.88rem;
-    line-height: 1.35;
+    padding: 0.16rem 0 0.16rem 0.85rem;
+    font-size: 0.82rem;
+    line-height: 1.3;
     color: var(--ink-2);
   }
   #s14 .s14-milestones li::before {
@@ -1820,6 +1822,11 @@
     #s2 .s2-dash,
     #s2 .s2-copy .lockup {
       font-size: clamp(1.05rem, 4.2vw, 1.28rem);
+    }
+    #s2 .s2-copy .lockup {
+      white-space: normal;
+      width: auto;
+      max-width: 100%;
     }
     #s2 .s2-phone {
       position: static;
@@ -2036,10 +2043,10 @@
           <div class="s2-group">
             <p><strong>But our <span class="s2-underline">phones</span></strong> turn them into montages.</p>
             <p>Montages are fragments.</p>
-            <p class="s2-not-stories"><span class="hit">Not stories.</span></p>
+            <p>Fragments are highlights.</p>
           </div>
           <span class="s2-dash" aria-hidden="true">—</span>
-          <p class="lockup">What if your life became <strong>a powerful story</strong>?</p>
+          <p class="lockup">Not stories.</p>
         </div>
       </div>
       <!-- Anchored to slide (not stage) so coords match S3 visual exactly -->
@@ -2053,11 +2060,11 @@
       <div class="s3-grid">
         <div class="s3-left">
           <p class="eyebrow">Solution</p>
-          <h2>Transform one meaningful chapter of your life into a powerful story.</h2>
+          <h2>What if your phone could create a powerful story about you?</h2>
           <ol class="s3-steps">
-            <li><span class="num">01</span><span>Answer 7 guided questions on camera.</span></li>
-            <li><span class="num">02</span><span>Choose your photos and videos.</span></li>
-            <li class="s3-step-nowrap"><span class="num">03</span><span>FVS shapes your words, memories, and events into a documentary.</span></li>
+            <li class="s3-step-nowrap"><span class="num">01</span><span>FVS shapes your words, memories, and events into a documentary.</span></li>
+            <li><span class="num">02</span><span>Answer 5 guided questions on camera.</span></li>
+            <li><span class="num">03</span><span>Choose your photos and videos.</span></li>
             <li><span class="num">04</span><span>No editing skills required.</span></li>
           </ol>
           <span class="s3-dash" aria-hidden="true">—</span>
@@ -2106,7 +2113,7 @@
       <h2>Easy to use. Built for your phone.</h2>
       <p class="ui muted" style="font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; margin: 0.4rem 0 0.9rem;">What FVS can do for you</p>
       <div class="grid-4">
-        <div class="card teal"><div class="num">01</div><strong>Capture</strong><p>Answer 7 prompts</p></div>
+        <div class="card teal"><div class="num">01</div><strong>Capture</strong><p>Answer 5 prompts</p></div>
         <div class="card teal"><div class="num">02</div><strong>Discover</strong><p>Find your story</p></div>
         <div class="card teal"><div class="num">03</div><strong>See</strong><p>Story · Audio · Film</p></div>
         <div class="card teal"><div class="num">04</div><strong>Share</strong><p>With loved ones</p></div>
@@ -2236,24 +2243,18 @@
             <td>A finished cinematic movie of that chapter</td>
           </tr>
           <tr>
-            <td>User Final Cut</td>
-            <td>$29.99</td>
-            <td>Premium — more footage, retakes, extended finished movie</td>
-          </tr>
-          <tr>
             <td>2-Chapter Pack</td>
-            <td>$29.99 DC · $49.99 FC</td>
-            <td>Two chapter credits at that tier</td>
+            <td>$29.99</td>
+            <td>Two Director’s Cut chapter credits</td>
           </tr>
           <tr>
             <td>3-Chapter Pack</td>
-            <td>$39.99 DC · $69.99 FC</td>
-            <td>Three chapter credits at that tier</td>
+            <td>$39.99</td>
+            <td>Three Director’s Cut chapter credits</td>
           </tr>
         </tbody>
       </table>
-      <p class="s9-footer">Buy more chapters, save more — FVS Director’s Cut or User Final Cut.</p>
-      <p class="lockup s9-lockup">Start free. Pay only when you’re ready for the movie.</p>
+      <p class="s9-footer">Buy more chapters, save more — FVS Director’s Cut.</p>
     </section>
 
     <!-- ========== SLIDE 10 · GROWTH LOOP · EDIT BELOW ========== -->
@@ -2325,13 +2326,13 @@
             <li class="done">Feature film completed (proof)</li>
             <li class="done">Book written</li>
             <li class="done">Closed beta-ready product in final build for iOS and Android</li>
-            <li class="done">Trademark registered</li>
+            <li class="done">Trademark application pending</li>
             <li class="done"><a class="contact-link" href="https://futurevibrantself.com" target="_blank" rel="noopener noreferrer">futurevibrantself.com</a></li>
           </ul>
           <p class="s12-label s12-label-open">Open</p>
           <ul class="checklist s12-open">
             <li>Closed beta — 100 early users</li>
-            <li>Raising pre-seed</li>
+            <li>Raising pre-seed — $2M</li>
           </ul>
         </div>
         <div class="s12-roadmap">
@@ -2362,25 +2363,26 @@
     <!-- ========== SLIDE 14 · THE ASK · EDIT BELOW ========== -->
     <section class="slide" data-num="14 / 15" id="s14">
       <p class="eyebrow">The ask</p>
-      <h2>Build the infrastructure for thousands of personal documentaries.</h2>
+      <h2>Raising $2M to prove personal films can scale.</h2>
       <div class="s14-grid">
         <div class="card teal s14-left">
-          <span class="s14-label s14-raising">Raising</span>
-          <p class="s14-raise">$3.7M</p>
-          <p class="s14-runway">24 months of runway</p>
+          <span class="s14-label s14-raising">Raising · Pre-seed</span>
+          <p class="s14-raise">$2M</p>
+          <p class="s14-runway">24 months of focused runway</p>
           <div class="s14-contrast">
-            <p class="s14-contrast-lead">For context, $3.7M is less than the budget of a low-budget film.</p>
+            <p class="s14-contrast-lead">For context, $2M is a fraction of one low-budget film.</p>
             <p class="s14-contrast-punch">This isn’t one movie.</p>
-            <p class="s14-contrast-sub">It’s the infrastructure to create thousands of them.</p>
+            <p class="s14-contrast-sub">It’s the engine for thousands of personal films.</p>
           </div>
           <div class="s14-unlocks">
-            <span class="s14-label">What this unlocks</span>
+            <span class="s14-label">What $2M must prove</span>
             <ul class="s14-milestones">
-              <li>Launch-ready iOS + Android product</li>
-              <li>Scalable Story Lab, AI, and film-processing system</li>
-              <li>Original music and premium cinematic output</li>
-              <li>First paid users, repeat chapters, and referral growth</li>
-              <li>Validated unit economics for personal films at scale</li>
+              <li>Launch-ready mobile product + reliable Story Lab / film workflow</li>
+              <li>Capital-efficient AI/video stack (vendor-flexible; optimize after paid proof)</li>
+              <li>Privacy, security, music, and provisional IP foundations</li>
+              <li>Paid $19.99 cohorts: completion, sharing, referrals, repeat chapters</li>
+              <li>Measured cost-per-film and gross-margin path</li>
+              <li>Evidence for a larger seed — or sustainable next phase</li>
             </ul>
           </div>
         </div>
@@ -2396,43 +2398,43 @@
             </thead>
             <tbody>
               <tr>
-                <td>Product build — eng, design, contractors (excl. founder)</td>
-                <td>$1,480,000</td>
-                <td>40%</td>
+                <td>Product — eng &amp; design (excl. founder)</td>
+                <td>$850,000</td>
+                <td>43%</td>
               </tr>
               <tr>
-                <td>AI, video processing, cloud, and media storage</td>
-                <td>$370,000</td>
-                <td>10%</td>
+                <td>AI, video processing, cloud &amp; storage</td>
+                <td>$220,000</td>
+                <td>11%</td>
               </tr>
               <tr>
-                <td>Growth, partnerships, and customer acquisition</td>
-                <td>$555,000</td>
-                <td>15%</td>
+                <td>Growth after paid proof</td>
+                <td>$180,000</td>
+                <td>9%</td>
               </tr>
               <tr>
-                <td>Original music, creative, and content production</td>
-                <td>$110,000</td>
-                <td>3%</td>
+                <td>Original music &amp; creative</td>
+                <td>$50,000</td>
+                <td>2%</td>
               </tr>
               <tr>
-                <td>Legal, privacy, security, and operations</td>
-                <td>$300,000</td>
-                <td>8%</td>
+                <td>Legal, privacy, security, IP &amp; ops</td>
+                <td>$170,000</td>
+                <td>9%</td>
               </tr>
               <tr>
-                <td>Founder + core team</td>
-                <td>$555,000</td>
-                <td>15%</td>
+                <td>Founder + lean core team</td>
+                <td>$380,000</td>
+                <td>19%</td>
               </tr>
               <tr>
                 <td>Contingency reserve</td>
-                <td>$330,000</td>
-                <td>9%</td>
+                <td>$150,000</td>
+                <td>7%</td>
               </tr>
               <tr class="total">
                 <td>Total</td>
-                <td>$3,700,000</td>
+                <td>$2,000,000</td>
                 <td>100%</td>
               </tr>
             </tbody>
