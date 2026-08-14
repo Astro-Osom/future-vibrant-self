@@ -2,12 +2,6 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta name="robots" content="noindex, nofollow" />
-<script>
-  if (sessionStorage.getItem("fvs_pitch_ok") !== "1") {
-    location.replace("./");
-  }
-</script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 <meta http-equiv="Pragma" content="no-cache" />
@@ -1577,12 +1571,25 @@
   #s14 h2 {
     max-width: none;
     font-family: var(--font-head);
-    font-size: clamp(1.6rem, 2.9vw, 2.3rem); /* match Slide 13 / default h2 */
+    font-size: clamp(1.45rem, 2.6vw, 2.05rem);
     font-weight: 600;
-    line-height: 1.1;
+    line-height: 1.15;
     letter-spacing: -0.005em;
     margin: 0 0 0.65rem;
-    white-space: nowrap;
+    white-space: normal;
+  }
+  #s14 .s14-raise {
+    margin: 2rem 0 0;
+    font-family: var(--font-head);
+    font-weight: 600;
+    font-size: clamp(1.15rem, 2vw, 1.5rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  #s14 .s14-contrast {
+    margin: 1.45rem 0 0; /* was after runway; keep air under $2M */
+    padding: 0;
   }
   #s14 .s14-grid {
     display: grid;
@@ -1621,28 +1628,6 @@
     color: var(--teal);
     -webkit-text-fill-color: var(--teal);
     background: none;
-  }
-  #s14 .s14-raise {
-    margin: 2rem 0 0;
-    font-family: var(--font-head);
-    font-weight: 600;
-    font-size: clamp(1.15rem, 2vw, 1.5rem);
-    line-height: 1;
-    letter-spacing: -0.02em;
-    color: var(--ink);
-  }
-  #s14 .s14-runway {
-    margin: 1.45rem 0 0;
-    font-family: var(--font-ui);
-    font-size: 0.68rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    font-weight: 500;
-    color: var(--teal);
-  }
-  #s14 .s14-contrast {
-    margin: 0.65rem 0 0; /* bring context line up */
-    padding: 0;
   }
   #s14 .s14-contrast-lead {
     margin: 0;
@@ -2001,7 +1986,7 @@
 </head>
 <body>
   <div class="chrome">
-    <div><span class="draft">Draft — Frank review only · Not for distribution</span></div>
+    <div><span class="draft">Future Vibrant Self · Pre-seed pitch deck</span></div>
     <nav>
       <button type="button" id="prev">Prev</button>
       <span id="counter">1 / 15</span>
@@ -2115,7 +2100,7 @@
       <div class="grid-4">
         <div class="card teal"><div class="num">01</div><strong>Capture</strong><p>Answer 5 prompts</p></div>
         <div class="card teal"><div class="num">02</div><strong>Discover</strong><p>Find your story</p></div>
-        <div class="card teal"><div class="num">03</div><strong>See</strong><p>Story · Audio · Film</p></div>
+        <div class="card teal"><div class="num">03</div><strong>Experience</strong><p>Story · Audio · Film</p></div>
         <div class="card teal"><div class="num">04</div><strong>Share</strong><p>With loved ones</p></div>
       </div>
       <figure class="media" style="margin: 1.2rem auto 0;">
@@ -2293,7 +2278,7 @@
     <!-- ========== SLIDE 11 · WHAT WE ARE PROVING · EDIT BELOW ========== -->
     <section class="slide" data-num="11 / 15" id="s11">
       <p class="eyebrow">What we are proving</p>
-      <h2>The beta proves whether personal storytelling can become a repeatable, shareable product.</h2>
+      <h2>The beta proves whether premium custom storytelling can become a repeatable product.</h2>
       <p class="ui muted" style="font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; margin: 0.85rem 0 0.55rem;">100-user beta goals</p>
       <div class="grid-2-top">
         <ul class="checklist">
@@ -2363,26 +2348,25 @@
     <!-- ========== SLIDE 14 · THE ASK · EDIT BELOW ========== -->
     <section class="slide" data-num="14 / 15" id="s14">
       <p class="eyebrow">The ask</p>
-      <h2>Raising $2M to prove personal films can scale.</h2>
+      <h2>Raising $2 million to prove custom movies can scale.</h2>
       <div class="s14-grid">
         <div class="card teal s14-left">
           <span class="s14-label s14-raising">Raising · Pre-seed</span>
           <p class="s14-raise">$2M</p>
           <p class="s14-runway">24 months of focused runway</p>
           <div class="s14-contrast">
-            <p class="s14-contrast-lead">For context, $2M is a fraction of one low-budget film.</p>
             <p class="s14-contrast-punch">This isn’t one movie.</p>
-            <p class="s14-contrast-sub">It’s the engine for thousands of personal films.</p>
+            <p class="s14-contrast-sub">It’s the engine for thousands of custom movies.</p>
           </div>
           <div class="s14-unlocks">
-            <span class="s14-label">What $2M must prove</span>
+            <span class="s14-label">What this round unlocks</span>
             <ul class="s14-milestones">
-              <li>Launch-ready mobile product + reliable Story Lab / film workflow</li>
-              <li>Capital-efficient AI/video stack (vendor-flexible; optimize after paid proof)</li>
-              <li>Privacy, security, music, and provisional IP foundations</li>
-              <li>Paid $19.99 cohorts: completion, sharing, referrals, repeat chapters</li>
-              <li>Measured cost-per-film and gross-margin path</li>
-              <li>Evidence for a larger seed — or sustainable next phase</li>
+              <li>A simple mobile experience that reliably creates a finished Chapter Film</li>
+              <li>A cost-controlled AI and video pipeline built for scale</li>
+              <li>Privacy, security, original music, and protected IP</li>
+              <li>Paid customer cohorts that validate completion, sharing, referrals, and repeat chapters</li>
+              <li>Clear unit economics for every finished film</li>
+              <li>The traction required for a larger seed round</li>
             </ul>
           </div>
         </div>
@@ -2398,7 +2382,7 @@
             </thead>
             <tbody>
               <tr>
-                <td>Product — eng &amp; design (excl. founder)</td>
+                <td>Product — engineering &amp; design</td>
                 <td>$850,000</td>
                 <td>43%</td>
               </tr>
@@ -2408,7 +2392,7 @@
                 <td>11%</td>
               </tr>
               <tr>
-                <td>Growth after paid proof</td>
+                <td>Customer growth</td>
                 <td>$180,000</td>
                 <td>9%</td>
               </tr>
@@ -2418,9 +2402,14 @@
                 <td>2%</td>
               </tr>
               <tr>
-                <td>Legal, privacy, security, IP &amp; ops</td>
-                <td>$170,000</td>
-                <td>9%</td>
+                <td>Privacy, security &amp; IP</td>
+                <td>$100,000</td>
+                <td>5%</td>
+              </tr>
+              <tr>
+                <td>Legal &amp; operations</td>
+                <td>$70,000</td>
+                <td>4%</td>
               </tr>
               <tr>
                 <td>Founder + lean core team</td>
@@ -2441,7 +2430,7 @@
           </table>
         </div>
       </div>
-      <p class="lockup s14-lockup">Not one movie. A platform for personal films at scale — where every shared film can start another.</p>
+      <p class="lockup s14-lockup">A system designed to create thousands of custom movies.</p>
     </section>
 
     <!-- ========== SLIDE 15 · CLOSE · EDIT BELOW ========== -->
