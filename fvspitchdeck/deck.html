@@ -192,12 +192,13 @@
     align-self: flex-start;
   }
   #s2 h2 {
-    max-width: none;
-    white-space: nowrap;
+    max-width: 18em;
+    white-space: normal;
     margin: 0;
     text-align: left;
     align-self: flex-start;
     width: auto;
+    line-height: 1.12;
   }
   #s2 .s2-stage {
     --s2-line-gap: 0.35rem;
@@ -1112,8 +1113,9 @@
     margin-top: 2.75rem;
   }
   #s12 h2 {
-    /* keep largest text on slide */
-    font-size: clamp(1.6rem, 2.9vw, 2.3rem);
+    font-size: clamp(1.45rem, 2.6vw, 2.05rem);
+    max-width: 18em;
+    line-height: 1.15;
   }
   #s12 .s12-grid {
     display: grid;
@@ -1538,7 +1540,7 @@
   }
   #s13 .s13-headline {
     margin: 0 0 2rem;
-    max-width: 18em;
+    max-width: 16em;
     text-align: center;
     font-family: var(--font-head); /* League Spartan */
     font-size: clamp(1.66rem, 3.06vw, 2.38rem);
@@ -2171,7 +2173,7 @@
     <!-- ========== SLIDE 02 · PROBLEM · EDIT BELOW ========== -->
     <section class="slide" data-num="02 / 15" id="s2">
       <p class="eyebrow">Problem</p>
-      <h2>We have years of photos and videos stored.</h2>
+      <h2>Our phones turn a lifetime of memories into highlights, not stories.</h2>
       <div class="s2-stage">
         <div class="s2-copy">
           <div class="s2-group">
@@ -2219,7 +2221,7 @@
     <!-- ========== SLIDE 04 · PRODUCT · EDIT BELOW ========== -->
     <section class="slide" data-num="04 / 15" id="s4">
       <p class="eyebrow">Product</p>
-      <h2>One chapter. One simple flow.</h2>
+      <h2>One chapter of your life becomes a story, audio, and a finished film.</h2>
       <div class="outcome-trio">
         <figure>
           <p class="outcome-step">Tell it.</p>
@@ -2248,7 +2250,7 @@
     <!-- ========== SLIDE 05 · BENEFITS · EDIT BELOW ========== -->
     <section class="slide" data-num="05 / 15" id="s5">
       <p class="eyebrow">Product</p>
-      <h2>Easy to use. Built for your phone.</h2>
+      <h2>Five questions on your phone. One story.</h2>
       <p class="ui muted" style="font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; margin: 0.4rem 0 0.9rem;">What FVS can do for you</p>
       <div class="grid-4">
         <div class="card teal"><div class="num">01</div><strong>Capture</strong><p>Answer 5 prompts</p></div>
@@ -2458,16 +2460,13 @@
     <!-- ========== SLIDE 12 · STATUS · ROADMAP · EDIT BELOW ========== -->
     <section class="slide" data-num="12 / 15" id="s12">
       <p class="eyebrow">Status · Roadmap</p>
-      <h2>Where we are</h2>
+      <h2>FVS App is beta ready for iOS and Android</h2>
       <div class="s12-grid">
         <div class="s12-left">
           <p class="s12-label">Done</p>
           <ul class="checklist s12-done">
             <li class="done">Feature film completed (proof)</li>
-            <li class="done">Book written</li>
-            <li class="done">Closed beta-ready product in final build for iOS and Android</li>
             <li class="done">Trademark application pending</li>
-            <li class="done"><a class="contact-link" href="https://futurevibrantself.com" target="_blank" rel="noopener noreferrer">futurevibrantself.com</a></li>
           </ul>
           <p class="s12-label s12-label-open">Open</p>
           <ul class="checklist s12-open">
@@ -2487,15 +2486,16 @@
     <section class="slide" data-num="13 / 15" id="s13">
       <div class="s13-vision">
         <p class="eyebrow">Why now</p>
-        <h2 class="s13-headline">The Future of Storytelling is Your Story</h2>
+        <h2 class="s13-headline">Is the future of storytelling your story?</h2>
         <ul class="s13-beats">
           <li>What you’ve done.</li>
           <li>Who you’ve loved.</li>
           <li>How you’ve changed.</li>
           <li>Where you can go.</li>
+          <li>Who you can inspire.</li>
         </ul>
         <span class="s13-dash" aria-hidden="true">—</span>
-        <p class="lockup s13-lockup">FVS gives you a clear narrative arc.</p>
+        <p class="lockup s13-lockup">FVS makes your narrative arc visible.</p>
       </div>
     </section>
 
