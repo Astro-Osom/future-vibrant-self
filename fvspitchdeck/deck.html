@@ -2,6 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
+<meta name="robots" content="noindex, nofollow" />
+<script>
+  if (sessionStorage.getItem("fvs_pitch_ok") !== "1") {
+    location.replace("./");
+  }
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 <meta http-equiv="Pragma" content="no-cache" />
@@ -43,7 +49,7 @@
   .chrome {
     position: sticky; top: 0; z-index: 20;
     display: flex; align-items: center; justify-content: space-between; gap: 1rem;
-    padding: 0.65rem 1.25rem;
+    padding: 0.75rem 1.25rem; /* equal top/bottom */
     background: rgba(13, 11, 8, 0.88);
     border-bottom: 1px solid var(--hair);
     backdrop-filter: blur(12px);
@@ -52,8 +58,41 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
   }
-  .chrome .draft { color: var(--gold); font-weight: 600; }
-  .chrome nav { display: flex; gap: 0.5rem; align-items: center; color: var(--ink-2); }
+  .chrome-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 0.18rem;
+    min-width: 0;
+    color: var(--gold);
+    font-weight: 600;
+    line-height: 1.15;
+  }
+  .chrome-name,
+  .chrome-sub {
+    display: block;
+    white-space: nowrap;
+  }
+  .chrome-sub {
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    opacity: 0.88;
+  }
+  .chrome nav {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    color: var(--ink-2);
+    flex-shrink: 0;
+  }
+  #counter {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    min-width: 4.6em;
+    text-align: center;
+    line-height: 1;
+  }
   .chrome button {
     background: var(--surface);
     color: var(--ink);
@@ -68,7 +107,7 @@
   }
   .chrome button:hover { border-color: var(--teal); color: var(--teal); }
   .deck {
-    padding: 1.5rem 1rem 4rem;
+    padding: 1.5rem 1rem; /* equal top/bottom page margins */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -218,8 +257,8 @@
     left: auto;
     top: auto;
     margin: 0;
-    font-size: clamp(1.28rem, 2.15vw, 1.55rem); /* match body */
-    line-height: 1.45;
+    font-size: clamp(1.48rem, 2.5vw, 1.8rem); /* half-step larger than body */
+    line-height: 1.4;
     max-width: none;
     width: max-content;
     white-space: nowrap;
@@ -772,6 +811,10 @@
     margin: 0 0 1.35rem;
     font-size: clamp(1.25rem, 2vw, 1.45rem);
   }
+  #s15 .s15-lockup strong {
+    font-weight: 700;
+    font-style: italic;
+  }
   #s15 .s15-contact {
     max-width: 26em;
     padding: 1.05rem 1.15rem;
@@ -858,7 +901,10 @@
     margin-bottom: 0.7rem;
     font-size: 10px; /* match other slides (was inflated by body p rule) */
   }
-  #s8 .split-copy h2 { margin-bottom: 0.85rem; }
+  #s8 .split-copy h2 {
+    margin-bottom: 0.85rem;
+    white-space: nowrap;
+  }
   #s8 .split-copy p:not(.lockup):not(.eyebrow) {
     margin-top: 0;
     margin-bottom: 0.7rem;
@@ -1160,6 +1206,10 @@
     color: var(--ink);
     font-size: 1.02rem;
   }
+  #s6 .s6-lead {
+    max-width: 100%;
+    white-space: normal;
+  }
   #s6 tr.fvs-row td {
     color: var(--ink);
     font-weight: 500;
@@ -1170,14 +1220,21 @@
     text-transform: uppercase;
     letter-spacing: 0.04em;
   }
+  #s6 .diff-banner {
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
   #s6 .diff-banner .lockup {
     margin-top: 0;
-    display: inline-block;
+    display: block;
+    max-width: 100%;
+    white-space: normal;
     font-family: var(--font-display);
     font-style: italic;
     font-weight: 300;
     font-size: calc(1.3rem + 2pt);
-    line-height: 1.3;
+    line-height: 1.35;
     /* pink ↔ lavender spectrum (Frank ref) */
     background-color: transparent;
     background-image: linear-gradient(90deg, #C4B5FD 0%, #E0A0D8 42%, #E84B8A 100%);
@@ -1381,28 +1438,35 @@
     padding: 1.35rem 1.4rem 1.45rem;
     border: 1px solid rgba(30, 200, 200, 0.32);
     background: var(--surface-teal);
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
   }
   #s10 .growth-loop-title {
     margin: 0 0 1.15rem;
     font-family: var(--font-ui);
     font-size: 0.72rem;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--teal);
     font-weight: 500;
     text-align: center;
-    white-space: nowrap;
+    white-space: normal;
+    line-height: 1.4;
+    max-width: 100%;
   }
   #s10 .growth-loop-track {
     display: flex;
     align-items: stretch;
     justify-content: space-between;
-    gap: 0.35rem;
+    gap: 0.4rem;
     width: 100%;
   }
   #s10 .growth-loop-track .stage {
     flex: 1 1 0;
+    width: 0;
     min-width: 0;
+    min-height: 4.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1410,10 +1474,10 @@
     background: var(--surface);
     border: 1px solid var(--hair);
     border-radius: 2px;
-    padding: 0.7rem 0.4rem;
+    padding: 0.85rem 0.5rem;
     font-family: var(--font-ui);
-    font-size: 0.68rem;
-    letter-spacing: 0.06em;
+    font-size: 0.64rem;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     color: var(--ink);
     line-height: 1.25;
@@ -1422,8 +1486,9 @@
     flex: 0 0 auto;
     align-self: center;
     color: var(--pink);
-    font-size: 1rem;
-    padding: 0 0.05rem;
+    font-size: 1.15rem;
+    padding: 0 0.08rem;
+    line-height: 1;
   }
   #s10 .s10-metric {
     margin: 2.35rem 0 0;
@@ -1532,21 +1597,22 @@
     justify-content: flex-start;
   }
   #s11 .s11-conclusion {
-    margin-top: auto;
-    margin-bottom: 3.5rem; /* ~56px above page number */
+    margin-top: 1.75rem;
+    margin-bottom: 2.75rem;
     max-width: none;
     width: max-content;
     align-self: flex-start;
+    padding-top: 0.15rem;
   }
   #s11 .s11-conclusion-rule {
     width: 2rem;
     height: 1px;
     background: var(--teal);
     opacity: 0.85;
-    margin: 0 0 0.75rem;
+    margin: 0 0 0.9rem;
   }
   #s11 .s11-conclusion-label {
-    margin: 0 0 0.4rem;
+    margin: 0 0 0.9rem;
     font-family: var(--font-ui);
     font-size: 10px;
     letter-spacing: 0.22em;
@@ -1782,13 +1848,93 @@
   a.contact-link:hover { color: var(--teal); border-bottom-color: var(--teal); }
   .compact p { font-size: 0.95rem; }
   @media (max-width: 900px) {
+    .chrome {
+      padding: 0.75rem 0.75rem;
+      gap: 0.55rem;
+    }
+    .chrome-name,
+    .chrome-sub {
+      white-space: nowrap;
+      font-size: 9px;
+      letter-spacing: 0.1em;
+    }
+    #counter {
+      font-size: 11px;
+      min-width: 4.4em;
+      white-space: nowrap;
+    }
+    .chrome button {
+      padding: 0.4rem 0.62rem;
+    }
     .slide {
       padding: 1.45rem;
       min-height: auto;
       overflow: visible; /* don’t clip mobile reflow */
       width: min(1120px, 100%);
     }
-    .deck { padding-left: 0.65rem; padding-right: 0.65rem; }
+    .deck { padding: 1.5rem 0.65rem; }
+
+    #s3 .s3-steps li.s3-step-nowrap span:last-child {
+      white-space: normal;
+    }
+
+    #s6 .s6-lead,
+    #s6 .diff-banner .lockup {
+      white-space: normal;
+      max-width: 100%;
+    }
+    #s6 .diff-banner {
+      padding: 0.7rem 0.8rem;
+    }
+    #s6 table.table-roomy {
+      font-size: 0.78rem;
+    }
+    #s6 table.table-roomy th,
+    #s6 table.table-roomy td {
+      padding: 0.55rem 0.45rem 0.55rem 0;
+      word-break: break-word;
+    }
+
+    #s8 .split-copy h2 {
+      white-space: nowrap;
+      font-size: clamp(1.05rem, 5.4vw, 1.55rem);
+      letter-spacing: -0.03em;
+    }
+
+    #s10 .growth-loop {
+      padding: 1rem 0.7rem 1.1rem;
+    }
+    #s10 .growth-loop-title {
+      white-space: normal;
+      font-size: 0.62rem;
+      letter-spacing: 0.07em;
+      line-height: 1.4;
+    }
+    #s10 .growth-loop-track {
+      gap: 0.22rem;
+    }
+    #s10 .growth-loop-track .stage {
+      min-height: 3.85rem;
+      padding: 0.55rem 0.22rem;
+      font-size: 0.5rem;
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+    }
+    #s10 .s10-metric {
+      white-space: normal;
+      line-height: 1.4;
+    }
+
+    #s11 .s11-conclusion {
+      width: auto;
+      max-width: 100%;
+      margin-top: 1.5rem;
+      margin-bottom: 1.75rem;
+    }
+    #s11 .s11-conclusion-line {
+      white-space: normal !important;
+      width: auto;
+    }
 
     /* —— Slide 2: stack copy + phone (absolute desktop coords go off-screen) —— */
     #s2 h2 { white-space: normal; }
@@ -1804,11 +1950,11 @@
       width: 100%;
     }
     #s2 .s2-group p,
-    #s2 .s2-dash,
-    #s2 .s2-copy .lockup {
+    #s2 .s2-dash {
       font-size: clamp(1.05rem, 4.2vw, 1.28rem);
     }
     #s2 .s2-copy .lockup {
+      font-size: clamp(1.22rem, 4.8vw, 1.48rem);
       white-space: normal;
       width: auto;
       max-width: 100%;
@@ -1986,7 +2132,10 @@
 </head>
 <body>
   <div class="chrome">
-    <div><span class="draft">Future Vibrant Self · Pre-seed pitch deck</span></div>
+    <div class="chrome-brand">
+      <span class="chrome-name">Future Vibrant Self</span>
+      <span class="chrome-sub">Pre-Seed Pitch Deck</span>
+    </div>
     <nav>
       <button type="button" id="prev">Prev</button>
       <span id="counter">1 / 15</span>
@@ -2022,8 +2171,8 @@
       <div class="s2-stage">
         <div class="s2-copy">
           <div class="s2-group">
-            <p>We have the memories.</p>
-            <p>We have the life experience.</p>
+            <p>We have our life experience.</p>
+            <p>We have our memories.</p>
           </div>
           <div class="s2-group">
             <p><strong>But our <span class="s2-underline">phones</span></strong> turn them into montages.</p>
@@ -2031,7 +2180,7 @@
             <p>Fragments are highlights.</p>
           </div>
           <span class="s2-dash" aria-hidden="true">—</span>
-          <p class="lockup">Not stories.</p>
+          <p class="lockup">Highlights are not <strong>stories</strong>.</p>
         </div>
       </div>
       <!-- Anchored to slide (not stage) so coords match S3 visual exactly -->
@@ -2113,12 +2262,17 @@
     <section class="slide" data-num="06 / 15" id="s6">
       <p class="eyebrow">Why We Win</p>
       <h2>You tell the story. We make the movie.</h2>
-      <p style="max-width: none; white-space: nowrap;">Most tools help you create content. FVS finds the story in your life and makes the movie.</p>
+      <p class="s6-lead">Most tools help you create content. FVS finds the story in your life and makes the movie.</p>
       <table class="table-roomy" style="margin-top: 1.1rem;">
         <thead>
           <tr><th>Product</th><th>What they do</th><th>What’s missing</th></tr>
         </thead>
         <tbody>
+          <tr class="fvs-row">
+            <td>FUTURE VIBRANT SELF</td>
+            <td>A complete story-to-film experience</td>
+            <td>—</td>
+          </tr>
           <tr>
             <td>Camera Roll</td>
             <td>Stores photos and videos</td>
@@ -2138,11 +2292,6 @@
             <td>Runway · Pika · Kling</td>
             <td>Generate AI videos</td>
             <td>Not your real life</td>
-          </tr>
-          <tr class="fvs-row">
-            <td>FUTURE VIBRANT SELF</td>
-            <td>A complete story-to-film experience</td>
-            <td>—</td>
           </tr>
         </tbody>
       </table>
@@ -2271,7 +2420,7 @@
           <span class="stage">Another Movie</span>
         </div>
       </div>
-      <p class="s10-metric"><span class="s10-metric-label">North Star Metric</span>: % of completed films that lead to a new chapter.</p>
+      <p class="s10-metric"><span class="s10-metric-label">Key Performance Indicator</span>: % of completed films that lead to a new chapter.</p>
       <p class="lockup s10-lockup">Share your film. When a friend makes their first movie, get 50% off your next chapter.</p>
     </section>
 
@@ -2333,15 +2482,15 @@
       <div class="s13-vision">
         <p class="eyebrow">Why now</p>
         <h2 class="s13-headline">The Future of Storytelling</h2>
-        <p class="s13-lead">Our chapters create the arc of our story.</p>
+        <p class="s13-lead">Is your Story</p>
         <ul class="s13-beats">
-          <li>What we’ve done.</li>
-          <li>Who we’ve loved.</li>
-          <li>How we’ve changed.</li>
-          <li>Where we can go.</li>
+          <li>What you’ve done.</li>
+          <li>Who you’ve loved.</li>
+          <li>How you’ve changed.</li>
+          <li>Where you can go.</li>
         </ul>
         <span class="s13-dash" aria-hidden="true">—</span>
-        <p class="lockup s13-lockup">FVS helps us see the full picture.</p>
+        <p class="lockup s13-lockup">FVS gives you a clear narrative arc.</p>
       </div>
     </section>
 
@@ -2440,7 +2589,7 @@
           <p class="eyebrow">Next step</p>
           <h1 class="s15-name">Frank Reina</h1>
           <p class="s15-role">Founder · Writer · Creator</p>
-          <p class="lockup s15-lockup">Your story is your value</p>
+          <p class="lockup s15-lockup">Your story is <strong>your value</strong></p>
           <div class="card s15-contact">
             <p class="s15-contact-row">
               <span class="s15-contact-label">Web</span>
