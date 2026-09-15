@@ -76,7 +76,7 @@
     font-family: var(--display); font-weight: 400;
     font-size: clamp(36px, 9vw, 52px);
     line-height: 1.05; letter-spacing: -0.01em;
-    text-align: center; margin-bottom: 18px;
+    text-align: center; margin-bottom: 34px;
   }
   .sub {
     color: var(--dim); font-size: clamp(16px, 4.4vw, 18px);
@@ -163,8 +163,7 @@
 <main>
   <div id="form-view">
     <div class="eyebrow">Invite-only beta</div>
-    <h1>Tell your story —<br>we make the movie.</h1>
-    <p class="sub">Join the Future Vibrant Self beta — a short documentary film of a chapter of your life, from your own words.</p>
+    <h1>Tell your story —<br>choose your footage —<br>we make the movie.</h1>
 
     <form id="beta-form" action="https://tffhhfbuwahtavaghugj.supabase.co/functions/v1/waitlist-join" method="POST" novalidate>
       <div class="name-row">
@@ -186,7 +185,7 @@
       <div class="hp" aria-hidden="true"><label>Leave this field empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
       <input type="hidden" name="source" value="beta-qr">
 
-      <button class="cta" type="submit">Get my invite</button>
+      <button class="cta" type="submit">Join FVS</button>
       <p class="error" id="error" role="alert"></p>
     </form>
 
@@ -199,7 +198,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
     </div>
     <h2>You&rsquo;re on the list.</h2>
-    <p>Watch your email for your invite.</p>
+    <p>Check your email for TestFlight link.</p>
   </div>
 </main>
 
