@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join the FVS Beta</title>
+<meta name="description" content="Join the Future Vibrant Self beta — a short documentary film of a chapter of your life, from your own words.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Join the FVS Beta — Tell your story, we make the movie.">
+<meta property="og:description" content="A short documentary film of a chapter of your life, from your own words. Invite-only beta.">
+<meta property="og:image" content="https://fvsmovies.com/assets/v3/studio-hero.jpg">
+<meta property="og:url" content="https://fvsmovies.com/beta">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://fvsmovies.com/beta">
+<link rel="icon" type="image/png" href="/assets/v3/fvs-logo-960.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Montserrat:wght@200;300;400;500&family=League+Spartan:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --void: #0D0B08;
+    --deep: #050403;
+    --text: #eff2f7;
+    --dim: #99a2b2;
+    --faint: #59616f;
+    --teal: #1EC8C8;
+    --pink: #E84B8A;
+    --gold: #F0A500;
+    --hairline: rgba(255,255,255,0.10);
+    --hairline-soft: rgba(255,255,255,0.06);
+    --surface: rgba(255,255,255,0.045);
+    --serif: "Newsreader", "Instrument Serif", Georgia, serif;
+    --display: "Instrument Serif", Georgia, serif;
+    --sans: "Montserrat", -apple-system, sans-serif;
+    --grad: linear-gradient(90deg, var(--teal), var(--pink), var(--gold));
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background:
+      radial-gradient(1100px 700px at 50% -8%, rgba(30,200,200,0.09), transparent 60%),
+      radial-gradient(900px 620px at 50% 118%, rgba(232,75,138,0.08), transparent 60%),
+      var(--void);
+    color: var(--text);
+    font-family: var(--serif);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+  }
+  a { color: var(--teal); text-decoration: none; }
+
+  .topbar {
+    display: flex; align-items: center; justify-content: center;
+    padding: 26px 22px 6px;
+  }
+  .wordmark {
+    font-family: var(--display); font-size: 19px; letter-spacing: 0.02em; color: var(--text);
+  }
+
+  main {
+    flex: 1;
+    width: 100%; max-width: 520px;
+    margin: 0 auto;
+    padding: clamp(28px, 7vw, 56px) clamp(22px, 6vw, 34px) 64px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+
+  .eyebrow {
+    font-family: var(--sans); font-weight: 400; font-size: 11px;
+    letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 18px; text-align: center;
+  }
+  h1 {
+    font-family: var(--display); font-weight: 400;
+    font-size: clamp(36px, 9vw, 52px);
+    line-height: 1.05; letter-spacing: -0.01em;
+    text-align: center; margin-bottom: 18px;
+  }
+  .sub {
+    color: var(--dim); font-size: clamp(16px, 4.4vw, 18px);
+    text-align: center; max-width: 40ch; margin: 0 auto 38px;
+  }
+
+  form { display: flex; flex-direction: column; gap: 13px; }
+  .name-row { display: flex; gap: 13px; }
+  .field { display: flex; flex-direction: column; gap: 7px; flex: 1; }
+  label {
+    font-family: var(--sans); font-weight: 400; font-size: 12px;
+    letter-spacing: 0.04em; color: var(--dim); padding-left: 2px;
+  }
+  input {
+    font-family: var(--sans); font-weight: 300; font-size: 16px; color: var(--text);
+    background: var(--surface); border: 1px solid var(--hairline); border-radius: 12px;
+    padding: 15px 16px; outline: none; width: 100%;
+    transition: border-color 0.25s ease;
+  }
+  input::placeholder { color: var(--faint); }
+  input:focus { border-color: rgba(30,200,200,0.55); }
+  input:user-invalid { border-color: rgba(232,75,138,0.55); }
+
+  /* honeypot — off-screen; real users never see/fill it, bots auto-fill it → server drops those */
+  .hp { position: absolute !important; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+
+  button.cta {
+    margin-top: 6px; border: 0; cursor: pointer; width: 100%;
+    font-family: var(--sans); font-weight: 500; font-size: 14px;
+    letter-spacing: 0.1em; text-transform: uppercase; color: #fff;
+    background: var(--grad); background-size: 200% 100%;
+    border-radius: 999px; padding: 17px 28px;
+    transition: background-position 0.6s ease, box-shadow 0.4s ease, opacity 0.2s ease;
+  }
+  button.cta:hover { background-position: 100% 0; box-shadow: 0 0 34px rgba(30,200,200,0.28); }
+  button.cta:disabled { opacity: 0.6; cursor: default; }
+
+  .error {
+    display: none; font-family: var(--sans); font-weight: 300; font-size: 14px;
+    color: var(--pink); text-align: center; margin-top: 4px;
+  }
+  .error.show { display: block; }
+
+  .smallprint {
+    font-family: var(--sans); font-weight: 300; font-size: 12.5px; letter-spacing: 0.02em;
+    color: var(--faint); text-align: center; margin-top: 22px; line-height: 1.6;
+  }
+  .smallprint a { color: var(--dim); border-bottom: 1px solid rgba(255,255,255,0.2); }
+  .smallprint a:hover { color: var(--text); }
+
+  /* success screen */
+  .success { display: none; text-align: center; padding: 8px 0; }
+  .success.show { display: block; }
+  .success .check {
+    width: 58px; height: 58px; margin: 0 auto 22px; border-radius: 50%;
+    background: var(--grad); display: flex; align-items: center; justify-content: center;
+  }
+  .success .check svg { width: 26px; height: 26px; }
+  .success h2 {
+    font-family: var(--display); font-weight: 400; font-size: clamp(28px, 7vw, 36px);
+    line-height: 1.1; margin-bottom: 12px;
+  }
+  .success p { color: var(--dim); font-size: 17px; max-width: 32ch; margin: 0 auto; }
+
+  footer {
+    text-align: center; padding: 26px 22px 30px;
+    font-family: var(--sans); font-weight: 300; font-size: 11px; letter-spacing: 0.06em;
+    color: var(--faint);
+  }
+  footer a { color: var(--faint); border-bottom: 1px solid transparent; }
+  footer a:hover { color: var(--dim); }
+
+  @media (max-width: 380px) {
+    .name-row { flex-direction: column; gap: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="wordmark" href="/">Future Vibrant Self</a>
+</div>
+
+<main>
+  <div id="form-view">
+    <div class="eyebrow">Invite-only beta</div>
+    <h1>Tell your story —<br>we make the movie.</h1>
+    <p class="sub">Join the Future Vibrant Self beta — a short documentary film of a chapter of your life, from your own words.</p>
+
+    <form id="beta-form" action="https://tffhhfbuwahtavaghugj.supabase.co/functions/v1/waitlist-join" method="POST" novalidate>
+      <div class="name-row">
+        <div class="field">
+          <label for="first">First name</label>
+          <input id="first" name="first" type="text" autocomplete="given-name" placeholder="First" required>
+        </div>
+        <div class="field">
+          <label for="last">Last name</label>
+          <input id="last" name="last" type="text" autocomplete="family-name" placeholder="Last" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" placeholder="you@email.com" required>
+      </div>
+
+      <!-- honeypot — off-screen; a filled value means a bot; the function silently drops it -->
+      <div class="hp" aria-hidden="true"><label>Leave this field empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+      <input type="hidden" name="source" value="beta-qr">
+
+      <button class="cta" type="submit">Get my invite</button>
+      <p class="error" id="error" role="alert"></p>
+    </form>
+
+    <p class="smallprint">Invite-only beta. Enter your details and we&rsquo;ll email you your invite.<br>
+    See our <a href="https://fvsmovies.com/privacy/">privacy policy</a>.</p>
+  </div>
+
+  <div class="success" id="success-view">
+    <div class="check" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+    </div>
+    <h2>You&rsquo;re on the list.</h2>
+    <p>Watch your email for your invite.</p>
+  </div>
+</main>
+
+<footer>
+  © 2026 Future Vibrant Self · <a href="/">fvsmovies.com</a>
+</footer>
+
+<script>
+  const form = document.getElementById('beta-form');
+  const errEl = document.getElementById('error');
+
+  function showError(msg) {
+    errEl.textContent = msg;
+    errEl.classList.add('show');
+  }
+  function clearError() {
+    errEl.textContent = '';
+    errEl.classList.remove('show');
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    clearError();
+
+    const first = document.getElementById('first').value.trim();
+    const last  = document.getElementById('last').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const honeypot = form.querySelector('input[name="website"]').value;
+
+    if (!first || !last) { showError('Please enter your first and last name.'); return; }
+    if (!email) { showError('Please enter your email.'); return; }
+
+    const btn = form.querySelector('button');
+    btn.disabled = true;
+    const original = btn.textContent;
+    btn.textContent = 'Sending…';
+
+    // Build exactly the fields the function expects; combine first + last into `name`.
+    const fd = new FormData();
+    fd.append('name', (first + ' ' + last).trim());
+    fd.append('email', email);
+    fd.append('source', 'beta-qr');
+    fd.append('website', honeypot); // honeypot passthrough
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: fd,
+        headers: { 'Accept': 'application/json' },
+      });
+
+      if (res.ok) {
+        // 200 — success (duplicate is treated the same)
+        document.getElementById('form-view').style.display = 'none';
+        document.getElementById('success-view').classList.add('show');
+        return;
+      }
+      if (res.status === 400) {
+        showError('Please enter a valid email.');
+      } else if (res.status === 429) {
+        showError('One moment — please try again shortly.');
+      } else {
+        showError('Something went wrong — try again.');
+      }
+    } catch (_) {
+      showError('Something went wrong — try again.');
+    }
+    btn.disabled = false;
+    btn.textContent = original;
+  });
+</script>
+</body>
+</html>
