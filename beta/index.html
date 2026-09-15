@@ -49,8 +49,8 @@
   a { color: var(--teal); text-decoration: none; }
 
   .topbar {
-    display: flex; align-items: center; justify-content: center;
-    padding: 26px 22px 6px;
+    display: flex; flex-direction: column; align-items: center; gap: 7px;
+    padding: 26px 22px 8px;
   }
   .wordmark {
     font-family: "League Spartan", var(--sans); font-weight: 700;
@@ -71,7 +71,7 @@
   .tagline {
     font-family: "League Spartan", var(--sans); font-weight: 500;
     font-size: clamp(12px, 3vw, 17px); letter-spacing: 0.02em;
-    color: var(--text); text-align: center; margin: 0 auto 14px;
+    color: var(--text); text-align: center; margin: 0;
   }
   .beta-logo {
     display: block; width: min(260px, 66%); height: auto;
@@ -168,11 +168,11 @@
 
 <div class="topbar">
   <a class="wordmark" href="/">Future Vibrant Self</a>
+  <div class="tagline">Storytelling Made Simple</div>
 </div>
 
 <main>
   <div id="form-view">
-    <div class="tagline">Storytelling Made Simple</div>
     <img class="beta-logo" src="/assets/v3/fvs-logo-indent.gif" alt="Future Vibrant Self" width="960" height="540">
     <div class="eyebrow">Invite-only beta</div>
     <h1>Tell your story<br>Choose your footage<br>We make the movie</h1>
