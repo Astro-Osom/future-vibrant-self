@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stories — Future Vibrant Self</title>
+<meta name="description" content="Short films, thoughts, and moments from Future Vibrant Self.">
+<meta property="og:title" content="Stories — Future Vibrant Self">
+<meta property="og:description" content="Short films, thoughts, and moments from Future Vibrant Self.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://fvsmovies.com/stories/why-video-poster.jpg">
+<meta property="og:url" content="https://fvsmovies.com/stories/">
+<link rel="icon" type="image/png" href="/assets/v3/fvs-logo-960.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --text: #eff2f7;
+    --dim: #99a2b2;
+    --faint: #59616f;
+    --teal: #1EC8C8;
+    --pink: #E84B8A;
+    --gold: #F0A500;
+    --hairline: rgba(255,255,255,0.08);
+    --sans: "Montserrat", -apple-system, sans-serif;
+    --grad: linear-gradient(90deg, var(--teal), var(--pink), var(--gold));
+    --feed: min(420px, 92vw);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #000; color: var(--text);
+    font-family: var(--sans); -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  header {
+    text-align: center;
+    padding: 30px 20px 8px;
+  }
+  .wordmark {
+    font-family: "League Spartan", var(--sans); font-weight: 700;
+    font-size: clamp(20px, 5vw, 26px); letter-spacing: 0.01em;
+    background: var(--grad); -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent; display: inline-block;
+  }
+  .hero {
+    text-align: center; padding: 22px 20px 30px;
+  }
+  .hero h1 {
+    font-family: "League Spartan", var(--sans); font-weight: 700;
+    font-size: clamp(30px, 8vw, 44px); letter-spacing: 0.01em; line-height: 1.05;
+  }
+  .hero p {
+    color: var(--dim); font-weight: 300; font-size: clamp(14px, 3.6vw, 16px);
+    margin-top: 12px;
+  }
+
+  .feed {
+    width: var(--feed); margin: 0 auto;
+    display: flex; flex-direction: column; gap: 44px;
+    padding-bottom: 70px;
+  }
+  .clip .meta { margin-bottom: 12px; }
+  .clip h2 {
+    font-family: "League Spartan", var(--sans); font-weight: 600;
+    font-size: clamp(18px, 4.6vw, 22px); letter-spacing: 0.01em; line-height: 1.15;
+  }
+  .clip .date {
+    font-family: var(--sans); font-weight: 300; font-size: 11px;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint);
+    margin-top: 5px;
+  }
+  .clip video {
+    display: block; width: 100%; height: auto; background: #000;
+    border-radius: 14px;
+    box-shadow: 0 24px 70px rgba(0,0,0,0.55), 0 0 0 1px var(--hairline);
+  }
+
+  footer {
+    text-align: center; padding: 6px 20px 40px;
+    font-family: var(--sans); font-weight: 300; font-size: 12px; letter-spacing: 0.05em;
+    color: var(--faint);
+  }
+  footer a { border-bottom: 1px solid transparent; }
+  footer a:hover { color: var(--dim); }
+</style>
+</head>
+<body>
+
+  <header>
+    <a class="wordmark" href="/">Future Vibrant Self</a>
+  </header>
+
+  <div class="hero">
+    <h1>Stories</h1>
+    <p>Short films, thoughts, and moments — the FVS way of seeing.</p>
+  </div>
+
+  <main class="feed">
+
+    <article class="clip">
+      <div class="meta">
+        <h2>Why Is Video Important?</h2>
+        <div class="date">Sep 21, 2026</div>
+      </div>
+      <video controls playsinline preload="metadata" poster="why-video-poster.jpg" controlslist="nodownload">
+        <source src="why-video.mp4" type="video/mp4">
+      </video>
+    </article>
+
+    <article class="clip">
+      <div class="meta">
+        <h2>Bravest Thing You Can Ever Do</h2>
+        <div class="date">Sep 18, 2026</div>
+      </div>
+      <video controls playsinline preload="metadata" poster="bravest-thing-poster.jpg" controlslist="nodownload">
+        <source src="bravest-thing.mp4" type="video/mp4">
+      </video>
+    </article>
+
+  </main>
+
+  <footer>
+    <a href="/">← Back to Future Vibrant Self</a>
+  </footer>
+
+</body>
+</html>
