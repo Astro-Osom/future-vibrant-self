@@ -52,8 +52,15 @@
     font-size: clamp(11px, 2.6vw, 14px); letter-spacing: 0.04em;
     color: var(--text); margin-top: 6px;
   }
+  .film { width: min(1000px, 96vw); }
+  .film + .film { margin-top: 48px; }
+  .label {
+    font-family: "League Spartan", var(--sans); font-weight: 600;
+    font-size: clamp(18px, 4.2vw, 24px); letter-spacing: 0.01em;
+    color: var(--text); margin: 0 0 12px 4px;
+  }
   .stage {
-    width: min(1000px, 96vw);
+    width: 100%;
     border-radius: 14px; overflow: hidden;
     background: #000; box-shadow: 0 30px 90px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05);
   }
@@ -74,12 +81,31 @@
     <div class="tagline">Storytelling Made Simple</div>
   </div>
 
-  <div class="stage">
-    <video controls playsinline preload="metadata" poster="poster.jpg" controlslist="nodownload">
-      <source src="fvs-0056.mp4" type="video/mp4">
-      Your browser doesn&rsquo;t support embedded video. <a href="fvs-0056.mp4" style="color:var(--teal)">Open the film directly</a>.
-    </video>
-  </div>
+  <section class="film">
+    <h2 class="label">Frank&rsquo;s story</h2>
+    <div class="stage">
+      <video controls playsinline preload="metadata" poster="poster.jpg" controlslist="nodownload">
+        <source src="fvs-0056.mp4" type="video/mp4">
+        Your browser doesn&rsquo;t support embedded video. <a href="fvs-0056.mp4" style="color:var(--teal)">Open the film directly</a>.
+      </video>
+    </div>
+  </section>
+
+  <section class="film">
+    <h2 class="label">Jimmy&rsquo;s story</h2>
+    <div class="stage">
+      <video controls playsinline preload="metadata" poster="jimmy-poster.jpg" controlslist="nodownload">
+        <source src="jimmy.mp4" type="video/mp4">
+        Your browser doesn&rsquo;t support embedded video. <a href="jimmy.mp4" style="color:var(--teal)">Open the film directly</a>.
+      </video>
+    </div>
+  </section>
+
+<script>
+  // only one film plays at a time
+  const vids = document.querySelectorAll('video');
+  vids.forEach(v => v.addEventListener('play', () => vids.forEach(o => { if (o !== v) o.pause(); })));
+</script>
 
 </body>
 </html>
