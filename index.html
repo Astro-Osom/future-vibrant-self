@@ -767,7 +767,11 @@
       document.getElementById('form-success').style.display = 'block';
     } catch (_) {
       btn.textContent = 'Try the Beta';
-      form.submit(); // graceful fallback to a full-page Formspree submit
+      // never fall back to a raw submit (it shows the function's JSON reply as a page)
+      let note = document.getElementById('form-error');
+      if (!note) { note = document.createElement('p'); note.id = 'form-error'; note.className = 'form-note';
+        note.style.color = '#E84B8A'; form.insertAdjacentElement('afterend', note); }
+      note.textContent = 'Something went wrong — please try again in a moment.';
     }
   });
 </script>
