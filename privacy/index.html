@@ -76,7 +76,7 @@
 <main class="wrap">
   <div class="eyebrow">Privacy Policy</div>
   <h1>Your data, your story.</h1>
-  <div class="updated">Last updated August 20, 2026</div>
+  <div class="updated">Last updated October 19, 2026</div>
 
   <p class="lede">Future Vibrant Self ("FVS", "we", "us", "our") provides an app that turns your recorded answers into a personal story and a short film. This policy explains what we collect, why, who processes it on our behalf, how long we keep it, and the choices and rights you have.</p>
 
@@ -91,7 +91,7 @@
         <tr><td><strong>Transcripts</strong> of your answers</td><td>derived from your audio</td><td>to write your story</td></tr>
         <tr><td><strong>Email address</strong></td><td>when you create or link an account (Apple, Google, or email)</td><td>to identify your account so your library survives reinstalling the app</td></tr>
         <tr><td><strong>Account / user identifier</strong></td><td>created automatically at first launch</td><td>to associate your content with you</td></tr>
-        <tr><td><strong>Photos and videos from your library</strong> (optional)</td><td>only what you choose to add</td><td>woven into your film as supporting visuals</td></tr>
+        <tr><td><strong>Photos and videos from your library</strong> (optional)</td><td>only what you choose to add</td><td>Woven into your film as supporting content. To place each one, after you add it our servers sample still frames from the photo or video (up to about three per second) and send those frames to our AI provider, Anthropic (Claude), which returns a short text description of what each frame shows. The frames are deleted right after processing; only the short description is kept with your story (see Sections 3 and 5).</td></tr>
         <tr><td><strong>Crash and performance diagnostics</strong></td><td>automatically (Sentry)</td><td>to detect and fix problems — <strong>not linked to your identity</strong></td></tr>
         <tr><td><strong>App install identifier and device platform</strong></td><td>automatically (Expo / EAS)</td><td>to deliver over-the-air app updates</td></tr>
       </tbody>
@@ -117,7 +117,7 @@
       <thead><tr><th>Sub-processor</th><th>What it processes</th><th>Purpose</th></tr></thead>
       <tbody>
         <tr><td><strong>Supabase</strong></td><td>account, recordings, transcripts</td><td>authentication, database, storage</td></tr>
-        <tr><td><strong>Anthropic</strong></td><td>answer transcripts (text)</td><td>story generation (AI)</td></tr>
+        <tr><td><strong>Anthropic</strong></td><td>answer transcripts (text); still frames sampled from the photos and videos you add</td><td>story generation, and describing your added photos and videos so they can be placed in your film (AI)</td></tr>
         <tr><td><strong>OpenAI</strong></td><td>audio and/or text</td><td>transcription / AI processing</td></tr>
         <tr><td><strong>Groq</strong></td><td>audio and/or text</td><td>transcription / AI processing</td></tr>
         <tr><td><strong>Fly.io</strong>, <strong>Railway</strong></td><td>media and transcripts</td><td>film assembly / story processing (our compute)</td></tr>
@@ -131,11 +131,15 @@
   </div>
   <p><strong>AI providers do not train on your data.</strong> Anthropic does not use data submitted through its API to train its models and retains it only briefly (about 7 days) before deletion; OpenAI does not train on API data by default; Groq does not train on, and does not retain by default, data submitted through its API.</p>
 
+  <p>The still frames our servers sample from the photos and videos you add are sent to Anthropic only to generate those short descriptions; they are not stored after processing, and the descriptions are deleted when you delete the film or your account.</p>
+
+  <p><strong>FVS does not use facial recognition</strong> and does not create, collect, or store faceprints, face geometry, or any other biometric identifiers. Any people in your photos or videos are labeled only by you, manually.</p>
+
   <h2><span class="n">04</span>International transfers</h2>
   <p>We and our sub-processors may process your data in the United States and in other countries where they operate. Where data is transferred across borders, we rely on appropriate safeguards (such as recognized standard contractual clauses) to protect it.</p>
 
   <h2><span class="n">05</span>Data retention</h2>
-  <p>We keep your content while your account is active. When you delete a film, or delete your account, we delete the associated content; copies remaining in backups are purged within <strong>30 days</strong>. Crash and diagnostic logs are kept only briefly.</p>
+  <p>We keep your content while your account is active. When you delete a film, or delete your account, we delete the associated content; copies remaining in backups are purged within <strong>30 days</strong>. The still frames we sample to describe your added photos and videos are not retained after processing. Crash and diagnostic logs are kept only briefly.</p>
 
   <h2><span class="n">06</span>Your rights — including account deletion</h2>
   <ul>
