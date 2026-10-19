@@ -92,6 +92,7 @@
         <tr><td><strong>Email address</strong></td><td>when you create or link an account (Apple, Google, or email)</td><td>to identify your account so your library survives reinstalling the app</td></tr>
         <tr><td><strong>Account / user identifier</strong></td><td>created automatically at first launch</td><td>to associate your content with you</td></tr>
         <tr><td><strong>Photos and videos from your library</strong> (optional)</td><td>only what you choose to add</td><td>Woven into your film as supporting content. To place each one, after you add it our servers sample still frames from the photo or video (up to about three per second) and send those frames to our AI provider, Anthropic (Claude), which returns a short text description of what each frame shows. The frames are deleted right after processing; only the short description is kept with your story (see Sections 3 and 5).</td></tr>
+        <tr><td><strong>A backup copy of each recording in your Photos</strong> (default on, optional)</td><td>saved to your device's own Photos library — <strong>never uploaded to us</strong></td><td>so you keep your own copy of every answer, in an album called "Future Vibrant Self"</td></tr>
         <tr><td><strong>Crash and performance diagnostics</strong></td><td>automatically (Sentry)</td><td>to detect and fix problems — <strong>not linked to your identity</strong></td></tr>
         <tr><td><strong>App install identifier and device platform</strong></td><td>automatically (Expo / EAS)</td><td>to deliver over-the-air app updates</td></tr>
       </tbody>
@@ -129,7 +130,7 @@
       </tbody>
     </table>
   </div>
-  <p><strong>AI providers do not train on your data.</strong> Anthropic does not use data submitted through its API to train its models and retains it only briefly (about 7 days) before deletion; OpenAI does not train on API data by default; Groq does not train on, and does not retain by default, data submitted through its API.</p>
+  <p><strong>AI providers do not train on your data.</strong> Anthropic does not use data submitted through its API to train its models and retains it only for a limited period under its commercial terms before deletion (currently deleted within about 30 days); OpenAI does not train on API data by default; Groq does not train on, and does not retain by default, data submitted through its API.</p>
 
   <p>The still frames our servers sample from the photos and videos you add are sent to Anthropic only to generate those short descriptions; they are not stored after processing, and the descriptions are deleted when you delete the film or your account.</p>
 
