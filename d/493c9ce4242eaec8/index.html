@@ -65,7 +65,10 @@
     if (d > 0 && d < 5000 && counting(now)) { st.ms[st.cur - 1] += d; dirty = true; }  // gaps over 5 s (sleep) are not counted
   }
 
-  function send(ev) {
+  function send(ev, url) {
+    // url: the link clicked (link events only). Sent only if the receiver will accept it, so a bad address
+    // never costs the visit's totals; JSON.stringify leaves it out when undefined.
+    url = (ev === 'link' && typeof url === 'string' && url.length <= 300 && /^(https?:\/\/|mailto:)[!-~]+$/.test(url)) ? url : undefined;
     accrue();
     st.q += 1; save(); dirty = false;
     if (!CFG.track || CFG.track.indexOf('__') === 0) return;
@@ -77,7 +80,7 @@
       v: 1, sid: st.sid, r: st.token, deck: CFG.deck, q: st.q, ev: ev, cur: st.cur, max: st.max,
       ms: st.ms.map(function (x) { return Math.round(x); }),
       ua: (navigator.userAgent || '').slice(0, 300), vw: innerWidth, vh: innerHeight, tz: tz,
-      lang: (navigator.language || '').slice(0, 20), ref: ref.slice(0, 100)
+      lang: (navigator.language || '').slice(0, 20), ref: ref.slice(0, 100), url: url
     });
     try { if (navigator.sendBeacon && navigator.sendBeacon(CFG.track, new Blob([body], { type: 'text/plain' }))) return; } catch (e) {}
     try { fetch(CFG.track, { method: 'POST', body: body, keepalive: true, mode: 'no-cors', headers: { 'Content-Type': 'text/plain' } }); } catch (e) {}
@@ -97,7 +100,7 @@
       a.className = 'hot'; a.href = l.url; a.target = '_blank'; a.rel = 'noopener';
       a.setAttribute('aria-label', l.label || l.url);
       a.style.left = l.x + '%'; a.style.top = l.y + '%'; a.style.width = l.w + '%'; a.style.height = l.h + '%';
-      a.addEventListener('click', function (e) { e.stopPropagation(); send('link'); });
+      a.addEventListener('click', function (e) { e.stopPropagation(); send('link', l.url); });
       frame.appendChild(a);
     });
     [st.cur - 1, st.cur + 1].forEach(function (k) { if (k >= 1 && k <= CFG.n) { var p = new Image(); p.src = src(k); } });
