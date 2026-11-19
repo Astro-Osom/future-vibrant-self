@@ -84,7 +84,7 @@
   <section class="film">
     <h2 class="label">Frank&rsquo;s story</h2>
     <div class="stage">
-      <video controls playsinline preload="metadata" poster="poster.jpg" controlslist="nodownload">
+      <video data-film="frank" controls playsinline preload="metadata" poster="poster.jpg" controlslist="nodownload">
         <source src="fvs-0056.mp4" type="video/mp4">
         Your browser doesn&rsquo;t support embedded video. <a href="fvs-0056.mp4" style="color:var(--teal)">Open the film directly</a>.
       </video>
@@ -94,7 +94,7 @@
   <section class="film">
     <h2 class="label">Jimmy&rsquo;s story</h2>
     <div class="stage">
-      <video controls playsinline preload="metadata" poster="jimmy-poster.jpg" controlslist="nodownload">
+      <video data-film="jimmy" controls playsinline preload="metadata" poster="jimmy-poster.jpg" controlslist="nodownload">
         <source src="jimmy.mp4" type="video/mp4">
         Your browser doesn&rsquo;t support embedded video. <a href="jimmy.mp4" style="color:var(--teal)">Open the film directly</a>.
       </video>
@@ -105,6 +105,60 @@
   // only one film plays at a time
   const vids = document.querySelectorAll('video');
   vids.forEach(v => v.addEventListener('play', () => vids.forEach(o => { if (o !== v) o.pause(); })));
+</script>
+
+<script>
+  // View counter (Frank, Nov 18): per visit and per film -- plays, time watched, furthest point, finished; plus
+  // time zone, language, screen size, browser and the referring page. No name, no IP, no cookies (one random id per tab).
+  // A link code (?r=) says which shared link the visit came from; names stay off the site and the database.
+  (function () {
+    var TRACK = 'https://tffhhfbuwahtavaghugj.supabase.co/functions/v1/film-track';
+    var MAX_MS = 6 * 60 * 60 * 1000;
+    var r = '';
+    try { r = (new URLSearchParams(location.search).get('r') || '').toLowerCase(); } catch (e) {}
+    if (!/^[a-z0-9]{6,16}$/.test(r)) r = '';
+    var sid = '', abc = 'abcdefghijklmnopqrstuvwxyz0123456789', buf = new Uint8Array(20);
+    try { crypto.getRandomValues(buf); } catch (e) { for (var i = 0; i < 20; i++) buf[i] = Math.floor(Math.random() * 256); }
+    for (var j = 0; j < 20; j++) sid += abc[buf[j] % 36];
+    var q = 0, tz = '';
+    try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
+    var films = { page: { plays: 0, ms: 0, since: 0, pos: 0, dur: 0, ended: 0, fromEnd: false, el: null } };
+
+    function watched(f) { return Math.min(MAX_MS, Math.round(f.ms + (f.since ? Date.now() - f.since : 0))); }
+    function send(name, ev) {
+      var f = films[name];
+      if (f.el) { f.pos = Math.max(f.pos, Math.floor(f.el.currentTime || 0)); if (isFinite(f.el.duration)) f.dur = Math.floor(f.el.duration); }
+      q += 1;
+      var body = JSON.stringify({ v: 1, sid: sid, r: r, film: name, q: q, ev: ev, plays: f.plays, ms: watched(f),
+        pos: Math.min(36000, f.pos), dur: Math.min(36000, f.dur), ended: f.ended, ua: navigator.userAgent,
+        vw: window.innerWidth, vh: window.innerHeight, tz: tz, lang: navigator.language || '', ref: document.referrer || '' });
+      try { if (navigator.sendBeacon && navigator.sendBeacon(TRACK, new Blob([body], { type: 'text/plain' }))) return; } catch (e) {}
+      try { fetch(TRACK, { method: 'POST', body: body, keepalive: true, mode: 'no-cors', headers: { 'Content-Type': 'text/plain' } }); } catch (e) {}
+    }
+    function stop(f) { if (f.since) { f.ms += Date.now() - f.since; f.since = 0; } }
+
+    document.querySelectorAll('video[data-film]').forEach(function (v) {
+      var name = v.getAttribute('data-film');
+      var f = films[name] = { plays: 0, ms: 0, since: 0, pos: 0, dur: 0, ended: 0, fromEnd: false, el: v };
+      v.addEventListener('play', function () {
+        if (f.plays === 0 || f.fromEnd || (v.currentTime || 0) < 1) f.plays += 1;   // a resume is not a new play
+        f.fromEnd = false;
+        if (!f.since) f.since = Date.now();
+        send(name, 'play');
+      });
+      v.addEventListener('pause', function () { stop(f); if (!v.ended) send(name, 'pause'); });
+      v.addEventListener('ended', function () { stop(f); f.ended += 1; f.fromEnd = true; send(name, 'ended'); });
+      v.addEventListener('timeupdate', function () { f.pos = Math.max(f.pos, Math.floor(v.currentTime || 0)); });
+    });
+
+    send('page', 'open');
+    setInterval(function () {   // every 15 s while a film is playing
+      for (var n in films) if (films[n].since) send(n, 'progress');
+    }, 15000);
+    function flush(ev) { for (var n in films) if (n === 'page' || films[n].plays > 0) send(n, ev); }
+    document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'hidden') flush('hide'); });
+    window.addEventListener('pagehide', function () { for (var n in films) stop(films[n]); flush('close'); });
+  })();
 </script>
 
 </body>
